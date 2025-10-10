@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "name": "Cmd",
+    "maps": [
+        {
+            "name": "Normal",
+            "id": "4fad3d91-c211-49e8-bfc0-c92fa9873421",
+            "actions": [
+                {
+                    "name": "Enter",
+                    "type": "Button",
+                    "id": "ae633c8f-e9ab-4071-b246-5f8a2842b371",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f1b7b375-325c-4fe2-85f2-5bba280ff4cc",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Enter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

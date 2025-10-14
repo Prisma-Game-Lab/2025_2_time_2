@@ -59,7 +59,13 @@ public class CommandsController : MonoBehaviour
             lastCommandEffectScript.SetParameter(parameters[currentParameterIndex]);
         }
 
-        lastCommandEffectScript.Activate();
+        if (data.commandScriptable.hasCustomStrength)
+        {
+            lastCommandEffectScript.SetStrength(data.commandScriptable.customStrength);
+        }
+
+        if (lastCommandEffectScript != null)
+            lastCommandEffectScript.Activate();
 
         return true;
     }
@@ -85,6 +91,8 @@ public class CommandsController : MonoBehaviour
         {
             case CommandEffectType.Size:
                 return target.AddComponent<SizeEffect>();
+            case CommandEffectType.Clear:
+                return null;
         }
 
         return null;
@@ -95,6 +103,7 @@ public class CommandsController : MonoBehaviour
 struct CommandData 
 {
     public Command commandScriptable;
+    public float commandModifier;
     public Target[] sceneTargets;
 }
 

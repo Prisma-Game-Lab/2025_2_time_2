@@ -4,17 +4,31 @@ using UnityEngine;
 
 public class SizeEffect : CommandEffect
 {
-    private Vector3 startScale;
+    private float scaleModifier;
 
     public void Start()
     {
-        startScale = transform.localScale;
-        if (parameter.ToLower() == "big")
-            transform.localScale *= 2;
+        if (strength.Length < 3)
+            Debug.LogError("Not Enought parameters for Strengh in size");
+
+        switch (parameter.ToLower()) 
+        {
+            case "small":
+                scaleModifier = strength[0];
+                break;
+            case "medium":
+                scaleModifier = strength[1];
+                break;
+            case "big":
+                scaleModifier = strength[2];
+                break;
+        }
+
+        transform.localScale *= scaleModifier;
     }
 
     private void OnDestroy()
     {
-        transform.localScale = startScale;
+        transform.localScale /= scaleModifier;
     }
 }

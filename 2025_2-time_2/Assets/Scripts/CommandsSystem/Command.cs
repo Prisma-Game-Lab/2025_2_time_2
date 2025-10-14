@@ -9,9 +9,11 @@ public class Command : ScriptableObject
     public CommandEffectType effect;
     public bool hasTarget;
     public bool hasParameter;
+    public bool hasCustomStrength;
+    public float[] customStrength;
 }
 
 public enum CommandEffectType 
 {
-    Size
+    Size, Clear
 }

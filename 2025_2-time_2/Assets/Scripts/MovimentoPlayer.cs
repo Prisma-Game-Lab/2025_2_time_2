@@ -33,10 +33,12 @@ public class MovimentoPlayer : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
-        Jump();
     }
 
-
+    private void Update()
+    {
+        Jump();
+    }
 
 
 

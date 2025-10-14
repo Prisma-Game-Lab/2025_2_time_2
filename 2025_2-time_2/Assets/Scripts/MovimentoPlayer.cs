@@ -11,7 +11,7 @@ public class MovimentoPlayer : MonoBehaviour
     private float MoveInput;
 
     public float JumpForce = 5.0f;
-
+    private bool isJumping = false;
    
     void Start()
     {
@@ -24,22 +24,31 @@ public class MovimentoPlayer : MonoBehaviour
 
         rb.velocity = new Vector2(MoveInput * MoveSpeed, rb.velocity.y);
     }
-    void Jump()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-            rb.velocity = new Vector2(0, JumpForce);
-
-    }
+    
     private void FixedUpdate()
     {
+
         Move();
     }
 
     private void Update()
     {
-        Jump();
+        if (isJumping == false)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W))
+            {
+                isJumping = true;
+                rb.velocity = new Vector2(0, JumpForce);
+            }
+        }
+
     }
 
-
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "chao")
+        {
+            isJumping = false;
+        }
+    }
 }

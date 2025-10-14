@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6447fb6a3a72a745901f404cb855c37, type: 3}
   m_Name: Clear
   m_EditorClassIdentifier: 
-  commandName: 
-  effect: 0
+  commandName: Clear
+  effect: 1
   hasTarget: 0
   hasParameter: 0
   hasCustomStrength: 0

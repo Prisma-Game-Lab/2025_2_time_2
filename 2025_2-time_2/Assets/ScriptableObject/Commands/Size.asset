@@ -16,3 +16,8 @@ MonoBehaviour:
   effect: 0
   hasTarget: 1
   hasParameter: 1
+  hasCustomStrength: 1
+  customStrength:
+  - 0.5
+  - 1
+  - 2

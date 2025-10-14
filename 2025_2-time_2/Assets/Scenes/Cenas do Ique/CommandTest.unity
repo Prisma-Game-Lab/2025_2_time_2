@@ -925,6 +925,9 @@ MonoBehaviour:
       targetGameObject: {fileID: 1513731937}
     - displayName: Circle
       targetGameObject: {fileID: 2021013374}
+  - commandScriptable: {fileID: 11400000, guid: e1ccec283bee91d41b20ed7820ff564d, type: 2}
+    commandModifier: 0
+    sceneTargets: []
 --- !u!4 &1505140403
 Transform:
   m_ObjectHideFlags: 0

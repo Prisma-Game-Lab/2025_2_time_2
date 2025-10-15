@@ -64,6 +64,8 @@ public class CommandsController : MonoBehaviour
             lastCommandEffectScript.SetStrength(data.commandScriptable.customStrength);
         }
 
+        lastCommandEffectScript.SetModifier(data.commandModifier);
+
         if (lastCommandEffectScript != null)
             lastCommandEffectScript.Activate();
 

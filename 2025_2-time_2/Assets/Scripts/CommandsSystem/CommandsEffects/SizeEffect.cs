@@ -24,11 +24,11 @@ public class SizeEffect : CommandEffect
                 break;
         }
 
-        transform.localScale *= scaleModifier;
+        transform.localScale *= scaleModifier * modifier;
     }
 
     private void OnDestroy()
     {
-        transform.localScale /= scaleModifier;
+        transform.localScale /= scaleModifier * modifier;
     }
 }

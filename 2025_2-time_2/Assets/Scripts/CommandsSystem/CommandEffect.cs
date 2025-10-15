@@ -6,6 +6,7 @@ public class CommandEffect : MonoBehaviour
 {
     protected string parameter;
     protected float[] strength;
+    protected float modifier;
 
     public virtual void Activate() { }
 
@@ -17,5 +18,10 @@ public class CommandEffect : MonoBehaviour
     public void SetStrength(float[] strength)
     {
         this.strength = strength;
+    }
+
+    public void SetModifier(float modifier) 
+    {
+        this.modifier = modifier;
     }
 }

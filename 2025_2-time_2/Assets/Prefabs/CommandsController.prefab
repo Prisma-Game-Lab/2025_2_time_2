@@ -597,6 +597,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: ae633c8f-e9ab-4071-b246-5f8a2842b371
     m_ActionName: Normal/Enter[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2451977283610343392}
+        m_TargetAssemblyTypeName: CMDController, Assembly-CSharp
+        m_MethodName: OnPauseButton
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: fab77448-5e06-4106-ab4f-2d500060a38b
+    m_ActionName: Normal/PauseButton[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Normal
@@ -630,6 +646,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  pauseMenu: {fileID: 0}
 --- !u!1 &5179788013132683230
 GameObject:
   m_ObjectHideFlags: 0

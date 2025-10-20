@@ -43,6 +43,11 @@ public class MovimentoPlayer : MonoBehaviour
             }
         }
 
+        if (rb.velocity.y < 0)
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * 1f * Time.deltaTime;
+        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

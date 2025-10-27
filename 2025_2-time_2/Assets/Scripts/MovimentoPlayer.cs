@@ -1,60 +1,66 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MovimentoPlayer : MonoBehaviour
 {
-    public float MoveSpeed = 5.0f;
+    [Header("Movimento")]
+    public float moveSpeed = 5f;
+    private Vector2 moveInput;
+
+    [Header("Pulo")]
+    public float jumpForce = 5f;
+    private bool jumpPressed;
+    private bool isGrounded;
+
+    [Header("Detecção de chão")]
+    public Transform groundCheck;
+    public float groundCheckRadius = 0.2f;
+    public LayerMask groundLayer;
 
     private Rigidbody2D rb;
+    private GameplayControls controls;
 
-    private float MoveInput;
-
-    public float JumpForce = 5.0f;
-    private bool isJumping = false;
-   
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        controls = new GameplayControls();
+
+        controls.Move.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
+        controls.Move.Move.canceled += ctx => moveInput = Vector2.zero;
+
+        controls.Jump.Newaction.performed += ctx => jumpPressed = true;
     }
 
-    void Move()
+    void OnEnable()
     {
-        MoveInput = Input.GetAxis("Horizontal");
-
-        rb.velocity = new Vector2(MoveInput * MoveSpeed, rb.velocity.y);
-    }
-    
-    private void FixedUpdate()
-    {
-
-        Move();
+        controls.Move.Enable();
+        controls.Jump.Enable();
     }
 
-    private void Update()
+    void OnDisable()
     {
-        if (isJumping == false)
+        controls.Move.Disable();
+        controls.Jump.Disable();
+    }
+
+    void FixedUpdate()
+    {
+        rb.velocity = new Vector2(moveInput.x * moveSpeed, rb.velocity.y);
+    }
+
+    void Update()
+    {
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+
+        if (jumpPressed && isGrounded)
         {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W))
-            {
-                isJumping = true;
-                rb.velocity = new Vector2(0, JumpForce);
-            }
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
-
         if (rb.velocity.y < 0)
         {
             rb.velocity += Vector2.up * Physics2D.gravity.y * 1f * Time.deltaTime;
         }
 
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "chao")
-        {
-            isJumping = false;
-        }
+        jumpPressed = false; 
     }
 }

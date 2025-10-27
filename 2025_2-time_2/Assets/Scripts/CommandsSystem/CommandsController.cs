@@ -5,7 +5,37 @@ using UnityEngine;
 public class CommandsController : MonoBehaviour
 {
     [SerializeField] private CommandData[] availableCommands;
+    [SerializeField] private Dictionary<string, CommandData> levelCommands;
     private CommandEffect lastCommandEffectScript;
+
+    private void Start()
+    {
+        InitializeDictionary();
+    }
+
+    private void InitializeDictionary() 
+    {
+        levelCommands = new Dictionary<string, CommandData>();
+
+        foreach (var command in availableCommands)
+        {
+            string commandName = command.commandScriptable.commandName;
+
+            levelCommands.Add(commandName.ToLower(), command);
+        }
+    }
+
+    public CommandData CheckCommand(string commandName) 
+    {
+        CommandData currentComand;
+
+        if (!levelCommands.TryGetValue(commandName, out currentComand)) 
+        {
+            return null;
+        }
+
+        return currentComand;
+    }
 
     public void OnCommandLine(string commandLine) 
     {
@@ -44,7 +74,7 @@ public class CommandsController : MonoBehaviour
                 return false;
         }
 
-        if (data.commandScriptable.hasParameter)
+        if (data.commandScriptable.HasModifiers())
         {
             if (parameters.Length <= currentParameterIndex)
                 return false;
@@ -54,15 +84,15 @@ public class CommandsController : MonoBehaviour
             Destroy(lastCommandEffectScript);
         lastCommandEffectScript = InstanciateCommandScript(data.commandScriptable.effect, target);
 
-        if (data.commandScriptable.hasParameter) 
+        if (data.commandScriptable.HasModifiers()) 
         {
             lastCommandEffectScript.SetParameter(parameters[currentParameterIndex]);
         }
 
-        if (data.commandScriptable.hasCustomStrength)
-        {
-            lastCommandEffectScript.SetStrength(data.commandScriptable.customStrength);
-        }
+        //if (data.commandScriptable.hasCustomStrength)
+        //{
+        //    lastCommandEffectScript.SetStrength(data.commandScriptable.customStrength);
+        //}
 
         lastCommandEffectScript.SetModifier(data.commandModifier);
 
@@ -102,7 +132,7 @@ public class CommandsController : MonoBehaviour
 }
 
 [System.Serializable]
-struct CommandData 
+public class CommandData 
 {
     public Command commandScriptable;
     public float commandModifier;
@@ -110,7 +140,7 @@ struct CommandData
 }
 
 [System.Serializable]
-struct Target 
+public struct Target 
 {
     public string displayName;
     public GameObject targetGameObject;

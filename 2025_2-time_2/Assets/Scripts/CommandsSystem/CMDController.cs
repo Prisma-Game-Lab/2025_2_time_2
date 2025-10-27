@@ -7,7 +7,18 @@ using UnityEngine.InputSystem;
 
 public class CMDController : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] private CommandsController cmdController;
     [SerializeField] private TMP_InputField cmdInputField;
+    [SerializeField] private GameObject targetHolder;
+    [SerializeField] private TMP_Dropdown targetDropdown;
+    [SerializeField] private GameObject modifierHolder;
+    [SerializeField] private TMP_Dropdown modifierDropdown;
+
+    [Header("Variables")]
+    [SerializeField] private Color validCommandColor;
+
+    [Header("Events")]
     [SerializeField] private UnityEvent<string> OnCommandLine;
 
     [Header("Reference to Pause Menu")]
@@ -15,11 +26,86 @@ public class CMDController : MonoBehaviour
     [SerializeField] private PauseMenu pauseMenu;
 
     private bool selected;
+    private Color originalColor;
+
+    private void Start()
+    {
+        originalColor = cmdInputField.textComponent.color;
+    }
+
+    public void SetCMDCReference(CommandsController cmd) 
+    {
+        cmdController = cmd;
+    }
+
+    private void CheckCommand(string commandName) 
+    {
+        CommandData commandData = cmdController.CheckCommand(commandName);
+
+        if (commandData == null) 
+        {
+            cmdInputField.textComponent.color = originalColor;
+            targetHolder.SetActive(false);
+            modifierHolder.SetActive(false);
+            return;
+        }
+
+        Command command = commandData.commandScriptable;
+
+        cmdInputField.textComponent.color = validCommandColor;
+        SetTargetDropdown(commandData);
+        SetModifierDropdown(commandData);
+    }
+
+    private void SetTargetDropdown(CommandData commandData) 
+    {
+        Command command = commandData.commandScriptable;
+
+        targetDropdown.ClearOptions();
+        if (!command.hasTarget) 
+        {
+            targetHolder.SetActive(false);
+        }
+        else 
+        {
+            targetHolder.SetActive(true);
+
+            List<string> targetNames = new List<string>();
+            foreach (Target targetObject in commandData.sceneTargets) 
+            {
+                targetNames.Add(targetObject.displayName);
+            }
+            targetDropdown.AddOptions(targetNames);
+        }
+    }
+
+    private void SetModifierDropdown(CommandData commandData)
+    {
+        Command command = commandData.commandScriptable;
+
+        modifierDropdown.ClearOptions();
+        if (!command.HasModifiers())
+        {
+            modifierHolder.SetActive(false);
+        }
+        else
+        {
+            modifierHolder.SetActive(true);
+
+            List<string> modifiersKeyword = new List<string>();
+            foreach (Modifier modifier in command.modifiers)
+            {
+                modifiersKeyword.Add(modifier.displayName);
+            }
+            modifierDropdown.AddOptions(modifiersKeyword);
+        }
+    }
 
     public void OnCommandLineEnter() 
     {
         if (!selected) return;
 
+        cmdController.OnCommandLine(cmdInputField.text);
         OnCommandLine.Invoke(cmdInputField.text);
         cmdInputField.text = string.Empty;
     }
@@ -49,5 +135,6 @@ public class CMDController : MonoBehaviour
     public void OnDeselected()
     {
         selected = false;
+        CheckCommand(cmdInputField.text.ToLower());
     }
 }

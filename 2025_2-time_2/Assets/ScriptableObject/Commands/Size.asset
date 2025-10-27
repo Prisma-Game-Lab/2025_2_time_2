@@ -15,9 +15,10 @@ MonoBehaviour:
   commandName: Size
   effect: 0
   hasTarget: 1
-  hasParameter: 1
-  hasCustomStrength: 1
-  customStrength:
-  - 0.5
-  - 1
-  - 2
+  modifiers:
+  - displayName: Small
+    modifierValue: 0.5
+  - displayName: Medium
+    modifierValue: 1
+  - displayName: Big
+    modifierValue: 2

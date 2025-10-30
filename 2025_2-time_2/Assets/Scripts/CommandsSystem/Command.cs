@@ -14,6 +14,20 @@ public class Command : ScriptableObject
     {
         return modifiers.Length > 0;
     }
+
+    public bool GetModifierValue(string modifierDisplay, out float modifierValue) 
+    {
+        foreach (Modifier modifier in modifiers)
+        {
+            if (modifier.displayName == modifierDisplay) 
+            {
+                modifierValue = modifier.modifierValue;
+                return true;
+            }
+        }
+        modifierValue = -1;
+        return false;
+    }
 }
 
 public enum CommandEffectType 

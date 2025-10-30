@@ -991,7 +991,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 716.047, y: 75}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &5124682494102289717
 MonoBehaviour:
@@ -1031,7 +1031,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a1af949aeb5cdb4da9a082f5b1d847f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cmdController: {fileID: 0}
   cmdInputField: {fileID: 6322752143247502636}
   targetHolder: {fileID: 5062903879107685535}
   targetDropdown: {fileID: 1649764817134069596}
@@ -1600,7 +1599,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 2
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0

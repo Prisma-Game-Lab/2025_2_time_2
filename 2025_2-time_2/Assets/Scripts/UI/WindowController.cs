@@ -73,11 +73,12 @@ public class WindowController : MonoBehaviour
     private void ClampPosition() 
     {
         Vector2 clampedPos = transform.position;
+        Vector2 relativePos = transform.position - topBar.position;
 
-        if (transform.position.x < 0)
-            clampedPos.x = 0;
-        else if (transform.position.x > canvas.sizeDelta.x)
-            clampedPos.x = canvas.sizeDelta.x;
+        if (topBar.transform.position.x < 0)
+            clampedPos.x = relativePos.x;
+        else if (topBar.transform.position.x > canvas.sizeDelta.x)
+            clampedPos.x = canvas.sizeDelta.x + relativePos.x;
 
         float correctedY = topBar.transform.position.y - topBar.sizeDelta.y / 2;
         float yDif = correctedY - transform.position.y;

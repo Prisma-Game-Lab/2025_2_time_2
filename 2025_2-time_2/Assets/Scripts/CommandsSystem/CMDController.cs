@@ -4,16 +4,17 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class CMDController : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private CommandsController cmdController;
     [SerializeField] private TMP_InputField cmdInputField;
     [SerializeField] private GameObject targetHolder;
     [SerializeField] private TMP_Dropdown targetDropdown;
     [SerializeField] private GameObject modifierHolder;
     [SerializeField] private TMP_Dropdown modifierDropdown;
+    private CommandsController cmdController;
 
     [Header("Variables")]
     [SerializeField] private Color validCommandColor;
@@ -25,6 +26,7 @@ public class CMDController : MonoBehaviour
 
     [SerializeField] private PauseMenu pauseMenu;
 
+    private CommandData currentStoredCommand;
     private bool selected;
     private Color originalColor;
 
@@ -40,21 +42,20 @@ public class CMDController : MonoBehaviour
 
     private void CheckCommand(string commandName) 
     {
-        CommandData commandData = cmdController.CheckCommand(commandName);
+        currentStoredCommand = cmdController.CheckCommand(commandName);
 
-        if (commandData == null) 
+        if (currentStoredCommand == null) 
         {
             cmdInputField.textComponent.color = originalColor;
             targetHolder.SetActive(false);
             modifierHolder.SetActive(false);
+            currentStoredCommand = null;
             return;
         }
 
-        Command command = commandData.commandScriptable;
-
         cmdInputField.textComponent.color = validCommandColor;
-        SetTargetDropdown(commandData);
-        SetModifierDropdown(commandData);
+        SetTargetDropdown(currentStoredCommand);
+        SetModifierDropdown(currentStoredCommand);
     }
 
     private void SetTargetDropdown(CommandData commandData) 
@@ -101,24 +102,25 @@ public class CMDController : MonoBehaviour
         }
     }
 
-    public void OnCommandLineEnter() 
-    {
-        if (!selected) return;
+    //public void OnCommandLineEnter() 
+    //{
+    //    if (!selected) return;
 
-        cmdController.OnCommandLine(cmdInputField.text);
-        OnCommandLine.Invoke(cmdInputField.text);
-        cmdInputField.text = string.Empty;
-    }
+    //    cmdController.OnCommandLine(cmdInputField.text);
+    //    OnCommandLine.Invoke(cmdInputField.text);
+    //    cmdInputField.text = string.Empty;
+    //}
 
-    public void OnEnterAction(InputAction.CallbackContext action)
-    {
-        if (action.performed)
-        {
-            if (!selected) return;
+    //public void OnEnterAction(InputAction.CallbackContext action)
+    //{
+    //    if (action.performed)
+    //    {
+    //        if (!selected) return;
 
-            OnCommandLineEnter();
-        }
-    }
+    //        OnCommandLineEnter();
+    //    }
+    //}
+
      public void OnPauseButton(InputAction.CallbackContext inputValue)
     {
         if (inputValue.performed)
@@ -136,5 +138,29 @@ public class CMDController : MonoBehaviour
     {
         selected = false;
         CheckCommand(cmdInputField.text.ToLower());
+    }
+
+    public CommandData GetData(out List<string> parameters) 
+    {
+        parameters = new List<string>();
+
+        if (currentStoredCommand == null)
+        {
+            return null;
+        }
+
+        if (currentStoredCommand.commandScriptable.hasTarget) 
+        {
+            string targetName = targetDropdown.options[targetDropdown.value].text;
+            parameters.Add(targetName);
+        }
+
+        if (currentStoredCommand.commandScriptable.HasModifiers()) 
+        {
+            string modifier = modifierDropdown.options[modifierDropdown.value].text;
+            parameters.Add(modifier);
+        }
+
+        return currentStoredCommand;
     }
 }

@@ -5,25 +5,23 @@ using UnityEngine;
 public class CommandsController : MonoBehaviour
 {
     [SerializeField] private CommandData[] availableCommands;
-    [SerializeField] private Dictionary<string, CommandData> levelCommands;
+
+    [Header("Commands Slots")]
+    [SerializeField] private GameObject commandSlotPrefab;
+    [SerializeField] private GameObject commandSlotHolder;
+    [SerializeField] private int commandSlotsNum;
+    private List<CMDController> commandsSlots = new List<CMDController>();
+
+    private Dictionary<string, CommandData> levelCommands;
     private CommandEffect lastCommandEffectScript;
+    private bool running;
 
     private void Start()
     {
         InitializeDictionary();
+        CreateSlots();
     }
 
-    private void InitializeDictionary() 
-    {
-        levelCommands = new Dictionary<string, CommandData>();
-
-        foreach (var command in availableCommands)
-        {
-            string commandName = command.commandScriptable.commandName;
-
-            levelCommands.Add(commandName.ToLower(), command);
-        }
-    }
 
     public CommandData CheckCommand(string commandName) 
     {
@@ -37,34 +35,76 @@ public class CommandsController : MonoBehaviour
         return currentComand;
     }
 
-    public void OnCommandLine(string commandLine) 
+    public void RunCode() 
     {
-        string[] commandKeyword = commandLine.ToLower().Split();
+        if (running)
+            return;
 
-        foreach (CommandData command in availableCommands)
-        { 
-            if (command.commandScriptable.name.ToLower() == commandKeyword[0]) 
+        running = true;
+
+        foreach (var commandSlot in commandsSlots)
+        {
+            List<string> parameters;
+            CommandData nextCommandData = commandSlot.GetData(out parameters);
+
+            if (nextCommandData != null) 
             {
-                print("Activate: " + commandKeyword[0]);
-                if (!ActivateCommand(command, commandKeyword))
-                    print("Incorrect Parameters");
-
-                return;
+                if (!ActivateCommand(nextCommandData, parameters))
+                    print("errou");
             }
         }
-        print("Incorrect Command");
     }
 
-    private bool ActivateCommand(CommandData data, string[] parameters) 
+    //public void OnCommandLine(string commandLine) 
+    //{
+    //    string[] commandKeyword = commandLine.ToLower().Split();
+
+    //    foreach (CommandData command in availableCommands)
+    //    { 
+    //        if (command.commandScriptable.name.ToLower() == commandKeyword[0]) 
+    //        {
+    //            print("Activate: " + commandKeyword[0]);
+    //            if (!ActivateCommand(command, commandKeyword))
+    //                print("Incorrect Parameters");
+
+    //            return;
+    //        }
+    //    }
+    //    print("Incorrect Command");
+    //}
+
+    private void InitializeDictionary() 
     {
+        levelCommands = new Dictionary<string, CommandData>();
+
+        foreach (var command in availableCommands)
+        {
+            string commandName = command.commandScriptable.commandName;
+
+            levelCommands.Add(commandName.ToLower(), command);
+        }
+    }
+
+    private void CreateSlots() 
+    {
+        for (int i = 0; i < commandSlotsNum; i++)
+        {
+            GameObject newCommandSlot = Instantiate(commandSlotPrefab, commandSlotHolder.transform);
+            CMDController newCMDController = newCommandSlot.GetComponent<CMDController>();
+            commandsSlots.Add(newCMDController);
+            newCMDController.SetCMDCReference(this);
+        }
+    }
+
+    private bool ActivateCommand(CommandData data, List<string> parameters) 
+    {
+        int currentParameterIndex = 0;
+        int nParameters = parameters.Count;
+
         GameObject target = gameObject;
-        int currentParameterIndex = 1;
-
-        print(parameters.Length);
-
         if (data.commandScriptable.hasTarget) 
         {
-            if (parameters.Length <= currentParameterIndex) 
+            if (nParameters <= currentParameterIndex) 
                 return false;
 
             target = GetTarget(data, parameters[currentParameterIndex]);
@@ -74,30 +114,34 @@ public class CommandsController : MonoBehaviour
                 return false;
         }
 
+
+        float modifierValue = -1;
         if (data.commandScriptable.HasModifiers())
         {
-            if (parameters.Length <= currentParameterIndex)
+            if (nParameters <= currentParameterIndex)
                 return false;
+
+            if (!data.commandScriptable.GetModifierValue(parameters[currentParameterIndex], out modifierValue))
+                return false;
+
+            currentParameterIndex++;
         }
 
-        if (lastCommandEffectScript != null)
-            Destroy(lastCommandEffectScript);
         lastCommandEffectScript = InstanciateCommandScript(data.commandScriptable.effect, target);
 
-        if (data.commandScriptable.HasModifiers()) 
+        if (lastCommandEffectScript != null) 
         {
-            lastCommandEffectScript.SetParameter(parameters[currentParameterIndex]);
+            if (data.commandScriptable.HasModifiers()) 
+            {
+                lastCommandEffectScript.SetModifier(modifierValue);
+            }
+            lastCommandEffectScript.Activate();
         }
 
         //if (data.commandScriptable.hasCustomStrength)
         //{
         //    lastCommandEffectScript.SetStrength(data.commandScriptable.customStrength);
         //}
-
-        lastCommandEffectScript.SetModifier(data.commandModifier);
-
-        if (lastCommandEffectScript != null)
-            lastCommandEffectScript.Activate();
 
         return true;
     }

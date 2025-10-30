@@ -92,8 +92,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1419,7 +1419,8 @@ MonoBehaviour:
   commandSlotPrefab: {fileID: 2594419860961182976, guid: 59c6ee8cbee0b2e4fb6780e90abfa4be, type: 3}
   commandSlotHolder: {fileID: 6405051274228357126}
   commandSlotsNum: 2
-  timeBetweenCommands: 2
+  startTime: 1
+  timeBetweenCommands: 3
 --- !u!1 &3143227339923509959
 GameObject:
   m_ObjectHideFlags: 0

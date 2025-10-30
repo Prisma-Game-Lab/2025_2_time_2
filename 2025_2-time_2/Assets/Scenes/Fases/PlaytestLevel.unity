@@ -566,16 +566,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2479604007760580554, guid: 7886dfb93b0ddbf4eafdcc0f00772eb0, type: 3}
-      propertyPath: startTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2479604007760580554, guid: 7886dfb93b0ddbf4eafdcc0f00772eb0, type: 3}
-      propertyPath: timeBetweenCommands
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2479604007760580554, guid: 7886dfb93b0ddbf4eafdcc0f00772eb0, type: 3}
       propertyPath: availableCommands.Array.data[0].sceneTargets.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2479604007760580554, guid: 7886dfb93b0ddbf4eafdcc0f00772eb0, type: 3}
+      propertyPath: availableCommands.Array.data[0].sceneTargets.Array.data[0].displayName
+      value: Blue Box
       objectReference: {fileID: 0}
     - target: {fileID: 2479604007760580554, guid: 7886dfb93b0ddbf4eafdcc0f00772eb0, type: 3}
       propertyPath: availableCommands.Array.data[0].sceneTargets.Array.data[0].targetGameObject
@@ -624,14 +620,6 @@ PrefabInstance:
     - target: {fileID: 4106398775698606883, guid: 7886dfb93b0ddbf4eafdcc0f00772eb0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5210819219541139268, guid: 7886dfb93b0ddbf4eafdcc0f00772eb0, type: 3}
-      propertyPath: m_fontSize
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 5210819219541139268, guid: 7886dfb93b0ddbf4eafdcc0f00772eb0, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -1220,7 +1208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1266629231}
   m_Layer: 0
-  m_Name: Square
+  m_Name: BlueBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1713,7 +1701,7 @@ GameObject:
   - component: {fileID: 1987246212}
   - component: {fileID: 1987246211}
   m_Layer: 8
-  m_Name: Square
+  m_Name: BlueBoxSprite
   m_TagString: chao
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

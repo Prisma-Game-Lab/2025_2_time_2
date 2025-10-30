@@ -421,6 +421,7 @@ GameObject:
   - component: {fileID: 144549121}
   - component: {fileID: 144549123}
   - component: {fileID: 144549122}
+  - component: {fileID: 144549124}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -489,6 +490,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 144549120}
   m_CullTransparentMesh: 1
+--- !u!114 &144549124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144549120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9798cfae00f6ad74f81e1d4c49799b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &192380899
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,28 +1087,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b940c4812836b448817de93365346b5, type: 3}
---- !u!114 &476876558 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5769913960388536479, guid: 0b940c4812836b448817de93365346b5, type: 3}
-  m_PrefabInstance: {fileID: 476876557}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa1371b661d7fc1408e24c0b1eb37e7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &476876559 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2434106334892014635, guid: 0b940c4812836b448817de93365346b5, type: 3}
-  m_PrefabInstance: {fileID: 476876557}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc3c1ebab00cd674881e3e35df76f7a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &501984081
 GameObject:
   m_ObjectHideFlags: 0
@@ -1452,8 +1443,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 476876558}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 144549124}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
@@ -3483,9 +3474,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 476876559}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: LoadSceneByName
+      - m_Target: {fileID: 144549124}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: Play
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

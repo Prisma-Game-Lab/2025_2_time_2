@@ -51,10 +51,7 @@ public class GameManager : MonoBehaviour
         OnPause.Invoke(state);
     }
     
-    public void Quit()
-    {
-        Application.Quit();
-    }
+    
 
    
 }

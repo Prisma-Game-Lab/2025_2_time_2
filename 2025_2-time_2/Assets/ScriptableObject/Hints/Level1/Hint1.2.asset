@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa2e8eac3cde8cc48a52e7889215f788, type: 3}
   m_Name: Hint1.2
   m_EditorClassIdentifier: 
+  hintLabel: Dica 2
   dialogue:
   - HMM ACTUALLYYYY
   - DICA 2

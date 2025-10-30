@@ -4,7 +4,12 @@ using UnityEngine;
 using TMPro;
 
 public class HintManager : MonoBehaviour
+
 {
+
+    [Header("References")]
+    [SerializeField] private HintUIManager hintUIManager;
+
     [Header("Hint Configuration")]
     [SerializeField] private List<HintSO> hints;          
     [SerializeField] private TextMeshProUGUI text;        
@@ -65,15 +70,15 @@ public class HintManager : MonoBehaviour
     }
 
    
-    public void DisplayCurrentHint()
+    public void DisplayCurrentHint(int hintIndex)
     {
-        if (hints == null || hints.Count == 0 || text == null) return;
+        if (hints == null || hints.Count == 0 || text == null ) return;
         if (isShowing) return; 
 
         
         isShowing = true;
         currentLineIndex = 0;
-
+        currentHintIndex = hintIndex;
         text.gameObject.SetActive(true);
         text.text = string.Empty;
 
@@ -165,7 +170,7 @@ public class HintManager : MonoBehaviour
     
     private void FinishCurrentHint(bool immediate)
     {
-        
+        hintUIManager.UnlockNextHint();
         if (autoAdvanceCoroutine != null)
         {
             StopCoroutine(autoAdvanceCoroutine);
@@ -177,7 +182,7 @@ public class HintManager : MonoBehaviour
             
             isShowing = false;
             text.gameObject.SetActive(false);
-            currentHintIndex = (currentHintIndex + 1) % hints.Count;
+            //currentHintIndex = (currentHintIndex + 1) % hints.Count;
         }
         else
         {

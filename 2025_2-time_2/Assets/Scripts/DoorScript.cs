@@ -14,6 +14,7 @@ public class DoorScript : MonoBehaviour
             LevelManager.LoadSceneByName(nextSceneName);
             PlayerController pc = collision.GetComponent<PlayerController>();
             pc.SetCurrentPlayerState(PlayerController.PlayerState.Blocked);
+            pc.rb.velocity = Vector2.up * pc.rb.velocity;
             triggered = true;
         }
     }

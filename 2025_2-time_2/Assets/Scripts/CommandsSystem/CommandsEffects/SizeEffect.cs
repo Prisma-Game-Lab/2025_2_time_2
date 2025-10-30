@@ -24,7 +24,6 @@ public class SizeEffect : CommandEffect
         //        break;
         //}
 
-        print(modifier);
         transform.localScale *= modifier;
     }
 

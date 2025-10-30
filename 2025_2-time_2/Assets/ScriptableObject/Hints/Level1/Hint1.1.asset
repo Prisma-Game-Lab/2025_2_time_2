@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hintLabel: Dica 1
   dialogue:
-  - HM ACTUALLY
-  - DICA 1
+  - "Bom, acho que enquanto voc\xEA n\xE3o decidir o que vai fazer para corrigir
+    o meu jogo, que por sinal j\xE1 \xE9 perfeito, eu n\xE3o vou poder me mexer"

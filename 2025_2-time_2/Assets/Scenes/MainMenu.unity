@@ -502,6 +502,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9798cfae00f6ad74f81e1d4c49799b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuMusic: MenuMusic
+  levelMusic: Level1Music
 --- !u!1 &192380899
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,6 +579,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 192380899}
   m_CullTransparentMesh: 1
+--- !u!82 &195438740 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8806048028933887066, guid: 0b940c4812836b448817de93365346b5, type: 3}
+  m_PrefabInstance: {fileID: 476876557}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &231028697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,6 +1085,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5277111416046384405, guid: 0b940c4812836b448817de93365346b5, type: 3}
+      propertyPath: menuMusic
+      value: MenuMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 5277111416046384405, guid: 0b940c4812836b448817de93365346b5, type: 3}
+      propertyPath: sfxSource
+      value: 
+      objectReference: {fileID: 195438740}
+    - target: {fileID: 5277111416046384405, guid: 0b940c4812836b448817de93365346b5, type: 3}
+      propertyPath: musicSource
+      value: 
+      objectReference: {fileID: 1253604103}
+    - target: {fileID: 5277111416046384405, guid: 0b940c4812836b448817de93365346b5, type: 3}
+      propertyPath: sfxMixerGroup
+      value: 
+      objectReference: {fileID: 7566133498534469467, guid: 815c8e1b3ec086f49bdf799d3aa7e9fb, type: 2}
+    - target: {fileID: 5277111416046384405, guid: 0b940c4812836b448817de93365346b5, type: 3}
+      propertyPath: musicSounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5277111416046384405, guid: 0b940c4812836b448817de93365346b5, type: 3}
+      propertyPath: musicSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0817cdcaf7797e1479da7d3cb4c7ea83, type: 3}
+    - target: {fileID: 5277111416046384405, guid: 0b940c4812836b448817de93365346b5, type: 3}
+      propertyPath: musicSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 15a1c87f7370b704187691639943407c, type: 3}
     - target: {fileID: 8097332765385545856, guid: 0b940c4812836b448817de93365346b5, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -3206,6 +3241,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!82 &1253604103 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8960033833816196176, guid: 0b940c4812836b448817de93365346b5, type: 3}
+  m_PrefabInstance: {fileID: 476876557}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1373119485
 GameObject:
   m_ObjectHideFlags: 0
@@ -3715,7 +3755,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TITULO
+  m_text: Crash
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3749,7 +3789,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0

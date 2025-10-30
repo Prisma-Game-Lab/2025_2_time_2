@@ -54,6 +54,8 @@ public class CMDController : MonoBehaviour
         }
 
         cmdInputField.textComponent.color = validCommandColor;
+        cmdInputField.SetTextWithoutNotify(currentStoredCommand.commandScriptable.commandName);
+
         SetTargetDropdown(currentStoredCommand);
         SetModifierDropdown(currentStoredCommand);
     }
@@ -137,7 +139,7 @@ public class CMDController : MonoBehaviour
     public void OnDeselected()
     {
         selected = false;
-        CheckCommand(cmdInputField.text.ToLower());
+        CheckCommand(cmdInputField.text.ToLower().Trim(' '));
     }
 
     public CommandData GetData(out List<string> parameters) 

@@ -10,6 +10,7 @@ public class CommandsController : MonoBehaviour
     [SerializeField] private GameObject commandSlotPrefab;
     [SerializeField] private GameObject commandSlotHolder;
     [SerializeField] private int commandSlotsNum;
+    [SerializeField] private float timeBetweenCommands;
     private List<CMDController> commandsSlots = new List<CMDController>();
 
     private Dictionary<string, CommandData> levelCommands;
@@ -18,6 +19,7 @@ public class CommandsController : MonoBehaviour
 
     private void Start()
     {
+        GameManager.Instance.GetPlayerRef().GetComponent<PlayerMovement>().SetMovement(false);
         InitializeDictionary();
         CreateSlots();
     }
@@ -42,16 +44,25 @@ public class CommandsController : MonoBehaviour
 
         running = true;
 
+        StartCoroutine(RunSequence());
+    }
+
+    private IEnumerator RunSequence()
+    {
+        GameManager.Instance.GetPlayerRef().GetComponent<PlayerMovement>().SetMovement(true);
+
         foreach (var commandSlot in commandsSlots)
         {
             List<string> parameters;
             CommandData nextCommandData = commandSlot.GetData(out parameters);
 
-            if (nextCommandData != null) 
+            if (nextCommandData != null)
             {
                 if (!ActivateCommand(nextCommandData, parameters))
                     print("errou");
             }
+
+            yield return new WaitForSeconds(timeBetweenCommands);
         }
     }
 

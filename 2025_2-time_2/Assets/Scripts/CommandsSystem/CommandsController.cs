@@ -10,6 +10,7 @@ public class CommandsController : MonoBehaviour
     [SerializeField] private GameObject commandSlotPrefab;
     [SerializeField] private GameObject commandSlotHolder;
     [SerializeField] private int commandSlotsNum;
+    [SerializeField] private float startTime;
     [SerializeField] private float timeBetweenCommands;
     private List<CMDController> commandsSlots = new List<CMDController>();
 
@@ -50,6 +51,8 @@ public class CommandsController : MonoBehaviour
     private IEnumerator RunSequence()
     {
         GameManager.Instance.GetPlayerRef().GetComponent<PlayerMovement>().SetMovement(true);
+
+        yield return new WaitForSeconds(startTime);
 
         foreach (var commandSlot in commandsSlots)
         {

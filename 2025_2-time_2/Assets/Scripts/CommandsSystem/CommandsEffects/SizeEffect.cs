@@ -6,29 +6,42 @@ public class SizeEffect : CommandEffect
 {
     private float scaleModifier;
 
-    public void Start()
+    private Vector2 originalScale;
+    private Vector2 targetScale;
+
+    private bool interpolateScale;
+    private float currentTime;
+    private float interpolationTime = 2;
+
+    private void Start()
     {
-        //if (strength.Length < 3)
-        //    Debug.LogError("Not Enought parameters for Strengh in size");
+        originalScale = transform.localScale;
+        targetScale = Vector2.one * modifier;
+        interpolateScale = true;
+    }
 
-        //switch (parameter.ToLower()) 
-        //{
-        //    case "small":
-        //        scaleModifier = strength[0];
-        //        break;
-        //    case "medium":
-        //        scaleModifier = strength[1];
-        //        break;
-        //    case "big":
-        //        scaleModifier = strength[2];
-        //        break;
-        //}
-
-        transform.localScale *= modifier;
+    private void FixedUpdate()
+    {
+        if (interpolateScale)
+        {
+            currentTime += Time.deltaTime;
+            InterpolateScale();
+        }
     }
 
     private void OnDestroy()
     {
-        transform.localScale /= modifier;
+        transform.localScale = Vector2.one * modifier;
+    }
+
+    private void InterpolateScale() 
+    {
+        float ratio = currentTime / interpolationTime;
+        Vector2 speed = Vector2.zero;
+
+        transform.localScale = Vector2.Lerp(originalScale, targetScale, ratio);
+
+        if (ratio >= 1)
+            interpolateScale = false;
     }
 }

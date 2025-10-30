@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-
     [SerializeField] private string menuMusic;
     [SerializeField] private string levelMusic;
+    
     void Start()
     {
         if (AudioManager.Instance != null)
@@ -16,12 +15,13 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-   public void Play(string sceneName)
+    public void Play(string sceneName)
     {
         AudioManager.Instance.PlayMusic(levelMusic);
-        SceneManager.LoadSceneAsync(sceneName);
+        LevelManager.LoadSceneByName(sceneName);
     }
-   public void Quit()
+    
+    public void Quit()
     {
         Application.Quit();
     }

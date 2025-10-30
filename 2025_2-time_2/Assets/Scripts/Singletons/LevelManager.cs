@@ -29,15 +29,29 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public static void LoadSceneByName(string sceneName) 
+    public static void LoadSceneByName(string sceneName, bool fade = true) 
     {
-        if (SceneManager.GetActiveScene().name == sceneName) 
+        if (fade)
+            Instance.StartCoroutine(Instance.ActivateSceneTransition(sceneName));
+        else
+            Instance.LoadSceneImmediatly(sceneName);
+    }
+
+    private void LoadSceneImmediatly(string sceneName) 
+    {
+        if (SceneManager.GetActiveScene().name == sceneName)
         {
             RestartLevel();
             return;
         }
-        
+
         OnSceneChanged.Invoke();
         SceneManager.LoadScene(sceneName);
+    }
+
+    private IEnumerator ActivateSceneTransition(string sceneName) 
+    {
+        yield return new WaitForSeconds(SceneController.instance.TriggerLevelTransition());
+        LoadSceneImmediatly(sceneName);
     }
 }

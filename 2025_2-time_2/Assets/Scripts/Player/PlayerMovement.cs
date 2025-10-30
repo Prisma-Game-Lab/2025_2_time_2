@@ -21,12 +21,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float groundCheckRadius = 0.2f;
     [SerializeField] private LayerMask groundLayer;
     private bool isGrounded;
-
-    private enum PlayerState 
-    {
-        Idle, Running, Jumping, Blocked
-    }
-    private PlayerState currentState = PlayerState.Idle;
     
     private float moveInput;
     private bool shouldJump;
@@ -68,19 +62,19 @@ public class PlayerMovement : MonoBehaviour
     {
         if (state) 
         {
-            if (currentState == PlayerState.Blocked)
-                currentState = PlayerState.Idle;
+            if (playerController.GetCurrentPlayerState() == PlayerController.PlayerState.Blocked)
+                playerController.SetCurrentPlayerState(PlayerController.PlayerState.Idle);
         } 
         else
         {
-            currentState = PlayerState.Blocked;
+            playerController.SetCurrentPlayerState(PlayerController.PlayerState.Blocked);
         }
 
     }
 
     private void ApplyMovement()
     {
-        if (currentState == PlayerState.Blocked)
+        if (playerController.GetCurrentPlayerState() == PlayerController.PlayerState.Blocked)
             return;
 
         if (moveInput < 0) 
@@ -96,15 +90,15 @@ public class PlayerMovement : MonoBehaviour
 
         float xVelocityAbs = Mathf.Abs(rb.velocity.x);
 
-        switch (currentState)
+        switch (playerController.GetCurrentPlayerState())
         {
-            case PlayerState.Idle:
+            case PlayerController.PlayerState.Idle:
                 if (xVelocityAbs > 0)
-                    currentState = PlayerState.Running;
+                    playerController.SetCurrentPlayerState(PlayerController.PlayerState.Running);
                 break;
-            case PlayerState.Running:
+            case PlayerController.PlayerState.Running:
                 if (Mathf.Approximately(xVelocityAbs, 0))
-                    currentState = PlayerState.Idle;
+                    playerController.SetCurrentPlayerState(PlayerController.PlayerState.Idle);
                 break;
             default:
                 break;
@@ -120,13 +114,13 @@ public class PlayerMovement : MonoBehaviour
         }
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-        if (isGrounded && currentState == PlayerState.Jumping)
-            currentState = PlayerState.Idle;
+        if (isGrounded && playerController.GetCurrentPlayerState() == PlayerController.PlayerState.Jumping)
+            playerController.SetCurrentPlayerState(PlayerController.PlayerState.Idle);
     }
 
     private void Jump()
     {
-        if (!isGrounded || jumpOnCooldown || currentState == PlayerState.Blocked)
+        if (!isGrounded || jumpOnCooldown || playerController.GetCurrentPlayerState() == PlayerController.PlayerState.Blocked)
             return;
 
         if (rb.velocity.y < 0)
@@ -134,7 +128,7 @@ public class PlayerMovement : MonoBehaviour
 
         rb.AddForce(Vector2.up * jumpForce);
 
-        currentState = PlayerState.Jumping;
+        playerController.SetCurrentPlayerState(PlayerController.PlayerState.Jumping);
 
         shouldJump = false;
         StartCoroutine(JumpCooldown());

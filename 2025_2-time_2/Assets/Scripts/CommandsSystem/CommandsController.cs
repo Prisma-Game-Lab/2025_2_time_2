@@ -18,9 +18,12 @@ public class CommandsController : MonoBehaviour
     private CommandEffect lastCommandEffectScript;
     private bool running;
 
+    private PlayerController playerRef;
+
     private void Start()
     {
-        GameManager.Instance.GetPlayerRef().GetComponent<PlayerMovement>().SetMovement(false);
+        playerRef = GameManager.Instance.GetPlayerRef().GetComponent<PlayerController>();
+        playerRef.SetCurrentPlayerState(PlayerController.PlayerState.Blocked);
         InitializeDictionary();
         CreateSlots();
     }
@@ -50,7 +53,7 @@ public class CommandsController : MonoBehaviour
 
     private IEnumerator RunSequence()
     {
-        GameManager.Instance.GetPlayerRef().GetComponent<PlayerMovement>().SetMovement(true);
+        playerRef.SetCurrentPlayerState(PlayerController.PlayerState.Idle);
 
         yield return new WaitForSeconds(startTime);
 

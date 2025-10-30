@@ -4,8 +4,17 @@ using UnityEngine;
 
 public class DoorScript : MonoBehaviour
 {
+    private bool triggered;
+    [SerializeField] private string nextSceneName; 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneController.instance.NextLevel();
+        if (!triggered) 
+        {
+            LevelManager.LoadSceneByName(nextSceneName);
+            PlayerController pc = collision.GetComponent<PlayerController>();
+            pc.SetCurrentPlayerState(PlayerController.PlayerState.Blocked);
+            triggered = true;
+        }
     }
 }

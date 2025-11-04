@@ -13,6 +13,8 @@ public class PauseMenu : MonoBehaviour
 
     [SerializeField] private GameObject UICanvas;
 
+    [SerializeField] private GameObject ConsoleCanvas;
+
     //[Header("UI")]
 
    // [SerializeField] private GameObject UI;
@@ -21,8 +23,9 @@ public class PauseMenu : MonoBehaviour
     public void TogglePause()
     {
         bool isActive = PausePanel.activeSelf;
-        
+
         PausePanel.SetActive(!isActive);
+        ConsoleCanvas.SetActive(isActive);
         UICanvas.SetActive(isActive);
         Controls.SetActive(false);
         Audio.SetActive(false);

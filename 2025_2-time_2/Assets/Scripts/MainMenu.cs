@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         Mixer.SetFloat("Volume", Mathf.Log10(0.25f) * 20);
-        Mixer.SetFloat("SFXVolume", Mathf.Log10(0.3f) * 20);
+        Mixer.SetFloat("SFXVolume", Mathf.Log10(0.25f) * 20);
         Mixer.SetFloat("MusicVolume", Mathf.Log10(0.25f) * 20);
 
         if (AudioManager.Instance != null)

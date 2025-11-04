@@ -1238,6 +1238,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7886dfb93b0ddbf4eafdcc0f00772eb0, type: 3}
+--- !u!1 &451245103 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8991933399579773728, guid: 7886dfb93b0ddbf4eafdcc0f00772eb0, type: 3}
+  m_PrefabInstance: {fileID: 451245102}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &571789761
 GameObject:
   m_ObjectHideFlags: 0
@@ -2485,7 +2490,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1700316764196589834, guid: 41ee5eab32277ae428ff736d16f48587, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.44769287
+      value: 0.4477539
       objectReference: {fileID: 0}
     - target: {fileID: 2213084244784312160, guid: 41ee5eab32277ae428ff736d16f48587, type: 3}
       propertyPath: m_LocalScale.x
@@ -2591,6 +2596,10 @@ PrefabInstance:
       propertyPath: UICanvas
       value: 
       objectReference: {fileID: 138055806}
+    - target: {fileID: 4561508005273311457, guid: 41ee5eab32277ae428ff736d16f48587, type: 3}
+      propertyPath: ConsoleCanvas
+      value: 
+      objectReference: {fileID: 451245103}
     - target: {fileID: 4943898086565176015, guid: 41ee5eab32277ae428ff736d16f48587, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

@@ -11,6 +11,8 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject Controls;
     [SerializeField] private GameObject Audio;
 
+    [SerializeField] private GameObject UICanvas;
+
     //[Header("UI")]
 
    // [SerializeField] private GameObject UI;
@@ -21,7 +23,7 @@ public class PauseMenu : MonoBehaviour
         bool isActive = PausePanel.activeSelf;
         
         PausePanel.SetActive(!isActive);
-       // UI.SetActive(isActive);
+        UICanvas.SetActive(isActive);
         Controls.SetActive(false);
         Audio.SetActive(false);
         GameManager.Instance.SetPause(!isActive);

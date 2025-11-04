@@ -1286,6 +1286,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1464687119}
   - {fileID: 792147453}
   - {fileID: 1723369480}
   m_Father: {fileID: 0}
@@ -1928,6 +1929,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4561508005273311457, guid: 41ee5eab32277ae428ff736d16f48587, type: 3}
+      propertyPath: UICanvas
+      value: 
+      objectReference: {fileID: 710331403}
     - target: {fileID: 6816498470744083107, guid: 41ee5eab32277ae428ff736d16f48587, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1974,10 +1979,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 7408333206363191471, guid: 41ee5eab32277ae428ff736d16f48587, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1464687119}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41ee5eab32277ae428ff736d16f48587, type: 3}
 --- !u!114 &844937169 stripped
@@ -1991,11 +1993,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b5e8d84a0bcdc46803b198b2f70d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &844937170 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7408333206363191471, guid: 41ee5eab32277ae428ff736d16f48587, type: 3}
-  m_PrefabInstance: {fileID: 844937168}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &869071912
 GameObject:
   m_ObjectHideFlags: 0
@@ -2621,11 +2618,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1662840775}
-  m_Father: {fileID: 844937170}
+  m_Father: {fileID: 710331407}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 566, y: -40}
+  m_AnchoredPosition: {x: 377, y: -45}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1464687120

@@ -502,6 +502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9798cfae00f6ad74f81e1d4c49799b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Mixer: {fileID: 24100000, guid: 815c8e1b3ec086f49bdf799d3aa7e9fb, type: 2}
   menuMusic: MenuMusic
   levelMusic: Level1Music
 --- !u!1 &192380899

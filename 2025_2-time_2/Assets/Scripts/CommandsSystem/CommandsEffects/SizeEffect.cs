@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class SizeEffect : CommandEffect
 {
+    private static SizeEffect activeInstance;
+
     private float scaleModifier;
 
-    private Vector2 originalScale;
+    private Vector2 initialScale;
     private Vector2 targetScale;
 
     private bool interpolateScale;
@@ -15,7 +17,11 @@ public class SizeEffect : CommandEffect
 
     private void Start()
     {
-        originalScale = transform.localScale;
+        if (activeInstance != null)
+            StartCoroutine(activeInstance.DestructionSequence());
+        activeInstance = this;
+
+        initialScale = transform.localScale;
         targetScale = Vector2.one * modifier;
         interpolateScale = true;
     }
@@ -25,23 +31,38 @@ public class SizeEffect : CommandEffect
         if (interpolateScale)
         {
             currentTime += Time.deltaTime;
-            InterpolateScale();
+            InterpolateScale(initialScale, targetScale);
         }
     }
 
     private void OnDestroy()
     {
-        transform.localScale = Vector2.one * modifier;
+        if (activeInstance == this)
+            activeInstance = null;
     }
 
-    private void InterpolateScale() 
+    private void InterpolateScale(Vector2 startScale, Vector2 targetScale) 
     {
         float ratio = currentTime / interpolationTime;
-        Vector2 speed = Vector2.zero;
 
-        transform.localScale = Vector2.Lerp(originalScale, targetScale, ratio);
+        transform.localScale = Vector2.Lerp(startScale, targetScale, ratio);
 
         if (ratio >= 1)
             interpolateScale = false;
+    }
+
+    private void ReturnToOriginalScale() 
+    {
+        currentTime = 0;
+        targetScale = initialScale;
+        initialScale = transform.localScale;
+        interpolateScale = true;
+    } 
+
+    private IEnumerator DestructionSequence() 
+    {
+        ReturnToOriginalScale();
+        yield return new WaitForSeconds(interpolationTime);
+        Destroy(this);
     }
 }

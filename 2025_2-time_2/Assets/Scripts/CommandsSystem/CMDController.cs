@@ -30,9 +30,12 @@ public class CMDController : MonoBehaviour
     private bool selected;
     private Color originalColor;
 
+    private HelpManager helpManager;
+
     private void Start()
     {
         originalColor = cmdInputField.textComponent.color;
+        helpManager = FindObjectOfType<HelpManager>();
     }
 
     public void SetCMDCReference(CommandsController cmd) 
@@ -44,7 +47,7 @@ public class CMDController : MonoBehaviour
     {
         currentStoredCommand = cmdController.CheckCommand(commandName);
 
-        if (currentStoredCommand == null) 
+        if (currentStoredCommand == null)
         {
             cmdInputField.textComponent.color = originalColor;
             targetHolder.SetActive(false);
@@ -52,7 +55,9 @@ public class CMDController : MonoBehaviour
             currentStoredCommand = null;
             return;
         }
-
+        // Registers command
+        helpManager.AddCommand(commandName);
+        
         cmdInputField.textComponent.color = validCommandColor;
         cmdInputField.SetTextWithoutNotify(currentStoredCommand.commandScriptable.commandName);
 

@@ -74,9 +74,11 @@ public class CMDController : MonoBehaviour
             targetHolder.SetActive(true);
 
             List<string> targetNames = new List<string>();
-            foreach (Target targetObject in commandData.sceneTargets) 
+            foreach (CommandTarget targetObject in commandData.sceneTargets) 
             {
-                targetNames.Add(targetObject.displayName);
+                string targetName = targetObject.GetDisplayName();
+                if (!targetNames.Contains(targetName))
+                    targetNames.Add(targetName);
             }
             targetDropdown.AddOptions(targetNames);
         }

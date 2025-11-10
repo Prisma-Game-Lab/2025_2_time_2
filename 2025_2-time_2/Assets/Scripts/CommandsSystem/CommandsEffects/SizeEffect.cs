@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 
 public class SizeEffect : CommandEffect
 {
-    private static SizeEffect activeInstance;
+    private float modifierValue;
 
-    private float scaleModifier;
-
+    private Vector2 startScale;
     private Vector2 initialScale;
     private Vector2 targetScale;
 
@@ -15,15 +15,11 @@ public class SizeEffect : CommandEffect
     private float currentTime;
     private float interpolationTime = 2;
 
+    private Coroutine activeDestructionCoroutine;
+
     private void Start()
     {
-        if (activeInstance != null)
-            StartCoroutine(activeInstance.DestructionSequence());
-        activeInstance = this;
-
-        initialScale = transform.localScale;
-        targetScale = Vector2.one * modifier;
-        interpolateScale = true;
+        startScale = transform.localScale;
     }
 
     private void FixedUpdate()
@@ -35,10 +31,29 @@ public class SizeEffect : CommandEffect
         }
     }
 
-    private void OnDestroy()
+    public override void Initialize(CommandArguments arguments) 
     {
-        if (activeInstance == this)
-            activeInstance = null;
+        Command commandScriptable = arguments.commandScriptable;
+        List<string> parameters = arguments.parameters;
+
+        if (!commandScriptable.GetModifierValue(parameters[1], out modifierValue))
+            Debug.LogError("No Modifier Value found for Size");
+
+        if (activeDestructionCoroutine != null)
+        {
+            StopCoroutine(activeDestructionCoroutine);
+            activeDestructionCoroutine = null;
+        }
+
+        currentTime = 0;
+        initialScale = transform.localScale;
+        targetScale = Vector2.one * modifierValue;
+        interpolateScale = true;
+    }
+
+    public override void Destroy()
+    {
+        activeDestructionCoroutine = StartCoroutine(DestructionSequence());
     }
 
     private void InterpolateScale(Vector2 startScale, Vector2 targetScale) 
@@ -51,15 +66,15 @@ public class SizeEffect : CommandEffect
             interpolateScale = false;
     }
 
-    private void ReturnToOriginalScale() 
+    private void ReturnToOriginalScale()
     {
         currentTime = 0;
-        targetScale = initialScale;
+        targetScale = startScale;
         initialScale = transform.localScale;
         interpolateScale = true;
-    } 
+    }
 
-    private IEnumerator DestructionSequence() 
+    private IEnumerator DestructionSequence()
     {
         ReturnToOriginalScale();
         yield return new WaitForSeconds(interpolationTime);

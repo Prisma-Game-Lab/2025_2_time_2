@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CommandsController : MonoBehaviour
 {
@@ -12,13 +13,17 @@ public class CommandsController : MonoBehaviour
     [SerializeField] private int commandSlotsNum;
     [SerializeField] private float startTime;
     [SerializeField] private float timeBetweenCommands;
-    private List<CMDController> commandsSlots = new List<CMDController>();
 
+    [Header("Events")]
+    public static UnityEvent<CommandArguments> OnCommand = new UnityEvent<CommandArguments>();
+    
+    private List<CMDController> commandsSlots = new List<CMDController>();
     private Dictionary<string, CommandData> levelCommands;
-    private CommandEffect lastCommandEffectScript;
-    private bool running;
 
     private PlayerController playerRef;
+    
+    private bool running;
+
 
     private void Start()
     {
@@ -27,7 +32,6 @@ public class CommandsController : MonoBehaviour
         InitializeDictionary();
         CreateSlots();
     }
-
 
     public CommandData CheckCommand(string commandName) 
     {
@@ -51,46 +55,7 @@ public class CommandsController : MonoBehaviour
         StartCoroutine(RunSequence());
     }
 
-    private IEnumerator RunSequence()
-    {
-        playerRef.SetCurrentPlayerState(PlayerController.PlayerState.Idle);
-
-        yield return new WaitForSeconds(startTime);
-
-        foreach (var commandSlot in commandsSlots)
-        {
-            List<string> parameters;
-            CommandData nextCommandData = commandSlot.GetData(out parameters);
-
-            if (nextCommandData != null)
-            {
-                if (!ActivateCommand(nextCommandData, parameters))
-                    print("errou");
-            }
-
-            yield return new WaitForSeconds(timeBetweenCommands);
-        }
-    }
-
-    //public void OnCommandLine(string commandLine) 
-    //{
-    //    string[] commandKeyword = commandLine.ToLower().Split();
-
-    //    foreach (CommandData command in availableCommands)
-    //    { 
-    //        if (command.commandScriptable.name.ToLower() == commandKeyword[0]) 
-    //        {
-    //            print("Activate: " + commandKeyword[0]);
-    //            if (!ActivateCommand(command, commandKeyword))
-    //                print("Incorrect Parameters");
-
-    //            return;
-    //        }
-    //    }
-    //    print("Incorrect Command");
-    //}
-
-    private void InitializeDictionary() 
+    private void InitializeDictionary()
     {
         levelCommands = new Dictionary<string, CommandData>();
 
@@ -113,82 +78,34 @@ public class CommandsController : MonoBehaviour
         }
     }
 
-    private bool ActivateCommand(CommandData data, List<string> parameters) 
+    private IEnumerator RunSequence()
     {
-        int currentParameterIndex = 0;
-        int nParameters = parameters.Count;
+        playerRef.SetCurrentPlayerState(PlayerController.PlayerState.Idle);
 
-        GameObject target = gameObject;
-        if (data.commandScriptable.hasTarget) 
+        yield return new WaitForSeconds(startTime);
+
+        foreach (var commandSlot in commandsSlots)
         {
-            if (nParameters <= currentParameterIndex) 
-                return false;
+            List<string> parameters;
+            CommandData nextCommandData = commandSlot.GetData(out parameters);
 
-            target = GetTarget(data, parameters[currentParameterIndex]);
-            currentParameterIndex++;
-
-            if (target == null) 
-                return false;
-        }
-
-
-        float modifierValue = -1;
-        if (data.commandScriptable.HasModifiers())
-        {
-            if (nParameters <= currentParameterIndex)
-                return false;
-
-            if (!data.commandScriptable.GetModifierValue(parameters[currentParameterIndex], out modifierValue))
-                return false;
-
-            currentParameterIndex++;
-        }
-
-        lastCommandEffectScript = InstanciateCommandScript(data.commandScriptable.effect, target);
-
-        if (lastCommandEffectScript != null) 
-        {
-            if (data.commandScriptable.HasModifiers()) 
+            if (nextCommandData != null)
             {
-                lastCommandEffectScript.SetModifier(modifierValue);
+                ActivateCommand(nextCommandData, parameters);
             }
-            lastCommandEffectScript.Activate();
+
+            yield return new WaitForSeconds(timeBetweenCommands);
         }
-
-        //if (data.commandScriptable.hasCustomStrength)
-        //{
-        //    lastCommandEffectScript.SetStrength(data.commandScriptable.customStrength);
-        //}
-
-        return true;
     }
 
-    private GameObject GetTarget(CommandData data, string targetName) 
+    private void ActivateCommand(CommandData data, List<string> parameters) 
     {
-        targetName = targetName.ToLower();
+        CommandArguments commandArguments = new CommandArguments();
 
-        foreach (Target target in data.sceneTargets)
-        {
-            if (targetName == target.displayName.ToLower()) 
-            {
-                return target.targetGameObject;
-            }
-        }
+        commandArguments.commandScriptable = data.commandScriptable;
+        commandArguments.parameters = parameters;
 
-        return null;
-    }
-
-    private CommandEffect InstanciateCommandScript(CommandEffectType effect, GameObject target) 
-    {
-        switch (effect)
-        {
-            case CommandEffectType.Size:
-                return target.AddComponent<SizeEffect>();
-            case CommandEffectType.Clear:
-                return null;
-        }
-
-        return null;
+        OnCommand.Invoke(commandArguments);
     }
 }
 
@@ -197,12 +114,11 @@ public class CommandData
 {
     public Command commandScriptable;
     public float commandModifier;
-    public Target[] sceneTargets;
+    public CommandTarget[] sceneTargets;
 }
 
-[System.Serializable]
-public struct Target 
+public class CommandArguments
 {
-    public string displayName;
-    public GameObject targetGameObject;
+    public Command commandScriptable;
+    public List<string> parameters;
 }

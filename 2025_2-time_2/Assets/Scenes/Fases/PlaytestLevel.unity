@@ -1446,6 +1446,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2479604007760580554, guid: 7886dfb93b0ddbf4eafdcc0f00772eb0, type: 3}
+      propertyPath: availableCommands.Array.data[0].sceneTargets.Array.data[0]
+      value: 
+      objectReference: {fileID: 1266629232}
+    - target: {fileID: 2479604007760580554, guid: 7886dfb93b0ddbf4eafdcc0f00772eb0, type: 3}
       propertyPath: availableCommands.Array.data[0].sceneTargets.Array.data[0].displayName
       value: Blue Box
       objectReference: {fileID: 0}

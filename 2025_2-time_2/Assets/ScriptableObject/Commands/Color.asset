@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6447fb6a3a72a745901f404cb855c37, type: 3}
   m_Name: Color
   m_EditorClassIdentifier: 
-  commandName: 
-  effect: 0
-  hasTarget: 0
+  commandName: Color
+  effect: 2
+  hasTarget: 1
   modifiers: []

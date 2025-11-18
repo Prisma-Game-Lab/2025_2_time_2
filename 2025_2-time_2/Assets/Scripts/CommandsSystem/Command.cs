@@ -12,7 +12,7 @@ public class Command : ScriptableObject
 
     public bool HasModifiers() 
     {
-        return modifiers.Length > 0;
+        return modifiers.Length > 0 || effect == CommandEffectType.Color;
     }
 
     public bool GetModifierValue(string modifierDisplay, out float modifierValue) 
@@ -32,7 +32,7 @@ public class Command : ScriptableObject
 
 public enum CommandEffectType 
 {
-    Size, Clear
+    Size, Clear, Color
 }
 
 [System.Serializable]

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CommandEffect : MonoBehaviour
 {
-    public virtual void Initialize(CommandArguments arguments) {}
+    public virtual void Initialize(CommandTarget target, CommandArguments arguments) {}
 
     public virtual void Activate() {}
 

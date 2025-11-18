@@ -4,14 +4,29 @@ using UnityEngine;
 
 public class CommandTarget : MonoBehaviour
 {
+    [Header("Components")]
+    [SerializeField] private SpriteRenderer sr;
+
+    [Header("Variables")]
     [SerializeField] private string targetName;
-    [SerializeField] private string color;
+    [SerializeField] private string colorName;
+    private TargetColor currentColor;
 
     private SizeEffect size;
 
     private void Start()
     {
-        CommandsController.OnCommand.AddListener(ActivateCommand);    
+        CommandsController.OnCommand.AddListener(ActivateCommand);
+
+        if (sr == null)
+            sr = GetComponent<SpriteRenderer>();
+    }
+
+    private void OnValidate()
+    {
+        if (sr == null)
+            sr = GetComponent<SpriteRenderer>();
+        ChangeCurrentColor(colorName);
     }
 
     private void ActivateCommand(CommandArguments arguments)
@@ -37,7 +52,7 @@ public class CommandTarget : MonoBehaviour
                 { 
                     size = gameObject.AddComponent<SizeEffect>();
                 }
-                size.Initialize(arguments);
+                size.Initialize(this, arguments);
                 break;
             case CommandEffectType.Clear:
                 //Just a test
@@ -45,16 +60,46 @@ public class CommandTarget : MonoBehaviour
                 if (size != null)
                     size.Destroy();
                 break;
+            case CommandEffectType.Color:
+                ColorEffect color = gameObject.AddComponent<ColorEffect>();
+                color.Initialize(this, arguments);
+                break;
         }
     }
 
     public string GetDisplayName() 
     {
-        if (color != null)
+        if (colorName != null)
         {
-            string displayName = color + " " + targetName;
+            string displayName = colorName + " " + targetName;
             return displayName;
         }
         return targetName;
+    }
+
+    public void ChangeCurrentColor(string newColor) 
+    {
+        if (LevelColors.instance == null || newColor == null) 
+        {
+            sr.color = Color.white;
+            return;
+        }
+
+        TargetColor newTargetColor = LevelColors.instance.GetTargetColor(newColor);
+
+        if (newTargetColor != null)
+        {
+            currentColor = newTargetColor;
+            colorName = newTargetColor.diplayName;
+            sr.color = newTargetColor.RGB;
+        }
+        else if (currentColor == null) 
+        {
+            newTargetColor = LevelColors.instance.GetTargetColor("White");
+
+            currentColor = newTargetColor;
+            colorName = newTargetColor.diplayName;
+            sr.color = newTargetColor.RGB;
+        }
     }
 }

@@ -31,7 +31,7 @@ public class SizeEffect : CommandEffect
         }
     }
 
-    public override void Initialize(CommandArguments arguments) 
+    public override void Initialize(CommandTarget target, CommandArguments arguments) 
     {
         Command commandScriptable = arguments.commandScriptable;
         List<string> parameters = arguments.parameters;

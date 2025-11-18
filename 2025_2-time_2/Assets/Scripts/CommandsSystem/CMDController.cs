@@ -55,8 +55,10 @@ public class CMDController : MonoBehaviour
             currentStoredCommand = null;
             return;
         }
+
         // Registers command
-        helpManager.AddCommand(commandName);
+        if (helpManager != null) 
+            helpManager.AddCommand(commandName);
         
         cmdInputField.textComponent.color = validCommandColor;
         cmdInputField.SetTextWithoutNotify(currentStoredCommand.commandScriptable.commandName);
@@ -94,7 +96,13 @@ public class CMDController : MonoBehaviour
         Command command = commandData.commandScriptable;
 
         modifierDropdown.ClearOptions();
-        if (!command.HasModifiers())
+        if (command.effect == CommandEffectType.Color) 
+        {
+            modifierHolder.SetActive(true);
+
+            modifierDropdown.AddOptions(LevelColors.instance.GetAllTargetsColorName());
+        }
+        else if (!command.HasModifiers())
         {
             modifierHolder.SetActive(false);
         }
@@ -158,13 +166,15 @@ public class CMDController : MonoBehaviour
             return null;
         }
 
-        if (currentStoredCommand.commandScriptable.hasTarget) 
+        Command commandScriptable = currentStoredCommand.commandScriptable;
+
+        if (commandScriptable.hasTarget) 
         {
             string targetName = targetDropdown.options[targetDropdown.value].text;
             parameters.Add(targetName);
         }
 
-        if (currentStoredCommand.commandScriptable.HasModifiers()) 
+        if (commandScriptable.HasModifiers()) 
         {
             string modifier = modifierDropdown.options[modifierDropdown.value].text;
             parameters.Add(modifier);

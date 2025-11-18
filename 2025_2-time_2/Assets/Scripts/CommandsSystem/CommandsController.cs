@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class CommandsController : MonoBehaviour
 {
+    public static CommandsController instance;
     [SerializeField] private CommandData[] availableCommands;
 
     [Header("Commands Slots")]
@@ -27,6 +28,10 @@ public class CommandsController : MonoBehaviour
 
     private void Start()
     {
+        if (instance != null)
+            Destroy(instance);
+        instance = this;
+
         playerRef = GameManager.Instance.GetPlayerRef().GetComponent<PlayerController>();
         playerRef.SetCurrentPlayerState(PlayerController.PlayerState.Blocked);
         InitializeDictionary();

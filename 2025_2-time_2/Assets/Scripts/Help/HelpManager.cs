@@ -11,7 +11,8 @@ public class HelpManager : MonoBehaviour
 
     [SerializeField] private List<CommandTooltipSO> commands;
 
-    [SerializeField] private List<CommandTooltipSO> knownCommands;
+    [SerializeField] private List<CommandTooltipSO> newCommands;
+     private List<CommandTooltipSO> knownCommands;
 
     [SerializeField] private List<TextMeshProUGUI> tooltipNames;
 
@@ -19,9 +20,15 @@ public class HelpManager : MonoBehaviour
 
     private int currentTooltipIndex = 0;
 
+    private HelpSaver hs;
 
-    void Start()
+
+    void Awake()
     {
+        hs = FindObjectOfType<HelpSaver>();
+        knownCommands = hs.GetKnowCommands();
+        AddNewCommands();
+
         if (knownCommands.Count > 0)
         {
             DisplayKnowCommands();
@@ -40,13 +47,11 @@ public class HelpManager : MonoBehaviour
                 }
                 else
                 {
+                    hs.AddKnownCommand(command);
                     DisplayCommand(command);
                 }
             }
-            else
-            {
-                Debug.Log("Command Tooltip Not Found :(");
-            }
+            
         }
     }
     
@@ -66,6 +71,15 @@ public class HelpManager : MonoBehaviour
         foreach (CommandTooltipSO command in knownCommands)
         {
             DisplayCommand(command);
+        }
+    }
+
+    public void AddNewCommands()
+    {
+        foreach (CommandTooltipSO command in newCommands)
+        {
+            if (!knownCommands.Contains(command))
+            knownCommands.Add(command);
         }
     }
     

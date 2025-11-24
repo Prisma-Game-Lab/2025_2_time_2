@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "name": "UIActions",
+    "maps": [
+        {
+            "name": "Normal",
+            "id": "b82f7e03-84b5-4f78-9088-27787ca211cd",
+            "actions": [
+                {
+                    "name": "AdvanceText",
+                    "type": "Button",
+                    "id": "b0259d2e-7564-48ad-b531-e456b2606c52",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c4725d2d-b9c9-4aee-9c1d-129b34c4970a",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AdvanceText",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

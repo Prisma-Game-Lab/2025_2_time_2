@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class HintManager : MonoBehaviour
-
 {
-
     [Header("References")]
     [SerializeField] private HintUIManager hintUIManager;
 
@@ -25,7 +24,6 @@ public class HintManager : MonoBehaviour
 
     private int currentHintIndex = 0;    
     private int currentLineIndex = 0;   
-    private bool canAdvance = true;
     private bool isShowing = false;      
     private Coroutine typingCoroutine;
     private Coroutine autoAdvanceCoroutine;
@@ -89,9 +87,7 @@ public class HintManager : MonoBehaviour
     
     public void AdvanceText()
     {
-        if (!isShowing || !canAdvance || hints == null || hints.Count == 0 || text == null) return;
-
-        StartCoroutine(ClickCooldown());
+        if (!isShowing || hints == null || hints.Count == 0 || text == null) return;
 
         string[] lines = hints[currentHintIndex].dialogue;
         if (lines == null || lines.Length == 0)
@@ -126,7 +122,6 @@ public class HintManager : MonoBehaviour
 
     private IEnumerator TypeLine()
     {
-       
         if (autoAdvanceCoroutine != null)
         {
             StopCoroutine(autoAdvanceCoroutine);
@@ -200,10 +195,11 @@ public class HintManager : MonoBehaviour
         currentHintIndex = (currentHintIndex + 1) % hints.Count;
     }
 
-    private IEnumerator ClickCooldown()
+    public void OnClick(InputAction.CallbackContext context)
     {
-        canAdvance = false;
-        yield return new WaitForSeconds(0.1f);
-        canAdvance = true;
+        if (context.performed)
+        {
+            AdvanceText();
+        }
     }
 }

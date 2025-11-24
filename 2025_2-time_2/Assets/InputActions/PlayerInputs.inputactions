@@ -32,15 +32,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "AdvanceText",
-                    "type": "Button",
-                    "id": "dbff8c99-f8dd-408e-adde-7ed7014c3fa0",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -131,17 +122,6 @@
                     "action": "PauseButton",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "408af5a9-a89a-4cee-b0c4-dba9811585aa",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "AdvanceText",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         }
@@ -153,12 +133,12 @@
             "devices": [
                 {
                     "devicePath": "<Keyboard>",
-                    "isOptional": false,
+                    "isOptional": true,
                     "isOR": false
                 },
                 {
                     "devicePath": "<Mouse>",
-                    "isOptional": false,
+                    "isOptional": true,
                     "isOR": false
                 }
             ]
@@ -169,7 +149,7 @@
             "devices": [
                 {
                     "devicePath": "<Gamepad>",
-                    "isOptional": false,
+                    "isOptional": true,
                     "isOR": false
                 }
             ]

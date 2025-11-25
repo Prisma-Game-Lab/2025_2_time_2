@@ -250,7 +250,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.5
   m_Material: {fileID: 6200000, guid: 88be790f94f41da4f9e49a7d5eeb5b35, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -306,7 +306,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 9054844470443608963}
   moveSpeed: 5
-  jumpForce: 300
+  accelerationRate: 10
+  desaccelerationRate: 12
+  jumpForce: 400
   lowJumpMultiplier: 2
   fallMultiplier: 1
   jumpCooldown: 0.2
@@ -413,7 +415,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: c2d3f04a-3af4-4e0c-98b7-0994fe54a17e
-    m_ActionName: Normal/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+    m_ActionName: Normal/Move[/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7071176496080572082}
@@ -429,7 +431,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 03b0693e-d43d-4b2b-bda1-071b3601f853
-    m_ActionName: Normal/Jump[/Keyboard/space,/Keyboard/w,/XInputControllerWindows1/buttonSouth]
+    m_ActionName: Normal/Jump[/Keyboard/space,/Keyboard/w]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Normal

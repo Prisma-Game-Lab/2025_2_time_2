@@ -11,33 +11,25 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject Controls;
     [SerializeField] private GameObject Audio;
 
-    [SerializeField] private GameObject UICanvas;
-
-    [SerializeField] private GameObject ConsoleCanvas;
-
-    //[Header("UI")]
-
-   // [SerializeField] private GameObject UI;
-
-   
     public void TogglePause()
     {
         bool isActive = PausePanel.activeSelf;
 
         PausePanel.SetActive(!isActive);
-        ConsoleCanvas.SetActive(isActive);
-        UICanvas.SetActive(isActive);
         Controls.SetActive(false);
         Audio.SetActive(false);
         GameManager.Instance.SetPause(!isActive);
-
-
     }
 
     public void ToMenu()
     {
         TogglePause();
         LevelManager.LoadSceneByName("MainMenu");
+    }
 
+    public void OnPauseKey(InputAction.CallbackContext context) 
+    {
+        if (context.performed)
+            TogglePause();
     }
 }

@@ -6,6 +6,10 @@ using UnityEngine.Events;
 public class CommandsController : MonoBehaviour
 {
     public static CommandsController instance;
+    [Header("References")]
+    [SerializeField] private WindowController consoleWindow;
+
+    [Header("Available Commands List")]
     [SerializeField] private CommandData[] availableCommands;
 
     [Header("Commands Slots")]
@@ -25,7 +29,6 @@ public class CommandsController : MonoBehaviour
     
     private bool running;
 
-
     private void Start()
     {
         if (instance != null)
@@ -36,6 +39,11 @@ public class CommandsController : MonoBehaviour
         playerRef.SetCurrentPlayerState(PlayerController.PlayerState.Blocked);
         InitializeDictionary();
         CreateSlots();
+    }
+
+    public void ToggleConsole() 
+    {
+        consoleWindow.ToggleWindow();
     }
 
     public CommandData CheckCommand(string commandName) 

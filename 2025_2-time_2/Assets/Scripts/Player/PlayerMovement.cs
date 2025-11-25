@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Move Variables")]
     [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float accelerationRate;
+    [SerializeField] private float desaccelerationRate;
 
     [Header("Jump Variables")]
     [SerializeField] private float jumpForce = 5f;
@@ -26,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
     private bool shouldJump;
     private bool holdingJump;
 
+    private const float minSpeed = 0.01f;
+
     private Rigidbody2D rb;
 
     private void Start()
@@ -36,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         ApplyMovement();
+        SetOrientation();
         PeformGroundCheck();
 
         if (shouldJump)
@@ -77,31 +82,60 @@ public class PlayerMovement : MonoBehaviour
         if (playerController.GetCurrentPlayerState() == PlayerController.PlayerState.Blocked)
             return;
 
-        if (moveInput < 0) 
+        float desiredSpeed = moveInput * moveSpeed;
+        float speedDif = desiredSpeed - rb.velocity.x;
+
+        float accelRate;
+        if (desiredSpeed * rb.velocity.x >= 0)
         {
-            transform.rotation = Quaternion.Euler(transform.rotation.x, 180, transform.rotation.z);
+            if (Mathf.Abs(desiredSpeed) >= Mathf.Abs(rb.velocity.x))
+            {
+                accelRate = accelerationRate;
+            }
+            else
+            {
+                accelRate = desaccelerationRate;
+            }
         }
-        else if (moveInput > 0) 
+        else
         {
-            transform.rotation = Quaternion.Euler(transform.rotation.x, 0, transform.rotation.z);
+            accelRate = desaccelerationRate;
         }
 
-        rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+        rb.AddForce(Vector2.right * speedDif * accelRate);
 
         float xVelocityAbs = Mathf.Abs(rb.velocity.x);
 
         switch (playerController.GetCurrentPlayerState())
         {
             case PlayerController.PlayerState.Idle:
-                if (xVelocityAbs > 0)
+                if (xVelocityAbs > minSpeed)
                     playerController.SetCurrentPlayerState(PlayerController.PlayerState.Running);
                 break;
             case PlayerController.PlayerState.Running:
-                if (Mathf.Approximately(xVelocityAbs, 0))
+                if (xVelocityAbs < minSpeed)
+                {
                     playerController.SetCurrentPlayerState(PlayerController.PlayerState.Idle);
+                    rb.velocity *= Vector2.up;
+                }
                 break;
             default:
                 break;
+        }
+    }
+
+    private void SetOrientation() 
+    {
+        if (playerController.GetCurrentPlayerState() == PlayerController.PlayerState.Blocked)
+            return;
+
+        if (rb.velocity.x < -minSpeed)
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.x, 180, transform.rotation.z);
+        }
+        else if (rb.velocity.x > minSpeed)
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.x, 0, transform.rotation.z);
         }
     }
 

@@ -630,10 +630,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2479604007760580554, guid: 7886dfb93b0ddbf4eafdcc0f00772eb0, type: 3}
-      propertyPath: consoleWindow
-      value: 
-      objectReference: {fileID: 1429327826}
-    - target: {fileID: 2479604007760580554, guid: 7886dfb93b0ddbf4eafdcc0f00772eb0, type: 3}
       propertyPath: availableCommands.Array.data[0].sceneTargets.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -1211,17 +1207,6 @@ MonoBehaviour:
   sr: {fileID: 1987246213}
   targetName: Box
   colorName: 
---- !u!114 &1429327826 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7944977168479711290, guid: 7886dfb93b0ddbf4eafdcc0f00772eb0, type: 3}
-  m_PrefabInstance: {fileID: 451245102}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91443dbeea9ee2b43b1bfaaa1ac39968, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1447856963
 PrefabInstance:
   m_ObjectHideFlags: 0

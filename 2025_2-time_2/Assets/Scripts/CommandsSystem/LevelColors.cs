@@ -37,6 +37,8 @@ public class LevelColors : MonoBehaviour
 
     public TargetColor GetDefaultColor()
     {
+        if (availableColors.Count == 0) 
+            return null;
         return availableColors[0];
     }
 

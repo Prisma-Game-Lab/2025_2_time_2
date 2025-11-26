@@ -20,6 +20,8 @@ public class CommandTarget : MonoBehaviour
 
         if (sr == null)
             sr = GetComponent<SpriteRenderer>();
+
+        ChangeCurrentColor(colorName);
     }
 
     private void OnValidate()
@@ -93,13 +95,16 @@ public class CommandTarget : MonoBehaviour
             colorName = newTargetColor.diplayName;
             sr.color = newTargetColor.RGB;
         }
-        //else if (currentColor == null) 
-        //{
-        //    newTargetColor = LevelColors.instance.GetDefaultColor();
+        else if (currentColor == null)
+        {
+            newTargetColor = LevelColors.instance.GetDefaultColor();
 
-        //    currentColor = newTargetColor;
-        //    colorName = newTargetColor.diplayName;
-        //    sr.color = newTargetColor.RGB;
-        //}
+            if (newTargetColor != null)
+            {
+                currentColor = newTargetColor;
+                colorName = newTargetColor.diplayName;
+                sr.color = newTargetColor.RGB;
+            }
+        }
     }
 }

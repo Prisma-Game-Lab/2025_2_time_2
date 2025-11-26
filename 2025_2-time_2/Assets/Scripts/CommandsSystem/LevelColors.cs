@@ -37,11 +37,7 @@ public class LevelColors : MonoBehaviour
 
     public TargetColor GetDefaultColor()
     {
-        TargetColor color = new TargetColor();
-        color.diplayName = "White";
-        color.RGB = Color.white;
-
-        return color;
+        return availableColors[0];
     }
 
     public List<string> GetAllTargetsColorName()

@@ -1478,6 +1478,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 709634269
       objectReference: {fileID: 0}
+    - target: {fileID: 5755920594512782612, guid: dd8d0fe44e1ff6d48811472c0e4e3aa7, type: 3}
+      propertyPath: nextSceneName
+      value: Level 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5880774917157974048, guid: dd8d0fe44e1ff6d48811472c0e4e3aa7, type: 3}
       propertyPath: m_Name
       value: Door

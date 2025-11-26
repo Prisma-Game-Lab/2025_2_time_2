@@ -6,7 +6,7 @@ public class LevelColors : MonoBehaviour
 {
     public static LevelColors instance;
 
-    [SerializeField] private List<TargetColor> availableColors;
+    [SerializeField] private List<ColorInfo> availableColors;
 
     private void OnValidate()
     {
@@ -25,9 +25,9 @@ public class LevelColors : MonoBehaviour
             instance = null;
     }
     
-    public TargetColor GetTargetColor(string colorName) 
+    public ColorInfo GetTargetColor(string colorName) 
     {
-        foreach (TargetColor color in availableColors)
+        foreach (ColorInfo color in availableColors)
         {
             if (color.diplayName == colorName)
                 return color;
@@ -35,7 +35,7 @@ public class LevelColors : MonoBehaviour
         return null;
     }
 
-    public TargetColor GetDefaultColor()
+    public ColorInfo GetDefaultColor()
     {
         if (availableColors.Count == 0) 
             return null;
@@ -45,18 +45,11 @@ public class LevelColors : MonoBehaviour
     public List<string> GetAllTargetsColorName()
     {
         List<string> colorNames = new List<string>();
-        foreach (TargetColor color in availableColors) 
+        foreach (ColorInfo color in availableColors) 
         {
             colorNames.Add(color.diplayName);
         }
 
         return colorNames;
     }
-}
-
-[System.Serializable]
-public class TargetColor 
-{
-    public string diplayName;
-    public Color RGB;
 }

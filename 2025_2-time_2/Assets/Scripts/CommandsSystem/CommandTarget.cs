@@ -10,7 +10,7 @@ public class CommandTarget : MonoBehaviour
     [Header("Variables")]
     [SerializeField] private string targetName;
     [SerializeField] private string colorName;
-    private TargetColor currentColor;
+    private ColorInfo currentColor;
 
     private SizeEffect size;
 
@@ -87,7 +87,7 @@ public class CommandTarget : MonoBehaviour
             return;
         }
 
-        TargetColor newTargetColor = LevelColors.instance.GetTargetColor(newColor);
+        ColorInfo newTargetColor = LevelColors.instance.GetTargetColor(newColor);
 
         if (newTargetColor != null)
         {

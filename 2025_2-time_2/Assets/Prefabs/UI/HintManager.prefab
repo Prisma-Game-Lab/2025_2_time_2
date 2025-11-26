@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 1802283592944831002}
   m_Layer: 0
   m_Name: HintManager
-  m_TagString: Untagged
+  m_TagString: HintManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,6 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hintUIManager: {fileID: 7114385056263136551}
   hints: []
+  dialogue: []
   text: {fileID: 0}
   textSpeed: 0.03
   autoAdvanceDelay: 1
@@ -142,6 +143,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b0259d2e-7564-48ad-b531-e456b2606c52
     m_ActionName: Normal/AdvanceText[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 627708d5-a574-460e-941e-875d3a248fe0
+    m_ActionName: Normal/Restart[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0020c78e-bcfa-4b0d-ae89-8f82075683b5
+    m_ActionName: Normal/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Normal

@@ -10,26 +10,33 @@ public class HintManager : MonoBehaviour
     [SerializeField] private HintUIManager hintUIManager;
 
     [Header("Hint Configuration")]
-    [SerializeField] private List<HintSO> hints;          
-    [SerializeField] private TextMeshProUGUI text;        
-    [SerializeField] private float textSpeed = 0.05f;     
+    [SerializeField] private List<HintSO> hints;      
+    [SerializeField] private List<HintSO> dialogue;   
+
+    [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private float textSpeed = 0.05f;
 
     [Header("Auto Progression")]
-    [SerializeField] private float autoAdvanceDelay = 2f; 
-    [SerializeField] private float autoHideDelay = 2f;    
+    [SerializeField] private float autoAdvanceDelay = 2f;
+    [SerializeField] private float autoHideDelay = 2f;
 
-    [Header("Positioning Offset")]
-    [SerializeField] private float y_offset = 0.3f;       
-    [SerializeField] private float x_offset = -0.65f;    
+    [Header("Positioning Offset (world units)")]
+    [SerializeField] private float y_offset = 0.3f;
+    [SerializeField] private float x_offset = -0.65f;
 
-    private int currentHintIndex = 0;    
-    private int currentLineIndex = 0;   
-    private bool isShowing = false;      
+    private int currentHintIndex = 0;
+    private int currentLineIndex = 0;
+
+    private bool isShowing = false;
+    private bool isDialogueSequence = false;   
+
     private Coroutine typingCoroutine;
     private Coroutine autoAdvanceCoroutine;
 
     private GameObject player;
     private Camera cam;
+
+    private HintSO currentHint; // the hint currently being displayed
 
     void Start()
     {
@@ -41,6 +48,9 @@ public class HintManager : MonoBehaviour
             text.text = string.Empty;
             text.gameObject.SetActive(false);
         }
+
+        
+        StartDialogueSequence();
     }
 
     void Update()
@@ -49,9 +59,11 @@ public class HintManager : MonoBehaviour
 
         
         Vector3 screenPos = cam.WorldToScreenPoint(
-            new Vector3(player.transform.position.x + x_offset,
-                        player.transform.position.y + y_offset,
-                        player.transform.position.z)
+            new Vector3(
+                player.transform.position.x + x_offset,
+                player.transform.position.y + y_offset,
+                player.transform.position.z
+            )
         );
 
         
@@ -62,34 +74,30 @@ public class HintManager : MonoBehaviour
             out Vector2 localPoint
         );
 
-        
+       
         text.rectTransform.pivot = new Vector2(0.5f, 0f); 
         text.rectTransform.anchoredPosition = localPoint;
     }
 
-   
+  
     public void DisplayCurrentHint(int hintIndex)
     {
-        if (hints == null || hints.Count == 0 || text == null ) return;
-        if (isShowing) return; 
+        if (hints == null || hints.Count == 0 || text == null) return;
+        if (hintIndex < 0 || hintIndex >= hints.Count) return;
+        if (isShowing) return;
 
-        
-        isShowing = true;
-        currentLineIndex = 0;
+        isDialogueSequence = false; 
         currentHintIndex = hintIndex;
-        text.gameObject.SetActive(true);
-        text.text = string.Empty;
+        currentHint = hints[currentHintIndex];
 
-        
-        typingCoroutine = StartCoroutine(TypeLine());
+        StartHint();
     }
 
-    
     public void AdvanceText()
     {
-        if (!isShowing || hints == null || hints.Count == 0 || text == null) return;
+        if (!isShowing || currentHint == null || text == null) return;
 
-        string[] lines = hints[currentHintIndex].dialogue;
+        string[] lines = currentHint.dialogue;
         if (lines == null || lines.Length == 0)
         {
             FinishCurrentHint(immediate: true);
@@ -106,19 +114,68 @@ public class HintManager : MonoBehaviour
         }
 
         
-        if (currentLineIndex < lines.Length - 1)
+        if (currentLineIndex >= lines.Length - 1)
         {
-            currentLineIndex++;
-            typingCoroutine = StartCoroutine(TypeLine());
-        }
-        else
-        {
-            
             FinishCurrentHint(immediate: true);
+            return;
         }
+
+        
+        currentLineIndex++;
+        typingCoroutine = StartCoroutine(TypeLine());
     }
 
-    
+   public void OnClick(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+
+       
+        if (isShowing)
+        {
+            AdvanceText();
+            return;
+        }
+
+       
+        if (cam == null || player == null) return;
+
+        
+        Vector2 mousePos = Mouse.current.position.ReadValue();
+        Vector3 worldPos = cam.ScreenToWorldPoint(mousePos);
+        worldPos.z = 0f;
+
+        
+        Collider2D hit = Physics2D.OverlapPoint(worldPos);
+        if (hit != null && hit.gameObject == player)
+        {
+            StartDialogueSequence();
+        }
+        }
+
+  
+
+    private void StartHint()
+    {
+        isShowing = true;
+        currentLineIndex = 0;
+
+        text.gameObject.SetActive(true);
+        text.text = string.Empty;
+
+        // cancel previous coroutines if any
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+            typingCoroutine = null;
+        }
+        if (autoAdvanceCoroutine != null)
+        {
+            StopCoroutine(autoAdvanceCoroutine);
+            autoAdvanceCoroutine = null;
+        }
+
+        typingCoroutine = StartCoroutine(TypeLine());
+    }
 
     private IEnumerator TypeLine()
     {
@@ -129,7 +186,7 @@ public class HintManager : MonoBehaviour
         }
 
         text.text = "";
-        string[] lines = hints[currentHintIndex].dialogue;
+        string[] lines = currentHint.dialogue;
         string line = (lines != null && lines.Length > 0) ? lines[currentLineIndex] : "";
 
         foreach (char c in line)
@@ -139,8 +196,6 @@ public class HintManager : MonoBehaviour
         }
 
         typingCoroutine = null;
-
-        
         autoAdvanceCoroutine = StartCoroutine(AutoAdvanceAfterDelay());
     }
 
@@ -148,9 +203,9 @@ public class HintManager : MonoBehaviour
     {
         yield return new WaitForSeconds(autoAdvanceDelay);
 
-        if (!isShowing) yield break;
+        if (!isShowing || currentHint == null) yield break;
 
-        string[] lines = hints[currentHintIndex].dialogue;
+        string[] lines = currentHint.dialogue;
         if (currentLineIndex < lines.Length - 1)
         {
             currentLineIndex++;
@@ -162,10 +217,14 @@ public class HintManager : MonoBehaviour
         }
     }
 
-    
     private void FinishCurrentHint(bool immediate)
     {
-        hintUIManager.UnlockNextHint();
+        
+        if (!isDialogueSequence && hintUIManager != null)
+        {
+            hintUIManager.UnlockNextHint();
+        }
+
         if (autoAdvanceCoroutine != null)
         {
             StopCoroutine(autoAdvanceCoroutine);
@@ -174,14 +233,10 @@ public class HintManager : MonoBehaviour
 
         if (immediate)
         {
-            
-            isShowing = false;
-            text.gameObject.SetActive(false);
-            //currentHintIndex = (currentHintIndex + 1) % hints.Count;
+            EndHintSession();
         }
         else
         {
-            
             StartCoroutine(FinishHintRoutine());
         }
     }
@@ -189,17 +244,49 @@ public class HintManager : MonoBehaviour
     private IEnumerator FinishHintRoutine()
     {
         yield return new WaitForSeconds(autoHideDelay);
-
-        isShowing = false;
-        text.gameObject.SetActive(false);
-        currentHintIndex = (currentHintIndex + 1) % hints.Count;
+        EndHintSession();
     }
 
-    public void OnClick(InputAction.CallbackContext context)
+    private void EndHintSession()
     {
-        if (context.performed)
+        isShowing = false;
+        text.gameObject.SetActive(false);
+
+        if (isDialogueSequence)
         {
-            AdvanceText();
+           
+            currentHintIndex++;
+
+            if (dialogue != null && currentHintIndex < dialogue.Count)
+            {
+                currentHint = dialogue[currentHintIndex];
+                
+                StartHint();
+            }
+            else
+            {
+               
+                currentHint = null;
+                isDialogueSequence = false;
+            }
         }
+        else
+        {
+            
+        }
+    }
+
+    public void StartDialogueSequence()
+    {
+    if (dialogue == null || dialogue.Count == 0 || text == null) return;
+
+   
+    if (isShowing) return;
+
+    isDialogueSequence = true;
+    currentHintIndex = 0;
+    currentHint = dialogue[currentHintIndex];
+
+    StartHint(); 
     }
 }

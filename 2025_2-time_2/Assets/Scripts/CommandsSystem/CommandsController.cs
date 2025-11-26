@@ -7,7 +7,7 @@ public class CommandsController : MonoBehaviour
 {
     public static CommandsController instance;
     [Header("References")]
-    [SerializeField] private WindowController consoleWindow;
+    [SerializeField] private ConsoleWindow consoleWindow;
 
     [Header("Available Commands List")]
     [SerializeField] private CommandData[] availableCommands;
@@ -20,6 +20,9 @@ public class CommandsController : MonoBehaviour
     [SerializeField] private float timeBetweenCommands;
 
     [Header("Events")]
+    [SerializeField] private UnityEvent OnRun = new UnityEvent();
+    [SerializeField] private UnityEvent onValidCommands = new UnityEvent();
+    [SerializeField] private UnityEvent onInvalidCommands = new UnityEvent();
     public static UnityEvent<CommandArguments> OnCommand = new UnityEvent<CommandArguments>();
     
     private List<CMDController> commandsSlots = new List<CMDController>();
@@ -28,6 +31,7 @@ public class CommandsController : MonoBehaviour
     private PlayerController playerRef;
     
     private bool running;
+    private int validCommands;
 
     private void Start()
     {
@@ -46,13 +50,27 @@ public class CommandsController : MonoBehaviour
         consoleWindow.ToggleWindow();
     }
 
-    public CommandData CheckCommand(string commandName) 
+    public CommandData CheckCommand(string commandName, bool storedValidCommand) 
     {
         CommandData currentComand;
 
         if (!levelCommands.TryGetValue(commandName, out currentComand)) 
         {
+            if (storedValidCommand) 
+            {
+                validCommands--;
+                if (validCommands == 0)
+                    onInvalidCommands.Invoke();
+            }
+
             return null;
+        }
+
+        if (!storedValidCommand)
+        {
+            if (validCommands == 0)
+                onValidCommands.Invoke();
+            validCommands++;
         }
 
         return currentComand;
@@ -60,8 +78,10 @@ public class CommandsController : MonoBehaviour
 
     public void RunCode() 
     {
-        if (running)
+        if (running || validCommands == 0)
             return;
+
+        OnRun.Invoke();
 
         running = true;
 
@@ -106,6 +126,8 @@ public class CommandsController : MonoBehaviour
             {
                 ActivateCommand(nextCommandData, parameters);
             }
+
+            commandSlot.BlockInput();
 
             yield return new WaitForSeconds(timeBetweenCommands);
         }

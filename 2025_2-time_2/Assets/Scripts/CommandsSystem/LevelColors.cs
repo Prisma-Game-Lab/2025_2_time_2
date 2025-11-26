@@ -16,8 +16,6 @@ public class LevelColors : MonoBehaviour
 
     private void Awake()
     {
-        if (instance != null && instance != this)
-            Destroy(instance);
         instance = this;
     }
 
@@ -35,6 +33,15 @@ public class LevelColors : MonoBehaviour
                 return color;
         }
         return null;
+    }
+
+    public TargetColor GetDefaultColor()
+    {
+        TargetColor color = new TargetColor();
+        color.diplayName = "White";
+        color.RGB = Color.white;
+
+        return color;
     }
 
     public List<string> GetAllTargetsColorName()

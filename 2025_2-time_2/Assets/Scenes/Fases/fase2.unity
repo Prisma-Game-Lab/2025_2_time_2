@@ -712,10 +712,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3130078295995639014, guid: 7886dfb93b0ddbf4eafdcc0f00772eb0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1385178567}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7886dfb93b0ddbf4eafdcc0f00772eb0, type: 3}
 --- !u!1 &555194649
 GameObject:
@@ -1967,30 +1964,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d8c72f621398eb44beb73283eca6d9b, type: 3}
---- !u!1 &1385178564 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3130078295995639014, guid: 7886dfb93b0ddbf4eafdcc0f00772eb0, type: 3}
-  m_PrefabInstance: {fileID: 450724224}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1385178567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1385178564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cca6994da933764fba8c955bae6d623, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  availableColors:
-  - diplayName: Blue
-    RGB: {r: 0.24152891, g: 0.24056602, b: 1, a: 1}
-  - diplayName: Red
-    RGB: {r: 1, g: 0.19339621, b: 0.19339621, a: 1}
-  - diplayName: Purple
-    RGB: {r: 0.58637565, g: 0, b: 0.8396226, a: 1}
 --- !u!1001 &1480643168
 PrefabInstance:
   m_ObjectHideFlags: 0

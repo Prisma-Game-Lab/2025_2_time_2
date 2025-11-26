@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float accelerationRate;
     [SerializeField] private float desaccelerationRate;
+    [SerializeField] private float minSpeed = 0.01f;
 
     [Header("Jump Variables")]
     [SerializeField] private float jumpForce = 5f;
@@ -28,7 +29,6 @@ public class PlayerMovement : MonoBehaviour
     private bool shouldJump;
     private bool holdingJump;
 
-    private const float minSpeed = 0.01f;
 
     private Rigidbody2D rb;
 
@@ -65,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void SetMovement(bool state) 
     {
+        print("Ta sendo usado");
         if (state) 
         {
             if (playerController.GetCurrentPlayerState() == PlayerController.PlayerState.Blocked)
@@ -110,7 +111,9 @@ public class PlayerMovement : MonoBehaviour
         {
             case PlayerController.PlayerState.Idle:
                 if (xVelocityAbs > minSpeed)
+                {
                     playerController.SetCurrentPlayerState(PlayerController.PlayerState.Running);
+                }
                 break;
             case PlayerController.PlayerState.Running:
                 if (xVelocityAbs < minSpeed)

@@ -18,6 +18,7 @@ public class CMDController : MonoBehaviour
 
     [Header("Variables")]
     [SerializeField] private Color validCommandColor;
+    [SerializeField] private Color blockedColor;
 
     [Header("Events")]
     [SerializeField] private UnityEvent<string> OnCommandLine;
@@ -45,7 +46,7 @@ public class CMDController : MonoBehaviour
 
     private void CheckCommand(string commandName) 
     {
-        currentStoredCommand = cmdController.CheckCommand(commandName);
+        currentStoredCommand = cmdController.CheckCommand(commandName, currentStoredCommand != null);
 
         if (currentStoredCommand == null)
         {
@@ -128,17 +129,17 @@ public class CMDController : MonoBehaviour
     //    cmdInputField.text = string.Empty;
     //}
 
-    //public void OnEnterAction(InputAction.CallbackContext action)
-    //{
-    //    if (action.performed)
-    //    {
-    //        if (!selected) return;
+    public void OnEnterAction(InputAction.CallbackContext action)
+    {
+        if (action.performed)
+        {
+            if (!selected) return;
 
-    //        OnCommandLineEnter();
-    //    }
-    //}
+            CheckCommand(cmdInputField.text.ToLower().Trim(' '));
+        }
+    }
 
-     public void OnPauseButton(InputAction.CallbackContext inputValue)
+    public void OnPauseButton(InputAction.CallbackContext inputValue)
     {
         if (inputValue.performed)
         {
@@ -149,11 +150,13 @@ public class CMDController : MonoBehaviour
     public void OnSelected()
     {
         selected = true;
+        RestartManager.blocked = true;
     }
 
     public void OnDeselected()
     {
         selected = false;
+        RestartManager.blocked = false;
         CheckCommand(cmdInputField.text.ToLower().Trim(' '));
     }
 
@@ -181,5 +184,14 @@ public class CMDController : MonoBehaviour
         }
 
         return currentStoredCommand;
+    }
+
+    public void BlockInput() 
+    {
+        cmdInputField.interactable = false;
+        cmdInputField.textComponent.color = blockedColor;
+        targetDropdown.interactable = false;
+        modifierDropdown.interactable = false;
+        return;
     }
 }

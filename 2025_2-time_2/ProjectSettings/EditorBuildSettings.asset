@@ -9,13 +9,13 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: c04cae13bf3b84147a19254c4f93ae21
   - enabled: 1
-    path: Assets/Scenes/Fases/PlaytestLevel.unity
+    path: Assets/Scenes/Fases/Level 1.unity
     guid: 8cf11a131d0991f49860090f1e01749e
   - enabled: 1
-    path: Assets/Scenes/Fases/fase2.unity
+    path: Assets/Scenes/Fases/Level 2.unity
     guid: 699707179e2f9724d983481c6e10aeb5
   - enabled: 1
-    path: Assets/Scenes/Fases/fase3.unity
+    path: Assets/Scenes/Fases/Level 3.unity
     guid: 2fa70356b49cf224c934ead891977460
   - enabled: 0
     path: Assets/Scenes/CenasBrunaTeste.unity

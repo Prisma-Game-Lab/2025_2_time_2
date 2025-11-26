@@ -2,9 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System;
-using Unity.PlasticSCM.Editor.WebApi;
-using Unity.VisualScripting;
 
 public class HelpManager : MonoBehaviour
 {

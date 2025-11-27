@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class HintManager : MonoBehaviour
 {
@@ -43,6 +44,8 @@ public class HintManager : MonoBehaviour
 
     [SerializeField] private int dialogueEndEventIndex;
 
+    private static HashSet<int> scenesWithIntroPlayed = new HashSet<int>();
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -55,7 +58,14 @@ public class HintManager : MonoBehaviour
         }
 
         
-        StartDialogueSequence();
+         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        if (!scenesWithIntroPlayed.Contains(sceneIndex))
+        {
+            scenesWithIntroPlayed.Add(sceneIndex);
+            StartDialogueSequence();
+        }
+        
     }
 
     void Update()

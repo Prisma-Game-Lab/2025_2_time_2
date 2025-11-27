@@ -20,10 +20,11 @@ public class HelpManager : MonoBehaviour
     private HelpSaver hs;
 
 
-    void Awake()
+    void Start()
     {
-        hs = FindObjectOfType<HelpSaver>();
+        hs = HelpSaver.Instance;
         knownCommands = hs.GetKnowCommands();
+
         AddNewCommands();
 
         if (knownCommands.Count > 0)

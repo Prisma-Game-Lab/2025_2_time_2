@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class HintManager : MonoBehaviour
 {
@@ -37,6 +38,10 @@ public class HintManager : MonoBehaviour
     private Camera cam;
 
     private HintSO currentHint; // the hint currently being displayed
+
+    public UnityEvent OnDialogueEnd;
+
+    [SerializeField] private int dialogueEndEventIndex;
 
     void Start()
     {
@@ -116,6 +121,12 @@ public class HintManager : MonoBehaviour
         
         if (currentLineIndex >= lines.Length - 1)
         {
+
+            if (isDialogueSequence && currentHintIndex == dialogueEndEventIndex)
+            {
+                OnDialogueEnd?.Invoke();  
+            }
+
             FinishCurrentHint(immediate: true);
             return;
         }
@@ -144,7 +155,7 @@ public class HintManager : MonoBehaviour
         Vector3 worldPos = cam.ScreenToWorldPoint(mousePos);
         worldPos.z = 0f;
 
-        
+        // Physics2D requires a collider on the player
         Collider2D hit = Physics2D.OverlapPoint(worldPos);
         if (hit != null && hit.gameObject == player)
         {
@@ -213,6 +224,10 @@ public class HintManager : MonoBehaviour
         }
         else
         {
+            if (isDialogueSequence && currentHintIndex == dialogueEndEventIndex)
+            {
+                OnDialogueEnd?.Invoke();  
+            }
             FinishCurrentHint(immediate: false);
         }
     }
@@ -230,6 +245,8 @@ public class HintManager : MonoBehaviour
             StopCoroutine(autoAdvanceCoroutine);
             autoAdvanceCoroutine = null;
         }
+
+        
 
         if (immediate)
         {
@@ -254,11 +271,15 @@ public class HintManager : MonoBehaviour
 
         if (isDialogueSequence)
         {
-           
+
             currentHintIndex++;
 
             if (dialogue != null && currentHintIndex < dialogue.Count)
-            {
+            {  
+
+                
+                
+                
                 currentHint = dialogue[currentHintIndex];
                 
                 StartHint();
@@ -269,6 +290,7 @@ public class HintManager : MonoBehaviour
                 currentHint = null;
                 isDialogueSequence = false;
             }
+            
         }
         else
         {

@@ -266,7 +266,7 @@ PrefabInstance:
       objectReference: {fileID: 1185674814}
     - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: hints.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: dialogue.Array.size
@@ -288,6 +288,34 @@ PrefabInstance:
       propertyPath: dialogue.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: 07b6de9d97c53c644bcbafb3034dfc73, type: 2}
+    - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
+      propertyPath: OnDialogueEnd.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
+      propertyPath: OnDialogueEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
+      propertyPath: OnDialogueEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1690796510}
+    - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
+      propertyPath: OnDialogueEnd.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
+      propertyPath: OnDialogueEnd.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenWindow
+      objectReference: {fileID: 0}
+    - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
+      propertyPath: OnDialogueEnd.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: WindowController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
+      propertyPath: OnDialogueEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6299753315797341559, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2272.6792
@@ -329,13 +357,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7114385056263136551, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
+      propertyPath: hintButtons.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114385056263136551, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: hintButtons.Array.data[0]
       value: 
       objectReference: {fileID: 753644666}
     - target: {fileID: 7114385056263136551, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: hintButtons.Array.data[1]
       value: 
-      objectReference: {fileID: 249845434}
+      objectReference: {fileID: 0}
     - target: {fileID: 9121316655820706455, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: m_Name
       value: HintManager
@@ -486,11 +518,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &249845434 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 742320294876862646, guid: 882d69153106edf4fb7cb996d4ae1da5, type: 3}
-  m_PrefabInstance: {fileID: 6120493449158919113}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &249866834
 GameObject:
   m_ObjectHideFlags: 0
@@ -1685,6 +1712,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7101974640435649433, guid: 600f7e8391716cc40878b7fdd47688f4, type: 3}
+      propertyPath: newCommands.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7101974640435649433, guid: 600f7e8391716cc40878b7fdd47688f4, type: 3}
       propertyPath: tooltipDesc.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -1692,6 +1723,10 @@ PrefabInstance:
       propertyPath: tooltipNames.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7101974640435649433, guid: 600f7e8391716cc40878b7fdd47688f4, type: 3}
+      propertyPath: newCommands.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5c4e7b355b649484791a0c834de03e5d, type: 2}
     - target: {fileID: 7101974640435649433, guid: 600f7e8391716cc40878b7fdd47688f4, type: 3}
       propertyPath: tooltipDesc.Array.data[0]
       value: 
@@ -2040,7 +2075,8 @@ PrefabInstance:
       value: 410
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 742320294876862646, guid: 882d69153106edf4fb7cb996d4ae1da5, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 882d69153106edf4fb7cb996d4ae1da5, type: 3}

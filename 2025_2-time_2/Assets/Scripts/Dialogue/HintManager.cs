@@ -47,7 +47,7 @@ public class HintManager : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         cam = Camera.main;
-
+        
         if (text != null)
         {
             text.text = string.Empty;

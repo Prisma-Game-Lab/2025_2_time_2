@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa2e8eac3cde8cc48a52e7889215f788, type: 3}
-  m_Name: Hint1.2
+  m_Name: Hint4.1
   m_EditorClassIdentifier: 
-  hintLabel: Dica 2
+  hintLabel: Hint 1
   dialogue:
-  - "Pensando bem, acho que eu esqueci de arrumar o tamanho dessa caixa. Esse size
-    t\xE1 desatualizado."
+  - "T\xE1 vendo essas caixas coloridas, claramente elas n\xE3o s\xE3o iguais, acho
+    que voc\xEA j\xE1 entendeu o que eu to querendo dizer\u2026 "

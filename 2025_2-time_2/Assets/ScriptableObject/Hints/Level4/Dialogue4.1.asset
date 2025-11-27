@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa2e8eac3cde8cc48a52e7889215f788, type: 3}
-  m_Name: Hint1.1
+  m_Name: Dialogue4.1
   m_EditorClassIdentifier: 
-  hintLabel: Dica 1
+  hintLabel: Dialogue 1
   dialogue:
-  - "Pensando bem, acho que eu esqueci de arrumar o tamanho dessa caixa. Ela t\xE1
-    grande de mais..."
+  - "Aff, voc\xEA vai precisar de um novo comando dessa vez de novo..."
+  - "J\xE1 coloquei ele no help pra voc\xEA     (-_-)"

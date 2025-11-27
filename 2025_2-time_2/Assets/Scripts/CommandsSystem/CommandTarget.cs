@@ -63,17 +63,17 @@ public class CommandTarget : MonoBehaviour
             colorName = newTargetColor.diplayName;
             sr.color = newTargetColor.RGB;
         }
-        else if (currentColor == null)
-        {
-            newTargetColor = LevelColors.instance.GetDefaultColor();
+        //else if (currentColor == null)
+        //{
+        //    newTargetColor = LevelColors.instance.GetDefaultColor();
 
-            if (newTargetColor != null)
-            {
-                currentColor = newTargetColor;
-                colorName = newTargetColor.diplayName;
-                sr.color = newTargetColor.RGB;
-            }
-        }
+        //    if (newTargetColor != null)
+        //    {
+        //        currentColor = newTargetColor;
+        //        colorName = newTargetColor.diplayName;
+        //        sr.color = newTargetColor.RGB;
+        //    }
+        //}
     }
 
     public string GetDisplayName()

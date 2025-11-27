@@ -55,6 +55,9 @@ public class SizeEffect : CommandEffect
 
         desiredSize = (TargetSize)index;
 
+        if (target.GetTargetSize() == desiredSize)
+            return;
+
         if (activeDestructionCoroutine != null)
         {
             StopCoroutine(activeDestructionCoroutine);

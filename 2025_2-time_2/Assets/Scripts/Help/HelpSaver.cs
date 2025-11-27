@@ -11,12 +11,16 @@ public class HelpSaver : MonoBehaviour
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
+            return;
         }
-        else
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
+        
+        
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        if (knownCommands == null)
+            knownCommands = new List<CommandTooltipSO>();
+        
     }
     
     public List<CommandTooltipSO> GetKnowCommands()

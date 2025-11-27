@@ -19,6 +19,6 @@ MonoBehaviour:
   - displayName: Small
     modifierValue: 0.5
   - displayName: Medium
-    modifierValue: 1
+    modifierValue: 1.5
   - displayName: Big
-    modifierValue: 2
+    modifierValue: 3

@@ -308,6 +308,7 @@ MonoBehaviour:
   moveSpeed: 5
   accelerationRate: 10
   desaccelerationRate: 12
+  minSpeed: 0.05
   jumpForce: 400
   lowJumpMultiplier: 2
   fallMultiplier: 1
@@ -316,7 +317,7 @@ MonoBehaviour:
   groundCheckRadius: 0.2
   groundLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 768
 --- !u!114 &7071176496080572082
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,87 +1,55 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CommandTarget : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] private SpriteRenderer sr;
+    [SerializeField] private SizeEffect size;
+    [SerializeField] private Command sizeScriptable;
 
     [Header("Variables")]
     [SerializeField] private string targetName;
     [SerializeField] private string colorName;
+    [SerializeField] private TargetSize targetSize = TargetSize.Medium;
     private ColorInfo currentColor;
 
-    private SizeEffect size;
+    [Header("Events")]
+    [SerializeField] private UnityEvent OnSizeChange;
 
     private void Start()
     {
         CommandsController.OnCommand.AddListener(ActivateCommand);
 
-        if (sr == null)
-            sr = GetComponent<SpriteRenderer>();
-
-        ChangeCurrentColor(colorName);
+        StartUp();
     }
 
     private void OnValidate()
     {
+        StartUp();
+    }
+
+    private void StartUp() 
+    {
         if (sr == null)
             sr = GetComponent<SpriteRenderer>();
+
+        if (size == null)
+            size = GetComponent<SizeEffect>();
+
         ChangeCurrentColor(colorName);
-    }
 
-    private void ActivateCommand(CommandArguments arguments)
-    {
-        CommandEffectType commandEffect = arguments.commandScriptable.effect;
-
-        if (arguments.commandScriptable.hasTarget)
-        { 
-            if (arguments.parameters.Count == 0)
-                return;
-            if (arguments.parameters[0] != GetDisplayName())
-            {
-                if (commandEffect == CommandEffectType.Size && size != null)
-                    size.Destroy();
-                return;
-            }
-        }
-
-        switch (commandEffect)
+        if (size != null)
         {
-            case CommandEffectType.Size:
-                if (size == null)
-                { 
-                    size = gameObject.AddComponent<SizeEffect>();
-                }
-                size.Initialize(this, arguments);
-                break;
-            case CommandEffectType.Clear:
-                //Just a test
-                //Not final clear code
-                if (size != null)
-                    size.Destroy();
-                break;
-            case CommandEffectType.Color:
-                ColorEffect color = gameObject.AddComponent<ColorEffect>();
-                color.Initialize(this, arguments);
-                break;
+            size.Initialize(this, targetSize, sizeScriptable);
         }
     }
 
-    public string GetDisplayName() 
+    public void ChangeCurrentColor(string newColor)
     {
-        if (colorName != null)
-        {
-            string displayName = colorName + " " + targetName;
-            return displayName;
-        }
-        return targetName;
-    }
-
-    public void ChangeCurrentColor(string newColor) 
-    {
-        if (LevelColors.instance == null || newColor == null) 
+        if (LevelColors.instance == null || newColor == null)
         {
             sr.color = Color.white;
             return;
@@ -107,4 +75,66 @@ public class CommandTarget : MonoBehaviour
             }
         }
     }
+
+    public string GetDisplayName()
+    {
+        if (colorName != null)
+        {
+            string displayName = colorName + " " + targetName;
+            return displayName;
+        }
+        return targetName;
+    }
+
+    public TargetSize GetTargetSize() 
+    {
+        return targetSize;
+    }
+
+    public void SetTargetSize(TargetSize newSize, bool invoke = true)
+    {
+        targetSize = newSize;
+        if (invoke)
+            OnSizeChange.Invoke();
+    }
+
+    private void ActivateCommand(CommandArguments arguments)
+    {
+        CommandEffectType commandEffect = arguments.commandScriptable.effect;
+
+        if (arguments.commandScriptable.hasTarget)
+        { 
+            if (arguments.parameters.Count == 0)
+                return;
+            if (arguments.parameters[0] != GetDisplayName())
+            {
+                if (commandEffect == CommandEffectType.Size && size != null)
+                    size.Destroy();
+                return;
+            }
+        }
+
+        switch (commandEffect)
+        {
+            case CommandEffectType.Size:
+                size.Initialize(this, arguments);
+                OnSizeChange.Invoke();
+                break;
+            case CommandEffectType.Clear:
+                //Just a test
+                //Not final clear code
+                //if (size != null)
+                //    size.Destroy();
+                break;
+            case CommandEffectType.Color:
+                ColorEffect color = gameObject.AddComponent<ColorEffect>();
+                color.Initialize(this, arguments);
+                break;
+        }
+    }
+}
+
+public enum TargetSize 
+{
+    Small, Medium, Big, Altering
 }

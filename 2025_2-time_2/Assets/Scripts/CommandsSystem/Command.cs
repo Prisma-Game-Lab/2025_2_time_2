@@ -28,6 +28,36 @@ public class Command : ScriptableObject
         modifierValue = -1;
         return false;
     }
+
+    public bool GetModifierValue(string modifierDisplay, out float modifierValue, out int index)
+    {
+        index = 0;
+        foreach (Modifier modifier in modifiers)
+        {
+            if (modifier.displayName == modifierDisplay)
+            {
+                modifierValue = modifier.modifierValue;
+                return true;
+            }
+            index++;
+        }
+        index = -1;
+        modifierValue = -1;
+
+        return false;
+    }
+
+    public bool GetModifierValue(int index, out float modifierValue)
+    {
+        if (modifiers.Length < index)
+        {
+            modifierValue = -1;
+            return false;
+        }
+
+        modifierValue = modifiers[index].modifierValue;
+        return true;
+    }
 }
 
 public enum CommandEffectType 

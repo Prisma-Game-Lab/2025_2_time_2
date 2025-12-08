@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6555588895124204769}
   - component: {fileID: 2273422282269893601}
+  - component: {fileID: 2642388753005632927}
   m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
@@ -84,6 +85,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2642388753005632927
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282211057831767776}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cfb521f80bf574c42b5371792f5aa8ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5880774917157974048
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,4 +197,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b7a2653452271a42bd1ab75e01db4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: fase2
+  animator: {fileID: 2642388753005632927}
+  spriteRenderer: {fileID: 2273422282269893601}
+  nextSceneName: Level 3
+  locked: 0
+  lockedSprite: {fileID: 21300000, guid: f60bf9b5e42549d49a98281b06bdc5ea, type: 3}
+  unlockedSprite: {fileID: 21300000, guid: 1241b8d49f35d5243b4545059282affd, type: 3}

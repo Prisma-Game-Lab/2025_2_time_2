@@ -14,7 +14,7 @@ public class CMDController : MonoBehaviour
     [SerializeField] private TMP_Dropdown targetDropdown;
     [SerializeField] private GameObject modifierHolder;
     [SerializeField] private TMP_Dropdown modifierDropdown;
-    private CommandsController cmdController;
+    private ConsoleWindow consoleWindow;
 
     [Header("Variables")]
     [SerializeField] private Color validCommandColor;
@@ -28,7 +28,12 @@ public class CMDController : MonoBehaviour
     [SerializeField] private PauseMenu pauseMenu;
 
     private CommandData currentStoredCommand;
+
     private bool selected;
+
+    private bool valid = false;
+    private bool empty = true;
+
     private Color originalColor;
 
     private HelpManager helpManager;
@@ -39,28 +44,28 @@ public class CMDController : MonoBehaviour
         helpManager = FindObjectOfType<HelpManager>();
     }
 
-    public void SetCMDCReference(CommandsController cmd) 
+    public void SetWindowReference(ConsoleWindow window) 
     {
-        cmdController = cmd;
+        consoleWindow = window;
     }
 
     private void CheckCommand(string commandName) 
     {
-        currentStoredCommand = cmdController.CheckCommand(commandName, currentStoredCommand != null);
+        string currentText = cmdInputField.text;
 
-        if (currentStoredCommand == null)
+        currentStoredCommand = consoleWindow.ValidateCommand(currentText, ref empty, ref valid);
+        //currentStoredCommand = cmdController.CheckCommand(cleanCommandName, currentStoredCommand != null);
+
+        if (!valid)
         {
-            cmdInputField.textComponent.color = originalColor;
-            targetHolder.SetActive(false);
-            modifierHolder.SetActive(false);
-            currentStoredCommand = null;
+            ResetState();
             return;
         }
 
         // Registers command
         if (helpManager != null) 
-            helpManager.AddCommand(commandName);
-        
+            helpManager.AddCommand(currentStoredCommand.commandScriptable.commandName);
+
         cmdInputField.textComponent.color = validCommandColor;
         cmdInputField.SetTextWithoutNotify(currentStoredCommand.commandScriptable.commandName);
 
@@ -135,7 +140,7 @@ public class CMDController : MonoBehaviour
         {
             if (!selected) return;
 
-            CheckCommand(cmdInputField.text.ToLower().Trim(' '));
+            CheckCommand(cmdInputField.text);
         }
     }
 
@@ -157,7 +162,7 @@ public class CMDController : MonoBehaviour
     {
         selected = false;
         RestartManager.blocked = false;
-        CheckCommand(cmdInputField.text.ToLower().Trim(' '));
+        CheckCommand(cmdInputField.text);
     }
 
     public CommandData GetData(out List<string> parameters) 
@@ -193,5 +198,21 @@ public class CMDController : MonoBehaviour
         targetDropdown.interactable = false;
         modifierDropdown.interactable = false;
         return;
+    }
+
+    public void Clear() 
+    {
+        cmdInputField.text = "";
+        empty = true;
+        valid = false;
+
+        ResetState();
+    }
+
+    private void ResetState() 
+    {
+        cmdInputField.textComponent.color = originalColor;
+        targetHolder.SetActive(false);
+        modifierHolder.SetActive(false);
     }
 }

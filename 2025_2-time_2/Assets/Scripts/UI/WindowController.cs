@@ -6,13 +6,12 @@ using UnityEngine.InputSystem;
 public class WindowController : MonoBehaviour
 {
     [SerializeField] private RectTransform canvas;
+    [SerializeField] private RectTransform window;
     [SerializeField] private GameObject holder;
     [SerializeField] private RectTransform topBar;
 
     [SerializeField] private float minWidth;
     [SerializeField] private float minHeight;
-
-    private RectTransform rectTransform;
 
     private bool movingWindow;
     private bool resizingWindow;
@@ -23,7 +22,8 @@ public class WindowController : MonoBehaviour
 
     private void Start()
     {
-        rectTransform = GetComponent<RectTransform>();
+        if (window == null)
+            window = GetComponent<RectTransform>();
     }
 
     private void FixedUpdate()
@@ -95,7 +95,7 @@ public class WindowController : MonoBehaviour
         resizingWindow = true;
 
         Vector2 mousePos = Mouse.current.position.value;
-        mouseDiff = (mousePos - (Vector2)transform.position) / rectTransform.sizeDelta * 2;
+        mouseDiff = (mousePos - (Vector2)transform.position) / window.sizeDelta * 2;
 
         Vector2 absMouseDiff = new Vector2(Mathf.Abs(mouseDiff.x), Mathf.Abs(mouseDiff.y));
 
@@ -123,13 +123,13 @@ public class WindowController : MonoBehaviour
 
         if (mouseDiff.x < 0)
         {
-            transform.position += new Vector3(rectTransform.rect.width / 2, 0);
-            rectTransform.pivot = new Vector2(1, rectTransform.pivot.y);
+            transform.position += new Vector3(window.rect.width / 2, 0);
+            window.pivot = new Vector2(1, window.pivot.y);
         }
         else
         {
-            transform.position -= new Vector3(rectTransform.rect.width / 2, 0);
-            rectTransform.pivot = new Vector2(0, rectTransform.pivot.y);
+            transform.position -= new Vector3(window.rect.width / 2, 0);
+            window.pivot = new Vector2(0, window.pivot.y);
         }
     }
 
@@ -139,13 +139,13 @@ public class WindowController : MonoBehaviour
 
         if (mouseDiff.y < 0)
         {
-            transform.position += new Vector3(0, rectTransform.rect.height / 2);
-            rectTransform.pivot = new Vector2(rectTransform.pivot.x, 1);
+            transform.position += new Vector3(0, window.rect.height / 2);
+            window.pivot = new Vector2(window.pivot.x, 1);
         }
         else
         {
-            transform.position -= new Vector3(0, rectTransform.rect.height / 2);
-            rectTransform.pivot = new Vector2(rectTransform.pivot.x, 0);
+            transform.position -= new Vector3(0, window.rect.height / 2);
+            window.pivot = new Vector2(window.pivot.x, 0);
         }
     }
 
@@ -160,7 +160,7 @@ public class WindowController : MonoBehaviour
             StopResizeY();
         }
 
-        rectTransform.pivot = new Vector2(0.5f, 0.5f);
+        window.pivot = new Vector2(0.5f, 0.5f);
         
         resizingWindow = false;
     }
@@ -171,11 +171,11 @@ public class WindowController : MonoBehaviour
 
         if (mouseDiff.x < 0)
         {
-            transform.position -= new Vector3(rectTransform.rect.width / 2, 0);
+            transform.position -= new Vector3(window.rect.width / 2, 0);
         }
         else
         {
-            transform.position += new Vector3(rectTransform.rect.width / 2, 0);
+            transform.position += new Vector3(window.rect.width / 2, 0);
         }
     }
 
@@ -185,11 +185,11 @@ public class WindowController : MonoBehaviour
 
         if (mouseDiff.y < 0)
         {
-            transform.position -= new Vector3(0, rectTransform.rect.height / 2);
+            transform.position -= new Vector3(0, window.rect.height / 2);
         }
         else
         {
-            transform.position += new Vector3(0, rectTransform.rect.height / 2);
+            transform.position += new Vector3(0, window.rect.height / 2);
         }
     }
 
@@ -204,14 +204,14 @@ public class WindowController : MonoBehaviour
         if (resizingWindowX)
             relativeSize.x = Mathf.Max(Mathf.Abs(relativeSize.x), minWidth);
         else
-            relativeSize.x = rectTransform.sizeDelta.x;
+            relativeSize.x = window.sizeDelta.x;
 
         if (resizingWindowY)
             relativeSize.y = Mathf.Max(Mathf.Abs(relativeSize.y), minHeight);
         else
-            relativeSize.y = rectTransform.sizeDelta.y;
+            relativeSize.y = window.sizeDelta.y;
         
-        rectTransform.sizeDelta = relativeSize;
+        window.sizeDelta = relativeSize;
     }
 
     private void ClampSize(ref float valueSize, float mouseDiffAxis, bool condition) 

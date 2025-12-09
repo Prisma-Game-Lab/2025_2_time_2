@@ -6,16 +6,15 @@ using UnityEngine.Events;
 public class CommandsController : MonoBehaviour
 {
     public static CommandsController instance;
+
     [Header("References")]
     [SerializeField] private ConsoleWindow consoleWindow;
 
     [Header("Available Commands List")]
     [SerializeField] private CommandData[] availableCommands;
 
-    [Header("Commands Slots")]
-    [SerializeField] private GameObject commandSlotPrefab;
-    [SerializeField] private GameObject commandSlotHolder;
-    [SerializeField] private int commandSlotsNum;
+    [Header("Commands Variables")]
+    [SerializeField] private int nSlots;
     [SerializeField] private float startTime;
     [SerializeField] private float timeBetweenCommands;
 
@@ -25,7 +24,6 @@ public class CommandsController : MonoBehaviour
     [SerializeField] private UnityEvent onInvalidCommands = new UnityEvent();
     public static UnityEvent<CommandArguments> OnCommand = new UnityEvent<CommandArguments>();
     
-    private List<CMDController> commandsSlots = new List<CMDController>();
     private Dictionary<string, CommandData> levelCommands;
 
     private PlayerController playerRef;
@@ -42,7 +40,7 @@ public class CommandsController : MonoBehaviour
         playerRef = GameManager.Instance.GetPlayerRef().GetComponent<PlayerController>();
         playerRef.SetCurrentPlayerState(PlayerController.PlayerState.Blocked);
         InitializeDictionary();
-        CreateSlots();
+        consoleWindow.CreateSlots(nSlots);
     }
 
     public void ToggleConsole() 
@@ -50,27 +48,18 @@ public class CommandsController : MonoBehaviour
         consoleWindow.ToggleWindow();
     }
 
-    public CommandData CheckCommand(string commandName, bool storedValidCommand) 
+    public void OpenConsole() 
+    {
+        consoleWindow.OpenWindow();
+    }
+
+    public CommandData CheckCommand(string commandName) 
     {
         CommandData currentComand;
 
         if (!levelCommands.TryGetValue(commandName, out currentComand)) 
         {
-            if (storedValidCommand) 
-            {
-                validCommands--;
-                if (validCommands == 0)
-                    onInvalidCommands.Invoke();
-            }
-
             return null;
-        }
-
-        if (!storedValidCommand)
-        {
-            if (validCommands == 0)
-                onValidCommands.Invoke();
-            validCommands++;
         }
 
         return currentComand;
@@ -100,34 +89,23 @@ public class CommandsController : MonoBehaviour
         }
     }
 
-    private void CreateSlots() 
-    {
-        for (int i = 0; i < commandSlotsNum; i++)
-        {
-            GameObject newCommandSlot = Instantiate(commandSlotPrefab, commandSlotHolder.transform);
-            CMDController newCMDController = newCommandSlot.GetComponent<CMDController>();
-            commandsSlots.Add(newCMDController);
-            newCMDController.SetCMDCReference(this);
-        }
-    }
-
     private IEnumerator RunSequence()
     {
         playerRef.SetCurrentPlayerState(PlayerController.PlayerState.Idle);
 
         yield return new WaitForSeconds(startTime);
 
-        foreach (var commandSlot in commandsSlots)
+        for (int i = 0; i < nSlots; i++) 
         {
             List<string> parameters;
-            CommandData nextCommandData = commandSlot.GetData(out parameters);
+            CommandData nextCommandData = consoleWindow.GetSlotData(i, out parameters);
 
             if (nextCommandData != null)
             {
                 ActivateCommand(nextCommandData, parameters);
             }
 
-            commandSlot.BlockInput();
+            consoleWindow.BlockSlot(i);
 
             yield return new WaitForSeconds(timeBetweenCommands);
         }
@@ -141,6 +119,19 @@ public class CommandsController : MonoBehaviour
         commandArguments.parameters = parameters;
 
         OnCommand.Invoke(commandArguments);
+    }
+
+    public void SetNValidCommands(int nValidCommands) 
+    {
+        if (validCommands == nValidCommands)
+            return;
+
+        validCommands = nValidCommands;
+
+        if (validCommands == 0)
+            onInvalidCommands.Invoke();
+        else
+            onValidCommands.Invoke();
     }
 }
 

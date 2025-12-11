@@ -62,6 +62,12 @@ public class ButtonScript : MonoBehaviour
             targetTop,
             pressSpeed * Time.deltaTime
         );
+
+        
+        if (overlappingBodies.Count > 0)
+        {
+            RecalculateState();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -83,7 +89,7 @@ public class ButtonScript : MonoBehaviour
             RecalculateState();
         }
     }
-
+    
     private void RecalculateState()
     {
         float totalMass = 0f;

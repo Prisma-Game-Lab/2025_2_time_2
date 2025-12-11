@@ -92,6 +92,7 @@ public class SizeEffect : CommandEffect
 
     public override void Destroy()
     {
+        print("a");
         activeDestructionCoroutine = StartCoroutine(DestructionSequence());
     }
 
@@ -121,7 +122,7 @@ public class SizeEffect : CommandEffect
     {
         ReturnToOriginalScale();
         yield return new WaitForSeconds(interpolationTime);
-        Destroy(this);
+        //Destroy(this);
     }
 }
 

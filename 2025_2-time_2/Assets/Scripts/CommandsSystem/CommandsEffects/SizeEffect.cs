@@ -92,7 +92,6 @@ public class SizeEffect : CommandEffect
 
     public override void Destroy()
     {
-        print("a");
         activeDestructionCoroutine = StartCoroutine(DestructionSequence());
     }
 

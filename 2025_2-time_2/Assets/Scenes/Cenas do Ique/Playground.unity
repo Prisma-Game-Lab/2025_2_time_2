@@ -2032,12 +2032,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4305481992724151487, guid: 64849051c7d1000488610aec31a33e64, type: 3}
       propertyPath: availableColors.Array.size
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4305481992724151487, guid: 64849051c7d1000488610aec31a33e64, type: 3}
       propertyPath: availableColors.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: 9dda3a5370d302e47823d62aecd0b4c1, type: 2}
+    - target: {fileID: 4305481992724151487, guid: 64849051c7d1000488610aec31a33e64, type: 3}
+      propertyPath: availableColors.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: df471f1ce61bf7944aebe09b9023c222, type: 2}
+    - target: {fileID: 4305481992724151487, guid: 64849051c7d1000488610aec31a33e64, type: 3}
+      propertyPath: availableColors.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7720dbe0f675f1543bfdbdc02bf9cf67, type: 2}
     - target: {fileID: 5457555569732933235, guid: 64849051c7d1000488610aec31a33e64, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

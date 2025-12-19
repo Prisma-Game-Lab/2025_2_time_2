@@ -9,8 +9,9 @@ public class DoorScript : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
 
     [Header("Configuration")]
-    [SerializeField] private string nextSceneName;
     [SerializeField] private bool locked;
+    [SerializeField] private bool unlockNextLevel;
+    [SerializeField] private string nextSceneName;
     [SerializeField] private Sprite lockedSprite;
     [SerializeField] private Sprite unlockedSprite;
 
@@ -65,6 +66,9 @@ public class DoorScript : MonoBehaviour
             return;
         if (triggered)
             return;
+
+        if (unlockNextLevel)
+            LevelManager.UnlockNextLevel();
 
         LevelManager.LoadSceneByName(nextSceneName);
         PlayerController pc = collision.GetComponent<PlayerController>();

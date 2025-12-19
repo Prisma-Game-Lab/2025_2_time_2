@@ -10,18 +10,25 @@ public class LevelManager : MonoBehaviour
 
     public static UnityEvent OnSceneChanged;
 
+    public static int unlockedLevels { get; private set; }
+    private static int reachedBuildIndex;
+
     private void Awake()
     {
         if (Instance != null && Instance != this) 
         {
             Destroy(gameObject);
+            return;
         }
-        else 
-        {
-            Instance = this;
-            OnSceneChanged = new UnityEvent();
-            DontDestroyOnLoad(gameObject);
-        }
+
+        Instance = this;
+        OnSceneChanged = new UnityEvent();
+        DontDestroyOnLoad(gameObject);
+
+        unlockedLevels = PlayerPrefs.GetInt("unlockedLevels", 0);
+        reachedBuildIndex = PlayerPrefs.GetInt("reachedBuildIndex", 0);
+
+        print(unlockedLevels.ToString() + " " + reachedBuildIndex.ToString());
     }
 
     public static void RestartLevel() 
@@ -34,10 +41,32 @@ public class LevelManager : MonoBehaviour
         if (fade)
             Instance.StartCoroutine(Instance.ActivateSceneTransition(sceneName));
         else
-            Instance.LoadSceneImmediatly(sceneName);
+            LoadSceneImmediatly(sceneName);
     }
 
-    private void LoadSceneImmediatly(string sceneName) 
+    public static void UnlockNextLevel() 
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        if (currentScene.buildIndex > reachedBuildIndex) 
+        {
+            reachedBuildIndex = currentScene.buildIndex;
+            unlockedLevels++;
+
+            SaveLevelData();
+        }
+
+        print(unlockedLevels.ToString() + " " + reachedBuildIndex.ToString());
+    }
+
+    public static void EraseLevelData() 
+    {
+        unlockedLevels = 0;
+        reachedBuildIndex = 0;
+
+        SaveLevelData();
+    }
+
+    private static void LoadSceneImmediatly(string sceneName) 
     {
         if (SceneManager.GetActiveScene().name == sceneName)
         {
@@ -53,5 +82,12 @@ public class LevelManager : MonoBehaviour
     {
         yield return new WaitForSeconds(SceneController.instance.TriggerLevelTransition());
         LoadSceneImmediatly(sceneName);
+    }
+
+    private static void SaveLevelData() 
+    {
+        PlayerPrefs.SetInt("unlockedLevels", unlockedLevels);
+        PlayerPrefs.SetInt("reachedBuildIndex", reachedBuildIndex);
+        PlayerPrefs.Save();
     }
 }

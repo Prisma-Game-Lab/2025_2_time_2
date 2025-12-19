@@ -610,6 +610,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2434106334892014635, guid: 0b940c4812836b448817de93365346b5, type: 3}
+      propertyPath: levelScenes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2648606234435616853, guid: 0b940c4812836b448817de93365346b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

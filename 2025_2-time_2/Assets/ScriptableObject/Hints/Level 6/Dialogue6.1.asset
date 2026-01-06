@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hintLabel: Dialogue 1
   dialogue:
-  - Porta trancada...claro
+  - "Aff, voc\xEA vai precisar de um novo comando dessa vez de novo..."
+  - "J\xE1 coloquei ele no help pra voc\xEA     (-_-)"

@@ -191,6 +191,7 @@ PrefabInstance:
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2208176d47c0c7f44a90671972c57f49, type: 3}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!114 &293534601 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6736792435768471506, guid: 882d69153106edf4fb7cb996d4ae1da5, type: 3}
@@ -265,6 +266,9 @@ PrefabInstance:
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b940c4812836b448817de93365346b5, type: 3}
 --- !u!1001 &755785998
+=======
+--- !u!1001 &247581207
+>>>>>>> Stashed changes
 =======
 --- !u!1001 &247581207
 >>>>>>> Stashed changes

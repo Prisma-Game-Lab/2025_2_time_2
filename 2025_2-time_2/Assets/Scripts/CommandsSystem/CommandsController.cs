@@ -25,8 +25,6 @@ public class CommandsController : MonoBehaviour
     public static UnityEvent<CommandArguments> OnCommand = new UnityEvent<CommandArguments>();
     
     private Dictionary<string, CommandData> levelCommands;
-
-    private PlayerController playerRef;
     
     private bool running;
     private int validCommands;
@@ -37,8 +35,6 @@ public class CommandsController : MonoBehaviour
             Destroy(instance);
         instance = this;
 
-        playerRef = GameManager.Instance.GetPlayerRef().GetComponent<PlayerController>();
-        playerRef.SetCurrentPlayerState(PlayerController.PlayerState.Blocked);
         InitializeDictionary();
         consoleWindow.CreateSlots(nSlots);
     }
@@ -91,8 +87,6 @@ public class CommandsController : MonoBehaviour
 
     private IEnumerator RunSequence()
     {
-        playerRef.SetCurrentPlayerState(PlayerController.PlayerState.Idle);
-
         yield return new WaitForSeconds(startTime);
 
         for (int i = 0; i < nSlots; i++) 

@@ -255,3 +255,4 @@ MonoBehaviour:
   target: {fileID: 1690095851677356945}
   smallMass: 0.5
   bigMass: 10000000
+  frictionCoeficient: 0

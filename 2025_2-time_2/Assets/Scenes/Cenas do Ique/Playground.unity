@@ -1416,6 +1416,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 411996302}
     m_Modifications:
+    - target: {fileID: 472745195433615186, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: d45a36da9636d7a4fb3d587b61437ae4, type: 2}
     - target: {fileID: 1690095851677356945, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: colorName
       value: Red
@@ -1431,6 +1435,14 @@ PrefabInstance:
     - target: {fileID: 2923228635816034238, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: m_Constraints
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6565771751089181575, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
+      propertyPath: smallMass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6565771751089181575, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
+      propertyPath: frictionCoeficient
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6639808512304542827, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: m_Color.b

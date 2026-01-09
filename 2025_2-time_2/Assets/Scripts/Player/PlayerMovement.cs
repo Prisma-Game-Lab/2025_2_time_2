@@ -80,10 +80,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void ApplyMovement()
     {
-        if (playerController.GetCurrentPlayerState() == PlayerController.PlayerState.Blocked)
-            return;
+        float desiredMoveDir = moveInput;
 
-        float desiredSpeed = moveInput * moveSpeed;
+        if (playerController.GetCurrentPlayerState() == PlayerController.PlayerState.Blocked)
+            desiredMoveDir = 0;
+
+        float desiredSpeed = desiredMoveDir * moveSpeed;
         float speedDif = desiredSpeed - rb.velocity.x;
 
         float accelRate;
@@ -105,26 +107,7 @@ public class PlayerMovement : MonoBehaviour
 
         rb.AddForce(Vector2.right * speedDif * accelRate);
 
-        float xVelocityAbs = Mathf.Abs(rb.velocity.x);
-
-        switch (playerController.GetCurrentPlayerState())
-        {
-            case PlayerController.PlayerState.Idle:
-                if (xVelocityAbs > minSpeed)
-                {
-                    playerController.SetCurrentPlayerState(PlayerController.PlayerState.Running);
-                }
-                break;
-            case PlayerController.PlayerState.Running:
-                if (xVelocityAbs < minSpeed)
-                {
-                    playerController.SetCurrentPlayerState(PlayerController.PlayerState.Idle);
-                    rb.velocity *= Vector2.up;
-                }
-                break;
-            default:
-                break;
-        }
+        VelocityStateHandler();
     }
 
     private void SetOrientation() 
@@ -184,5 +167,38 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity += Vector2.up * Physics2D.gravity.y * fallMultiplier * Time.deltaTime;
         else if (rb.velocity.y > 0 && !holdingJump)
             rb.velocity += Vector2.up * Physics2D.gravity.y * lowJumpMultiplier * Time.deltaTime;
+    }
+
+    private void VelocityStateHandler() 
+    {
+        float xVelocityAbs = Mathf.Abs(rb.velocity.x);
+
+        switch (playerController.GetCurrentPlayerState())
+        {
+            case PlayerController.PlayerState.Idle:
+                if (xVelocityAbs > minSpeed)
+                {
+                    playerController.SetCurrentPlayerState(PlayerController.PlayerState.Running);
+                }
+                break;
+
+            case PlayerController.PlayerState.Running:
+                if (xVelocityAbs < minSpeed)
+                {
+                    playerController.SetCurrentPlayerState(PlayerController.PlayerState.Idle);
+                    rb.velocity *= Vector2.up;
+                }
+                break;
+
+            case PlayerController.PlayerState.Blocked:
+                if (xVelocityAbs < minSpeed)
+                {
+                    rb.velocity *= Vector2.up;
+                }
+                break;
+
+            default:
+                break;
+        }
     }
 }

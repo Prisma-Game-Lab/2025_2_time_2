@@ -11,6 +11,7 @@ public class PlayerAnimation : MonoBehaviour
         bool idle = false;
         bool running = false;
         bool jumping = false;
+        bool blocked = false;
 
         switch (playerState) 
         {
@@ -23,10 +24,14 @@ public class PlayerAnimation : MonoBehaviour
             case PlayerController.PlayerState.Jumping:
                 jumping = true;
                 break;
+            case PlayerController.PlayerState.Blocked:
+                blocked = true;
+                break;
         }
 
         pc.animator.SetBool("Idle", idle);
         pc.animator.SetBool("Running", running);
         pc.animator.SetBool("Jumping", jumping);
+        pc.animator.SetBool("Blocked", blocked);
     }
 }

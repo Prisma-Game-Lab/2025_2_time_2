@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     {
         Idle, Running, Jumping, Blocked
     }
-    private PlayerState currentState = PlayerState.Idle;
+    [SerializeField] private PlayerState currentState = PlayerState.Idle;
 
     [Header("Events")]
     [SerializeField] private UnityEvent<PlayerState> OnPlayerStateChange;

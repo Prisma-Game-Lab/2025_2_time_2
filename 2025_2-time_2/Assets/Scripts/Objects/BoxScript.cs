@@ -10,6 +10,7 @@ public class BoxScript : MonoBehaviour
     [Header("Variables")]
     [SerializeField] private float smallMass;
     [SerializeField] private float bigMass;
+    [SerializeField] private float frictionCoeficient;
 
     private void Start()
     {
@@ -17,16 +18,21 @@ public class BoxScript : MonoBehaviour
         CalculatePushMovement();
     }
 
+    private void FixedUpdate()
+    {
+        rb.velocity -= Vector2.right * rb.velocity.x * (frictionCoeficient * Time.deltaTime);
+    }
+
     //private void FixedUpdate()
     //{
-       
+
     //    float scaleX = tf.localScale.x;
-        
+
     //    bool shouldBeMovable = scaleX < 0.75f; 
 
     //    if (shouldBeMovable)
     //    {
-            
+
     //        if (rb.bodyType != RigidbodyType2D.Dynamic)
     //        {
     //            rb.bodyType = RigidbodyType2D.Dynamic;
@@ -35,10 +41,10 @@ public class BoxScript : MonoBehaviour
     //    }
     //    else
     //    {
-           
+
     //        if (rb.bodyType != RigidbodyType2D.Static)
     //        {
-               
+
     //            rb.velocity = Vector2.zero;
     //            rb.angularVelocity = 0f;
     //            rb.bodyType = RigidbodyType2D.Static;
@@ -47,14 +53,14 @@ public class BoxScript : MonoBehaviour
     //}
     //private void FixedUpdate()
     //{
-       
+
     //    float scaleX = tf.localScale.x;
-        
+
     //    bool shouldBeMovable = scaleX < 0.75f; 
 
     //    if (shouldBeMovable)
     //    {
-            
+
     //        if (rb.bodyType != RigidbodyType2D.Dynamic)
     //        {
     //            rb.bodyType = RigidbodyType2D.Dynamic;
@@ -63,10 +69,10 @@ public class BoxScript : MonoBehaviour
     //    }
     //    else
     //    {
-           
+
     //        if (rb.bodyType != RigidbodyType2D.Static)
     //        {
-               
+
     //            rb.velocity = Vector2.zero;
     //            rb.angularVelocity = 0f;
     //            rb.bodyType = RigidbodyType2D.Static;

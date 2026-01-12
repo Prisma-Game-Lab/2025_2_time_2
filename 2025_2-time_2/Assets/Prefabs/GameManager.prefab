@@ -371,6 +371,7 @@ GameObject:
   - component: {fileID: 5769913960388536479}
   - component: {fileID: 2434106334892014635}
   - component: {fileID: 4997022229390503969}
+  - component: {fileID: 1683614327726180643}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -435,6 +436,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionAnim: {fileID: 4942244032729322856}
+--- !u!114 &1683614327726180643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8097332765385545856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98db039000e50814c8ba3239fa4bff3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8100241791742070717
 GameObject:
   m_ObjectHideFlags: 0

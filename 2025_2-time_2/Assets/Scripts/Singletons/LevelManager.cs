@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
 
-    public static UnityEvent OnSceneChanged;
+    public static UnityEvent OnSceneChanged = new UnityEvent();
 
     public static int unlockedLevels { get; private set; }
     private static int reachedBuildIndex;
@@ -22,13 +22,10 @@ public class LevelManager : MonoBehaviour
         }
 
         Instance = this;
-        OnSceneChanged = new UnityEvent();
         DontDestroyOnLoad(gameObject);
 
         unlockedLevels = PlayerPrefs.GetInt("unlockedLevels", 0);
         reachedBuildIndex = PlayerPrefs.GetInt("reachedBuildIndex", 0);
-
-        print(unlockedLevels.ToString() + " " + reachedBuildIndex.ToString());
     }
 
     public static void RestartLevel() 

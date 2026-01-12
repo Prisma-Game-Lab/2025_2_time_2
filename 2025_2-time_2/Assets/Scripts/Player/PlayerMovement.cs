@@ -201,4 +201,9 @@ public class PlayerMovement : MonoBehaviour
                 break;
         }
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(groundCheck.transform.position, groundCheckRadius);
+    }
 }

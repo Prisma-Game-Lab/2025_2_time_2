@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2940386870860188371}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.041, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -145,7 +145,7 @@ Transform:
   m_GameObject: {fileID: 3601099358550354074}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: -0.314, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -222,7 +222,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.015467405, y: 0}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -260,7 +260,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &9054844470443608963
 MonoBehaviour:
@@ -277,6 +277,7 @@ MonoBehaviour:
   rb: {fileID: 5338824588403664181}
   sr: {fileID: 8603809756791168462}
   animator: {fileID: 1989604442905879715}
+  currentState: 0
   OnPlayerStateChange:
     m_PersistentCalls:
       m_Calls:
@@ -314,7 +315,7 @@ MonoBehaviour:
   fallMultiplier: 1
   jumpCooldown: 0.2
   groundCheck: {fileID: 1560082218378803497}
-  groundCheckRadius: 0.2
+  groundCheckRadius: 0.26
   groundLayer:
     serializedVersion: 2
     m_Bits: 768

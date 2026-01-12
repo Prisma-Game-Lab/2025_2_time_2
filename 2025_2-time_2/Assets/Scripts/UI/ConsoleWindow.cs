@@ -108,6 +108,11 @@ public class ConsoleWindow : WindowController
         SetButtons();
     }
 
+    public void OnSlotAlteration() 
+    {
+        cmdController.SaveCommands();
+    }
+
     private void SetButtons() 
     {
         if (nEmptySlots < commandsSlots.Count)
@@ -130,6 +135,29 @@ public class ConsoleWindow : WindowController
         {
             //Disable Run Button
             runButton.interactable = false;
+        }
+    }
+
+    public List<CommandSavedData> GetSaveData()
+    {
+        List<CommandSavedData> commandSavedData = new List<CommandSavedData>();
+
+        foreach (CMDController slot in commandsSlots)
+        {
+            commandSavedData.Add(slot.GetSaveData());
+        }
+
+        return commandSavedData;
+    }
+
+    public void LoadSaveData(List<CommandSavedData> commandSavedData)
+    {
+        if (commandSavedData.Count != commandsSlots.Count)
+            return;
+
+        for (int i = 0; i < commandsSlots.Count; i++) 
+        {
+            commandsSlots[i].SetSaveData(commandSavedData[i]);
         }
     }
 }

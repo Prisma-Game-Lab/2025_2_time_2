@@ -170,10 +170,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5338824588403664181, guid: 4a8dda8f02d45214f87aee42d3bf3d8f, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5550549093014073896, guid: 4a8dda8f02d45214f87aee42d3bf3d8f, type: 3}
       propertyPath: m_Name
       value: Player
@@ -845,10 +841,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2648606234435616853, guid: 0b940c4812836b448817de93365346b5, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.0493
-      objectReference: {fileID: 0}
     - target: {fileID: 2648606234435616853, guid: 0b940c4812836b448817de93365346b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.4445
@@ -4419,7 +4411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3305643516798368494, guid: 8b4b5787d61d2d84abe2dec15dd9c057, type: 3}
       propertyPath: m_Tiles.Array.data[17].second.m_AllTileFlags
-      value: 1073741825
+      value: 2147483649
       objectReference: {fileID: 0}
     - target: {fileID: 3305643516798368494, guid: 8b4b5787d61d2d84abe2dec15dd9c057, type: 3}
       propertyPath: m_Tiles.Array.data[18].second.m_AllTileFlags
@@ -4435,7 +4427,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3305643516798368494, guid: 8b4b5787d61d2d84abe2dec15dd9c057, type: 3}
       propertyPath: m_Tiles.Array.data[21].second.m_AllTileFlags
-      value: 1073741825
+      value: 2147483649
       objectReference: {fileID: 0}
     - target: {fileID: 3305643516798368494, guid: 8b4b5787d61d2d84abe2dec15dd9c057, type: 3}
       propertyPath: m_Tiles.Array.data[22].second.m_AllTileFlags

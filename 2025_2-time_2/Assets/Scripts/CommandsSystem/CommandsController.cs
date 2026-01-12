@@ -37,6 +37,8 @@ public class CommandsController : MonoBehaviour
 
         InitializeDictionary();
         consoleWindow.CreateSlots(nSlots);
+
+        LoadCommands();
     }
 
     public void ToggleConsole() 
@@ -126,6 +128,23 @@ public class CommandsController : MonoBehaviour
             onInvalidCommands.Invoke();
         else
             onValidCommands.Invoke();
+    }
+
+    private void LoadCommands() 
+    {
+        List<CommandSavedData> data = CommandsSaver.Load();
+
+        if (data == null)
+            return;
+
+        consoleWindow.LoadSaveData(data);
+    }
+
+    public void SaveCommands()
+    {
+        List<CommandSavedData> data = consoleWindow.GetSaveData();
+
+        CommandsSaver.Save(data);
     }
 }
 

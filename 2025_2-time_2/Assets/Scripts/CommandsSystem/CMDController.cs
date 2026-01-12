@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -71,6 +72,8 @@ public class CMDController : MonoBehaviour
 
         SetTargetDropdown(currentStoredCommand);
         SetModifierDropdown(currentStoredCommand);
+
+        OnSlotAlteration();
     }
 
     private void SetTargetDropdown(CommandData commandData) 
@@ -155,12 +158,16 @@ public class CMDController : MonoBehaviour
     public void OnSelected()
     {
         selected = true;
+        PlayerController playerRef = GameManager.Instance.GetPlayerRef().GetComponent<PlayerController>();
+        playerRef.SetCurrentPlayerState(PlayerController.PlayerState.Blocked);
         RestartManager.blocked = true;
     }
 
     public void OnDeselected()
     {
         selected = false;
+        PlayerController playerRef = GameManager.Instance.GetPlayerRef().GetComponent<PlayerController>();
+        playerRef.SetCurrentPlayerState(PlayerController.PlayerState.Idle);
         RestartManager.blocked = false;
         CheckCommand(cmdInputField.text);
     }
@@ -191,6 +198,50 @@ public class CMDController : MonoBehaviour
         return currentStoredCommand;
     }
 
+    public CommandSavedData GetSaveData()
+    {
+        if (currentStoredCommand == null)
+        {
+            return null;
+        }
+
+        Command commandScriptable = currentStoredCommand.commandScriptable;
+
+        CommandSavedData saveData = new CommandSavedData();
+
+        saveData.slotText = commandScriptable.commandName;
+
+        if (commandScriptable.hasTarget)
+            saveData.targetIndex = targetDropdown.value;
+        else
+            saveData.targetIndex = -1;
+
+        if (commandScriptable.HasModifiers())
+            saveData.modifierIndex = modifierDropdown.value;
+        else
+            saveData.modifierIndex = -1;
+
+        return saveData;
+    }
+
+    public void SetSaveData(CommandSavedData data)
+    {
+        if (data == null)
+            return;
+
+        cmdInputField.text = data.slotText;
+
+        CheckCommand(cmdInputField.text);
+
+        if (data.targetIndex != -1)
+            targetDropdown.value = data.targetIndex;
+
+        if (data.modifierIndex != -1)
+            modifierDropdown.value = data.modifierIndex;
+
+        return;
+    }
+
     public void BlockInput() 
     {
         cmdInputField.interactable = false;
@@ -214,5 +265,11 @@ public class CMDController : MonoBehaviour
         cmdInputField.textComponent.color = originalColor;
         targetHolder.SetActive(false);
         modifierHolder.SetActive(false);
+        OnSlotAlteration();
+    }
+
+    private void OnSlotAlteration() 
+    {
+        consoleWindow.OnSlotAlteration();
     }
 }

@@ -98,10 +98,14 @@ MonoBehaviour:
   dialogue: []
   text: {fileID: 0}
   textSpeed: 0.03
-  autoAdvanceDelay: 1
+  autoAdvanceDelay: 1e+9
   autoHideDelay: 1
   y_offset: 0.2
   x_offset: 0
+  OnDialogueEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  dialogueEndEventIndex: 0
 --- !u!114 &1802283592944831002
 MonoBehaviour:
   m_ObjectHideFlags: 0

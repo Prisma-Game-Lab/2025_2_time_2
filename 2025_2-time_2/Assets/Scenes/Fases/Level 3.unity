@@ -1312,6 +1312,10 @@ PrefabInstance:
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[0].Array.data[27].Y
       value: -50004544
       objectReference: {fileID: 0}
+    - target: {fileID: 745618263093276321, guid: 8b4b5787d61d2d84abe2dec15dd9c057, type: 3}
+      propertyPath: nextSceneName
+      value: Level 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1026994199647435788, guid: 8b4b5787d61d2d84abe2dec15dd9c057, type: 3}
       propertyPath: m_ChunkCullingBounds.x
       value: 0.12545455
@@ -4446,7 +4450,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3305643516798368494, guid: 8b4b5787d61d2d84abe2dec15dd9c057, type: 3}
       propertyPath: m_Tiles.Array.data[17].second.m_AllTileFlags
-      value: 1073741825
+      value: 2147483649
       objectReference: {fileID: 0}
     - target: {fileID: 3305643516798368494, guid: 8b4b5787d61d2d84abe2dec15dd9c057, type: 3}
       propertyPath: m_Tiles.Array.data[18].second.m_AllTileFlags
@@ -4486,7 +4490,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3305643516798368494, guid: 8b4b5787d61d2d84abe2dec15dd9c057, type: 3}
       propertyPath: m_Tiles.Array.data[27].second.m_AllTileFlags
-      value: 1073741825
+      value: 2147483649
       objectReference: {fileID: 0}
     - target: {fileID: 3305643516798368494, guid: 8b4b5787d61d2d84abe2dec15dd9c057, type: 3}
       propertyPath: m_Tiles.Array.data[0].second.m_TileColorIndex

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a0e2332cf5b87743a6a414c893d77c5, type: 3}
   m_Name: ColorTooltip
   m_EditorClassIdentifier: 
-  commandName: color
+  commandName: Color
   commandDesc: Muda a cor de um objeto

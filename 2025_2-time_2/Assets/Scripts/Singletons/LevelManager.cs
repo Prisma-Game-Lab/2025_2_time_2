@@ -51,8 +51,6 @@ public class LevelManager : MonoBehaviour
 
             SaveLevelData();
         }
-
-        print(unlockedLevels.ToString() + " " + reachedBuildIndex.ToString());
     }
 
     public static void EraseLevelData() 

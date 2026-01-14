@@ -33,4 +33,9 @@ public class LevelSelectScript : MonoBehaviour
     {
         LevelManager.LoadSceneByName("Level " + index.ToString());
     }
+
+    public void OnExitButtonPress() 
+    {
+        LevelManager.LoadSceneByName("MainMenu");
+    }
 }

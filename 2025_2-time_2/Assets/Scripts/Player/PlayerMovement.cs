@@ -21,7 +21,8 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Ground Check")]
     [SerializeField] private Transform groundCheck;
-    [SerializeField] private float groundCheckRadius = 0.2f;
+    [SerializeField] private float groundCheckWidth = 0.2f;
+    [SerializeField] private float groundCheckHeight = 0.2f;
     [SerializeField] private LayerMask groundLayer;
     private bool isGrounded;
     
@@ -133,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        isGrounded = Physics2D.OverlapBox(groundCheck.position, new Vector2(groundCheckWidth, groundCheckHeight), 0, groundLayer);
         if (isGrounded && playerController.GetCurrentPlayerState() == PlayerController.PlayerState.Jumping)
             playerController.SetCurrentPlayerState(PlayerController.PlayerState.Idle);
     }
@@ -204,6 +205,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(groundCheck.transform.position, groundCheckRadius);
+        //Gizmos.DrawWireSphere(groundCheck.transform.position, groundCheckRadius);
+        Gizmos.DrawWireCube(groundCheck.transform.position, new Vector3(groundCheckWidth, groundCheckHeight, 0));
     }
 }

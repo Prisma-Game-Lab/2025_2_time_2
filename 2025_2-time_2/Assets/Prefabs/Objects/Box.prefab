@@ -253,6 +253,6 @@ MonoBehaviour:
   tf: {fileID: 8950409926952276760}
   rb: {fileID: 472745195433615186}
   target: {fileID: 1690095851677356945}
-  smallMass: 0.5
+  smallMass: 0.8
   bigMass: 10000000
-  frictionCoeficient: 0
+  frictionCoeficient: 5

@@ -268,7 +268,7 @@ public class CMDController : MonoBehaviour
         OnSlotAlteration();
     }
 
-    private void OnSlotAlteration() 
+    public void OnSlotAlteration() 
     {
         consoleWindow.OnSlotAlteration();
     }

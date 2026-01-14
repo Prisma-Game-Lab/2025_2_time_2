@@ -2347,6 +2347,8 @@ GameObject:
   - component: {fileID: 4160392571311583071}
   - component: {fileID: 6305268861370909259}
   - component: {fileID: 4305481992724151487}
+  - component: {fileID: 7374140746024892318}
+  - component: {fileID: 2823364514543173117}
   m_Layer: 0
   m_Name: CommandsController
   m_TagString: Untagged
@@ -2431,6 +2433,91 @@ MonoBehaviour:
   availableColors:
   - {fileID: 11400000, guid: 4f53f1d1a0397eb48a106b14d3fa14b3, type: 2}
   - {fileID: 11400000, guid: d0c07f17c9762f547b444fb542a49331, type: 2}
+--- !u!114 &7374140746024892318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4838536440460525764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 343608f0b9ab5084aa0f3dc21fdc4360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnConsoleButtonEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6305268861370909259}
+        m_TargetAssemblyTypeName: CommandsController, Assembly-CSharp
+        m_MethodName: ToggleConsole
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2823364514543173117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4838536440460525764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: da806b27136b12942b3a10e6b68e6020, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b0259d2e-7564-48ad-b531-e456b2606c52
+    m_ActionName: Normal/AdvanceText[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 627708d5-a574-460e-941e-875d3a248fe0
+    m_ActionName: Normal/Restart[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0020c78e-bcfa-4b0d-ae89-8f82075683b5
+    m_ActionName: Normal/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7374140746024892318}
+        m_TargetAssemblyTypeName: CommandsInput, Assembly-CSharp
+        m_MethodName: OnConsoleButton
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f748d10a-4ba7-40fa-97fd-0698a220275b
+    m_ActionName: Normal/Console[/Keyboard/tab]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Normal
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &4888075968100035047
 GameObject:
   m_ObjectHideFlags: 0

@@ -256,6 +256,7 @@ public class CMDController : MonoBehaviour
         cmdInputField.text = "";
         empty = true;
         valid = false;
+        currentStoredCommand = null;
 
         ResetState();
     }

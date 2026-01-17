@@ -268,6 +268,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: CommandsManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4305481992724151487, guid: 64849051c7d1000488610aec31a33e64, type: 3}
+      propertyPath: availableColors.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4305481992724151487, guid: 64849051c7d1000488610aec31a33e64, type: 3}
+      propertyPath: availableColors.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: d0c07f17c9762f547b444fb542a49331, type: 2}
+    - target: {fileID: 4305481992724151487, guid: 64849051c7d1000488610aec31a33e64, type: 3}
+      propertyPath: availableColors.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4f53f1d1a0397eb48a106b14d3fa14b3, type: 2}
     - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
       propertyPath: nSlots
       value: 2
@@ -286,6 +298,10 @@ PrefabInstance:
       objectReference: {fileID: 1331540842}
     - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
       propertyPath: availableCommands.Array.data[0].sceneTargets.Array.data[1]
+      value: 
+      objectReference: {fileID: 1147463292}
+    - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
+      propertyPath: availableCommands.Array.data[0].sceneTargets.Array.data[2]
       value: 
       objectReference: {fileID: 1147463292}
     - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}

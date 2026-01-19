@@ -48,17 +48,27 @@ public class ConsoleWindow : WindowController
 
     public CommandData ValidateCommand(string commandName, ref bool empty, ref bool valid)
     {
-        string cleanCommandName = commandName.ToLower().Trim(' ');
-        CommandData data = cmdController.CheckCommand(cleanCommandName);
+        CommandData data = CheckCommand(commandName);
 
+        AlterTextStatus(commandName, data, ref empty, ref valid);
+
+        return data;
+    }
+
+    public CommandData CheckCommand(string commandName) 
+    {
+        string cleanCommandName = commandName.ToLower().Trim(' ');
+        return cmdController.CheckCommand(cleanCommandName);
+    }
+
+    public void AlterTextStatus(string commandName, CommandData data, ref bool empty, ref bool valid) 
+    {
         AlterSlotCounter(commandName == "", ref empty, ref nEmptySlots);
         AlterSlotCounter(data != null, ref valid, ref nValidSlots);
 
         SetButtons();
 
         cmdController.SetNValidCommands(nValidSlots);
-
-        return data;
     }
 
     private void AlterSlotCounter(bool condition, ref bool previousCondition, ref int counter) 

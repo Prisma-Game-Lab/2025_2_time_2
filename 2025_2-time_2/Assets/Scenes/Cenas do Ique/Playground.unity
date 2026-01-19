@@ -1651,7 +1651,7 @@ PrefabInstance:
       objectReference: {fileID: 6200000, guid: d45a36da9636d7a4fb3d587b61437ae4, type: 2}
     - target: {fileID: 1690095851677356945, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: colorName
-      value: Purple
+      value: Red
       objectReference: {fileID: 0}
     - target: {fileID: 1690095851677356945, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: targetSize
@@ -1667,15 +1667,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6639808512304542827, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: m_Color.b
-      value: 0.7767953
+      value: 0.30980393
       objectReference: {fileID: 0}
     - target: {fileID: 6639808512304542827, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 0.34901962
       objectReference: {fileID: 0}
     - target: {fileID: 6639808512304542827, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: m_Color.r
-      value: 0.8679245
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7925384258349615856, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: m_Name

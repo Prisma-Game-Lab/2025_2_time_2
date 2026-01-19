@@ -10,6 +10,7 @@ public class BoxScript : MonoBehaviour
     [Header("Variables")]
     [SerializeField] private float smallMass;
     [SerializeField] private float bigMass;
+    [SerializeField] private float alteringMass;
     [SerializeField] private float frictionCoeficient;
 
     private void Start()
@@ -87,10 +88,17 @@ public class BoxScript : MonoBehaviour
         if (target.GetTargetSize() == TargetSize.Small)
         {
             rb.mass = smallMass;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+        else if (target.GetTargetSize() == TargetSize.Altering) 
+        {
+            rb.mass = alteringMass;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
         else 
         {
             rb.mass = bigMass;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
         }
     }
 

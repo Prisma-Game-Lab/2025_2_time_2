@@ -968,6 +968,7 @@ MonoBehaviour:
   modifierDropdown: {fileID: 3946692370708220920}
   validCommandColor: {r: 0.3738968, g: 1, b: 0.28773582, a: 1}
   blockedColor: {r: 0.4811321, g: 0.017411677, b: 0, a: 1}
+  validColor: {r: 0, g: 1, b: 0.99999976, a: 1}
   OnCommandLine:
     m_PersistentCalls:
       m_Calls: []
@@ -1567,7 +1568,7 @@ MonoBehaviour:
   m_CharacterValidation: 0
   m_RegexValue: 
   m_GlobalPointSize: 14
-  m_CharacterLimit: 0
+  m_CharacterLimit: 8
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -1612,7 +1613,19 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4852171792791644269}
+        m_TargetAssemblyTypeName: CMDController, Assembly-CSharp
+        m_MethodName: OnValueChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []

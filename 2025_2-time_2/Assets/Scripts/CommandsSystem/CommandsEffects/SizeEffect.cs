@@ -21,7 +21,7 @@ public class SizeEffect : CommandEffect
 
     private bool interpolateScale;
     private float currentTime;
-    private float interpolationTime = 2;
+    [SerializeField] private float interpolationTime = 2;
     private bool interpolateFrame;
 
     private Coroutine activeDestructionCoroutine;

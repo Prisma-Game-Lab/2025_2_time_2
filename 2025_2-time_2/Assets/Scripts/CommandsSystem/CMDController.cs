@@ -20,6 +20,7 @@ public class CMDController : MonoBehaviour
     [Header("Variables")]
     [SerializeField] private Color validCommandColor;
     [SerializeField] private Color blockedColor;
+    [SerializeField] private Color validColor;
 
     [Header("Events")]
     [SerializeField] private UnityEvent<string> OnCommandLine;
@@ -55,11 +56,9 @@ public class CMDController : MonoBehaviour
         string currentText = cmdInputField.text;
 
         currentStoredCommand = consoleWindow.ValidateCommand(currentText, ref empty, ref valid);
-        //currentStoredCommand = cmdController.CheckCommand(cleanCommandName, currentStoredCommand != null);
 
         if (!valid)
         {
-            ResetState();
             return;
         }
 
@@ -127,15 +126,6 @@ public class CMDController : MonoBehaviour
             modifierDropdown.AddOptions(modifiersKeyword);
         }
     }
-
-    //public void OnCommandLineEnter() 
-    //{
-    //    if (!selected) return;
-
-    //    cmdController.OnCommandLine(cmdInputField.text);
-    //    OnCommandLine.Invoke(cmdInputField.text);
-    //    cmdInputField.text = string.Empty;
-    //}
 
     public void OnEnterAction(InputAction.CallbackContext action)
     {
@@ -272,5 +262,24 @@ public class CMDController : MonoBehaviour
     public void OnSlotAlteration() 
     {
         consoleWindow.OnSlotAlteration();
+    }
+
+    public void OnValueChange(string currentText) 
+    {
+        CommandData commandData = consoleWindow.CheckCommand(currentText);
+
+        if (commandData != null)
+        {
+            cmdInputField.textComponent.color = validColor;
+        }
+        else 
+        {
+            if (currentStoredCommand != null)
+            {
+                ResetState();
+                consoleWindow.AlterTextStatus(currentText, commandData, ref empty, ref valid);
+            }
+            cmdInputField.textComponent.color = originalColor;
+        }
     }
 }

@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float accelerationRate;
     [SerializeField] private float desaccelerationRate;
+    [SerializeField] private float minTurnSpeed = 0.01f;
     [SerializeField] private float minSpeed = 0.01f;
 
     [Header("Jump Variables")]
@@ -64,21 +65,6 @@ public class PlayerMovement : MonoBehaviour
         holdingJump = jumpInput;
     }
 
-    public void SetMovement(bool state) 
-    {
-        print("Ta sendo usado");
-        if (state) 
-        {
-            if (playerController.GetCurrentPlayerState() == PlayerController.PlayerState.Blocked)
-                playerController.SetCurrentPlayerState(PlayerController.PlayerState.Idle);
-        } 
-        else
-        {
-            playerController.SetCurrentPlayerState(PlayerController.PlayerState.Blocked);
-        }
-
-    }
-
     private void ApplyMovement()
     {
         float desiredMoveDir = moveInput;
@@ -116,11 +102,11 @@ public class PlayerMovement : MonoBehaviour
         if (playerController.GetCurrentPlayerState() == PlayerController.PlayerState.Blocked)
             return;
 
-        if (rb.velocity.x < -minSpeed)
+        if (rb.velocity.x < -minTurnSpeed)
         {
             transform.rotation = Quaternion.Euler(transform.rotation.x, 180, transform.rotation.z);
         }
-        else if (rb.velocity.x > minSpeed)
+        else if (rb.velocity.x > minTurnSpeed)
         {
             transform.rotation = Quaternion.Euler(transform.rotation.x, 0, transform.rotation.z);
         }

@@ -2433,6 +2433,7 @@ MonoBehaviour:
   availableColors:
   - {fileID: 11400000, guid: 4f53f1d1a0397eb48a106b14d3fa14b3, type: 2}
   - {fileID: 11400000, guid: d0c07f17c9762f547b444fb542a49331, type: 2}
+  - {fileID: 11400000, guid: 9dda3a5370d302e47823d62aecd0b4c1, type: 2}
 --- !u!114 &7374140746024892318
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -28,4 +28,9 @@ public class PlayerController : MonoBehaviour
     {
         return currentState;
     }
+    
+    public void OnCrush() 
+    {
+        LevelManager.RestartLevel();
+    }
 }

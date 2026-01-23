@@ -22,7 +22,6 @@ public class SizeEffect : CommandEffect
     private bool interpolateScale;
     private float currentTime;
     [SerializeField] private float interpolationTime = 2;
-    private int interpolateFrame = 0;
 
     private Coroutine activeDestructionCoroutine;
 
@@ -98,14 +97,6 @@ public class SizeEffect : CommandEffect
 
     private void InterpolateScale(Vector2 startScale, Vector2 targetScale) 
     {
-        if (interpolateFrame == 2) 
-        {
-            interpolateFrame = 0;
-            //return;
-        }
-
-        interpolateFrame++;
-
         float ratio = currentTime / interpolationTime;
 
         transform.localScale = Vector2.Lerp(startScale, targetScale, ratio);

@@ -4499,14 +4499,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1136161788765889859, guid: 4a8dda8f02d45214f87aee42d3bf3d8f, type: 3}
-      propertyPath: minSpeed
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 1136161788765889859, guid: 4a8dda8f02d45214f87aee42d3bf3d8f, type: 3}
-      propertyPath: minTurnSpeed
-      value: 0.25
-      objectReference: {fileID: 0}
     - target: {fileID: 5135497846542649524, guid: 4a8dda8f02d45214f87aee42d3bf3d8f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.84

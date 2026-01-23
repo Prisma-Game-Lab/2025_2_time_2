@@ -311,7 +311,7 @@ MonoBehaviour:
   accelerationRate: 10
   desaccelerationRate: 12
   minTurnSpeed: 0.25
-  minSpeed: 0.05
+  minSpeed: 0.01
   jumpForce: 400
   lowJumpMultiplier: 2
   fallMultiplier: 1

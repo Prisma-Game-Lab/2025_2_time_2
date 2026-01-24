@@ -24,63 +24,6 @@ public class BoxScript : MonoBehaviour
         rb.velocity -= Vector2.right * rb.velocity.x * (frictionCoeficient * Time.deltaTime);
     }
 
-    //private void FixedUpdate()
-    //{
-
-    //    float scaleX = tf.localScale.x;
-
-    //    bool shouldBeMovable = scaleX < 0.75f; 
-
-    //    if (shouldBeMovable)
-    //    {
-
-    //        if (rb.bodyType != RigidbodyType2D.Dynamic)
-    //        {
-    //            rb.bodyType = RigidbodyType2D.Dynamic;
-    //            rb.constraints = RigidbodyConstraints2D.None;
-    //        }
-    //    }
-    //    else
-    //    {
-
-    //        if (rb.bodyType != RigidbodyType2D.Static)
-    //        {
-
-    //            rb.velocity = Vector2.zero;
-    //            rb.angularVelocity = 0f;
-    //            rb.bodyType = RigidbodyType2D.Static;
-    //        }
-    //    }
-    //}
-    //private void FixedUpdate()
-    //{
-
-    //    float scaleX = tf.localScale.x;
-
-    //    bool shouldBeMovable = scaleX < 0.75f; 
-
-    //    if (shouldBeMovable)
-    //    {
-
-    //        if (rb.bodyType != RigidbodyType2D.Dynamic)
-    //        {
-    //            rb.bodyType = RigidbodyType2D.Dynamic;
-    //            rb.constraints = RigidbodyConstraints2D.None;
-    //        }
-    //    }
-    //    else
-    //    {
-
-    //        if (rb.bodyType != RigidbodyType2D.Static)
-    //        {
-
-    //            rb.velocity = Vector2.zero;
-    //            rb.angularVelocity = 0f;
-    //            rb.bodyType = RigidbodyType2D.Static;
-    //        }
-    //    }
-    //}
-
     public void CalculatePushMovement()
     {
         SetReferences();

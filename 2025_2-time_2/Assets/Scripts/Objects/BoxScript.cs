@@ -13,6 +13,8 @@ public class BoxScript : MonoBehaviour
     [SerializeField] private float alteringMass;
     [SerializeField] private float frictionCoeficient;
 
+    private bool stopped = false;
+
     private void Start()
     {
         SetReferences();
@@ -21,7 +23,25 @@ public class BoxScript : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (stopped) return;
+
         rb.velocity -= Vector2.right * rb.velocity.x * (frictionCoeficient * Time.deltaTime);
+    }
+
+    public void OnCommandStart(CommandEffectType effect) 
+    {
+        if (effect == CommandEffectType.Stop) 
+        {
+            stopped = true;
+        }
+    }
+
+    public void OnCommandEnd(CommandEffectType effect)
+    {
+        if (effect == CommandEffectType.Stop)
+        {
+            stopped = false;
+        }
     }
 
     public void CalculatePushMovement()

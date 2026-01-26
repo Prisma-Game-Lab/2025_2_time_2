@@ -17,6 +17,8 @@ public class CommandTarget : MonoBehaviour
     private ColorInfo currentColor;
 
     [Header("Events")]
+    [SerializeField] private UnityEvent<CommandEffectType> OnCommandEffectStart;
+    [SerializeField] private UnityEvent<CommandEffectType> OnCommandEffectEnd;
     [SerializeField] private UnityEvent OnSizeChange;
 
     private void Start()
@@ -127,10 +129,29 @@ public class CommandTarget : MonoBehaviour
                 //    size.Destroy();
                 break;
             case CommandEffectType.Color:
-                ColorEffect color = gameObject.AddComponent<ColorEffect>();
+                ColorEffect color = GetComponent<ColorEffect>();
+                if (color == null) 
+                {
+                    color = gameObject.AddComponent<ColorEffect>();
+                }
                 color.Initialize(this, arguments);
                 break;
+            case CommandEffectType.Stop:
+                StopEffect stop = GetComponent<StopEffect>();
+                if (stop == null)
+                {
+                    stop = gameObject.AddComponent<StopEffect>();
+                }
+                stop.Initialize(this, arguments);
+                break;
         }
+
+        OnCommandEffectStart.Invoke(commandEffect);
+    }
+
+    public void OnCommandEnd(CommandEffectType command) 
+    {
+        OnCommandEffectEnd.Invoke(command);
     }
 }
 

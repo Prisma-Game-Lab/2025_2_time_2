@@ -9,6 +9,7 @@ public class Command : ScriptableObject
     public CommandEffectType effect;
     public bool hasTarget;
     public Modifier[] modifiers;
+    public float strength;
 
     public bool HasModifiers() 
     {
@@ -62,7 +63,7 @@ public class Command : ScriptableObject
 
 public enum CommandEffectType 
 {
-    Size, Clear, Color
+    Size, Clear, Color, Stop
 }
 
 [System.Serializable]

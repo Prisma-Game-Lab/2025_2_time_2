@@ -1645,10 +1645,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 411996302}
     m_Modifications:
-    - target: {fileID: 472745195433615186, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: d45a36da9636d7a4fb3d587b61437ae4, type: 2}
     - target: {fileID: 1690095851677356945, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: colorName
       value: Red
@@ -1695,11 +1691,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8950409926952276760, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.41
+      value: -6.67
       objectReference: {fileID: 0}
     - target: {fileID: 8950409926952276760, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.02
+      value: 0.58
       objectReference: {fileID: 0}
     - target: {fileID: 8950409926952276760, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2438,11 +2434,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: b91dbc7a511a6f64c8d6409b5ceb9ee2, type: 3}
     - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
+      propertyPath: availableCommands.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
+      propertyPath: availableCommands.Array.data[3].commandScriptable
+      value: 
+      objectReference: {fileID: 11400000, guid: bf7c6956fffb455498acfd0c52149ce8, type: 2}
+    - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
       propertyPath: availableCommands.Array.data[0].sceneTargets.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
       propertyPath: availableCommands.Array.data[2].sceneTargets.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
+      propertyPath: availableCommands.Array.data[3].sceneTargets.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
@@ -2457,6 +2465,18 @@ PrefabInstance:
       propertyPath: availableCommands.Array.data[2].sceneTargets.Array.data[0]
       value: 
       objectReference: {fileID: 1509855082}
+    - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
+      propertyPath: availableCommands.Array.data[2].sceneTargets.Array.data[1]
+      value: 
+      objectReference: {fileID: 981012321}
+    - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
+      propertyPath: availableCommands.Array.data[3].sceneTargets.Array.data[0]
+      value: 
+      objectReference: {fileID: 1509855082}
+    - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
+      propertyPath: availableCommands.Array.data[3].sceneTargets.Array.data[1]
+      value: 
+      objectReference: {fileID: 981012321}
     - target: {fileID: 6403494491631451098, guid: 64849051c7d1000488610aec31a33e64, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1073.7257

@@ -144,6 +144,15 @@ public class CommandTarget : MonoBehaviour
                 }
                 stop.Initialize(this, arguments);
                 break;
+            case CommandEffectType.Teleport:
+                TeleportEffect teleport = GetComponent<TeleportEffect>();
+                if (teleport == null)
+                {
+                    teleport = gameObject.AddComponent<TeleportEffect>();
+
+                }
+                teleport.Initialize(this,arguments);
+                break;
         }
 
         OnCommandEffectStart.Invoke(commandEffect);

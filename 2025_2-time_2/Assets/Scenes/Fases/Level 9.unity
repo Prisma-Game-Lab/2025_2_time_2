@@ -139,6 +139,10 @@ PrefabInstance:
       value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 5135497846542649524, guid: 4a8dda8f02d45214f87aee42d3bf3d8f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5135497846542649524, guid: 4a8dda8f02d45214f87aee42d3bf3d8f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.5
       objectReference: {fileID: 0}
@@ -185,8 +189,59 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5550549093014073896, guid: 4a8dda8f02d45214f87aee42d3bf3d8f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 19960971}
+    - targetCorrespondingSourceObject: {fileID: 5550549093014073896, guid: 4a8dda8f02d45214f87aee42d3bf3d8f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 19960970}
   m_SourcePrefab: {fileID: 100100000, guid: 4a8dda8f02d45214f87aee42d3bf3d8f, type: 3}
+--- !u!1 &19960969 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5550549093014073896, guid: 4a8dda8f02d45214f87aee42d3bf3d8f, type: 3}
+  m_PrefabInstance: {fileID: 19960968}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &19960970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19960969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4315406a188a7343ae1cd71d1c84c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interpolationTime: 1.5
+--- !u!114 &19960971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19960969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b17986637a43fa4e9fc2378cb4fbff4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sr: {fileID: 0}
+  size: {fileID: 19960970}
+  sizeScriptable: {fileID: 11400000, guid: ceed8460df5fe2b4a99c86822ea1ec21, type: 2}
+  targetName: Henry
+  colorName: 
+  targetSize: 1
+  OnCommandEffectStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCommandEffectEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSizeChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &67994123 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8882073600481720322, guid: 882d69153106edf4fb7cb996d4ae1da5, type: 3}
@@ -288,7 +343,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: bf7c6956fffb455498acfd0c52149ce8, type: 2}
     - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
       propertyPath: availableCommands.Array.data[0].sceneTargets.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
       propertyPath: availableCommands.Array.data[2].sceneTargets.Array.size
@@ -305,7 +360,7 @@ PrefabInstance:
     - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
       propertyPath: availableCommands.Array.data[0].sceneTargets.Array.data[1]
       value: 
-      objectReference: {fileID: 799783460}
+      objectReference: {fileID: 19960971}
     - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
       propertyPath: availableCommands.Array.data[2].sceneTargets.Array.data[0]
       value: 

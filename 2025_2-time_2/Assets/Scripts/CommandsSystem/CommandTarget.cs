@@ -7,13 +7,13 @@ public class CommandTarget : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] private SpriteRenderer sr;
-    [SerializeField] private SizeEffect size;
-    [SerializeField] private Command sizeScriptable;
+    [SerializeField] protected SizeEffect size;
+    [SerializeField] protected Command sizeScriptable;
 
     [Header("Variables")]
-    [SerializeField] private string targetName;
+    [SerializeField] protected string targetName;
     [SerializeField] private string colorName;
-    [SerializeField] private TargetSize targetSize = TargetSize.Medium;
+    [SerializeField] protected TargetSize targetSize = TargetSize.Medium;
     private ColorInfo currentColor;
 
     [Header("Events")]
@@ -33,7 +33,7 @@ public class CommandTarget : MonoBehaviour
         StartUp();
     }
 
-    private void StartUp() 
+    protected void StartUp() 
     {
         if (sr == null)
             sr = GetComponent<SpriteRenderer>();

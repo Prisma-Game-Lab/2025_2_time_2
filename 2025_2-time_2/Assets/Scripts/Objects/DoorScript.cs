@@ -14,6 +14,7 @@ public class DoorScript : MonoBehaviour
     [SerializeField] private string nextSceneName;
     [SerializeField] private Sprite lockedSprite;
     [SerializeField] private Sprite unlockedSprite;
+    [SerializeField] private ParticleSystem unlockedParticles;
 
     private bool triggered;
 
@@ -25,6 +26,11 @@ public class DoorScript : MonoBehaviour
         {
             animator.SetBool("Locked", locked);
             animator.SetTrigger("InstaLock");
+        }
+
+        if (!locked) 
+        {
+            unlockedParticles.Play();
         }
     }
 
@@ -86,5 +92,6 @@ public class DoorScript : MonoBehaviour
     private void Unlock() 
     {
         SetLockState(false);
+        unlockedParticles.Play();
     }
 }

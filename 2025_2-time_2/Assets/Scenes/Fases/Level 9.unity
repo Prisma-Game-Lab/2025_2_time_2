@@ -279,12 +279,24 @@ PrefabInstance:
       value: CommandsManager
       objectReference: {fileID: 0}
     - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
+      propertyPath: availableCommands.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
+      propertyPath: availableCommands.Array.data[3].commandScriptable
+      value: 
+      objectReference: {fileID: 11400000, guid: bf7c6956fffb455498acfd0c52149ce8, type: 2}
+    - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
       propertyPath: availableCommands.Array.data[0].sceneTargets.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
       propertyPath: availableCommands.Array.data[2].sceneTargets.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
+      propertyPath: availableCommands.Array.data[3].sceneTargets.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
       propertyPath: availableCommands.Array.data[0].sceneTargets.Array.data[0]
@@ -300,6 +312,10 @@ PrefabInstance:
       objectReference: {fileID: 799783460}
     - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
       propertyPath: availableCommands.Array.data[2].sceneTargets.Array.data[1]
+      value: 
+      objectReference: {fileID: 799783460}
+    - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
+      propertyPath: availableCommands.Array.data[3].sceneTargets.Array.data[0]
       value: 
       objectReference: {fileID: 799783460}
     - target: {fileID: 6403494491631451098, guid: 64849051c7d1000488610aec31a33e64, type: 3}
@@ -399,13 +415,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Key
       objectReference: {fileID: 0}
-    - target: {fileID: 7774696966311009096, guid: 66d1ceaf1214ba34a9d8f86f22c32480, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
+    - target: {fileID: 7544716603975614073, guid: 66d1ceaf1214ba34a9d8f86f22c32480, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 7774696966311009096, guid: 66d1ceaf1214ba34a9d8f86f22c32480, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
+    - target: {fileID: 7544716603975614073, guid: 66d1ceaf1214ba34a9d8f86f22c32480, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7544716603975614073, guid: 66d1ceaf1214ba34a9d8f86f22c32480, type: 3}
+      propertyPath: ShapeModule.m_Position.y
+      value: -0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2958,10 +2978,6 @@ PrefabInstance:
     - target: {fileID: 1026994199647435788, guid: 8b4b5787d61d2d84abe2dec15dd9c057, type: 3}
       propertyPath: m_SortingLayer
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1026994199647435788, guid: 8b4b5787d61d2d84abe2dec15dd9c057, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -595180945
       objectReference: {fileID: 0}
     - target: {fileID: 1026994199647435788, guid: 8b4b5787d61d2d84abe2dec15dd9c057, type: 3}
       propertyPath: m_ChunkCullingBounds.x
@@ -6830,14 +6846,6 @@ PrefabInstance:
     - target: {fileID: 2957493487548835704, guid: 8b4b5787d61d2d84abe2dec15dd9c057, type: 3}
       propertyPath: m_SortingLayer
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2957493487548835704, guid: 8b4b5787d61d2d84abe2dec15dd9c057, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2957493487548835704, guid: 8b4b5787d61d2d84abe2dec15dd9c057, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -595180945
       objectReference: {fileID: 0}
     - target: {fileID: 2957493487548835704, guid: 8b4b5787d61d2d84abe2dec15dd9c057, type: 3}
       propertyPath: m_ChunkCullingBounds.x

@@ -63,7 +63,7 @@ public class Command : ScriptableObject
 
 public enum CommandEffectType 
 {
-    Size, Clear, Color, Stop
+    Size, Clear, Color, Stop, Teleport
 }
 
 [System.Serializable]

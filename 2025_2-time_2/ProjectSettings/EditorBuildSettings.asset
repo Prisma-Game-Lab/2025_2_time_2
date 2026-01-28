@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Fases/Level 6.unity
     guid: cd4c9e14326ede7439e6699815cd3d48
   - enabled: 1
+    path: Assets/Scenes/Fases/Level 7.unity
+    guid: 78d7bb94c660eb04ca4477352f913e9c
+  - enabled: 1
     path: Assets/Scenes/Fases/Level 8.unity
     guid: d75b7b9de041e9443a03e86b44122b47
   - enabled: 1

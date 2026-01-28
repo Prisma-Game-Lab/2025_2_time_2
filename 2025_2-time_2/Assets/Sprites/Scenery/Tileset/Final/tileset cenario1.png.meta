@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9252885b93e2ce342986f28b4bc6c87e
+guid: ee65a1b906b8b6b479d98bb1c630cc6c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,11 +97,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "Tileset Cen\xE1rio 1 Bordas_0"
+      name: tileset cenario1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 686
+        y: 692
         width: 346
         height: 346
       alignment: 0
@@ -111,18 +111,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b57bfc07a08a5af4baa2876e50850490
-      internalID: 679728119
+      spriteID: 51fd32cddb6bb7b4e81f45273e413b44
+      internalID: -1402131223
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Tileset Cen\xE1rio 1 Bordas_1"
+      name: tileset cenario1_1
       rect:
         serializedVersion: 2
-        x: 344
-        y: 686
+        x: 346
+        y: 692
         width: 346
         height: 346
       alignment: 0
@@ -132,18 +132,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d38f835262dd7a48b7b89ab45fe0e0d
-      internalID: -953330889
+      spriteID: 8ae72530eee920643ad1fa8104894df2
+      internalID: 368866793
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Tileset Cen\xE1rio 1 Bordas_2"
+      name: tileset cenario1_2
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 692
+        width: 346
+        height: 346
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94c76506d5356ee47b7220dd4409fdd7
+      internalID: -2127541449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset cenario1_3
       rect:
         serializedVersion: 2
         x: 0
-        y: 343
+        y: 346
         width: 346
         height: 346
       alignment: 0
@@ -153,18 +174,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f1ab39328f44fb4dba4967dab8b805c
-      internalID: 1033175577
+      spriteID: 40a1616008d352b4f8439649ee43f3d1
+      internalID: 1014763969
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Tileset Cen\xE1rio 1 Bordas_3"
+      name: tileset cenario1_4
       rect:
         serializedVersion: 2
-        x: 344
-        y: 343
+        x: 346
+        y: 346
         width: 346
         height: 346
       alignment: 0
@@ -174,14 +195,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6651d1c714bc16d43917b4978d44b769
-      internalID: 198461736
+      spriteID: 1d6378eb4ad302e4d8c4bd9772ece458
+      internalID: -94687956
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Tileset Cen\xE1rio 1 Bordas_4"
+      name: tileset cenario1_5
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 346
+        width: 346
+        height: 346
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbe4bf3b3f4ce8f499726094ce513155
+      internalID: 1120659615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset cenario1_6
       rect:
         serializedVersion: 2
         x: 0
@@ -195,19 +237,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab46432f7c77ecb45a762020bfd8a5d9
-      internalID: 361585407
+      spriteID: 842cea9dc499f6748aa59ab09ac54eda
+      internalID: 894598816
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Tileset Cen\xE1rio 1 Bordas_5"
+      name: tileset cenario1_7
       rect:
         serializedVersion: 2
-        x: 344
+        x: 346
         y: 0
-        width: 344
+        width: 346
         height: 346
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -216,8 +258,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cdc72232c1943aa4db40577acbe21d88
-      internalID: -1117424299
+      spriteID: 90dd0bd77f17fe6478e04be9ec0c282c
+      internalID: 1963468476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset cenario1_8
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 0
+        width: 346
+        height: 346
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7f29e6dfbc444447b7dff5babd271b2
+      internalID: -741976604
       vertices: []
       indices: 
       edges: []
@@ -233,12 +296,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "Tileset Cen\xE1rio 1 Bordas_0": 679728119
-      "Tileset Cen\xE1rio 1 Bordas_1": -953330889
-      "Tileset Cen\xE1rio 1 Bordas_2": 1033175577
-      "Tileset Cen\xE1rio 1 Bordas_3": 198461736
-      "Tileset Cen\xE1rio 1 Bordas_4": 361585407
-      "Tileset Cen\xE1rio 1 Bordas_5": -1117424299
+      tileset cenario1_0: -1402131223
+      tileset cenario1_1: 368866793
+      tileset cenario1_2: -2127541449
+      tileset cenario1_3: 1014763969
+      tileset cenario1_4: -94687956
+      tileset cenario1_5: 1120659615
+      tileset cenario1_6: 894598816
+      tileset cenario1_7: 1963468476
+      tileset cenario1_8: -741976604
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

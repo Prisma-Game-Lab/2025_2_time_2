@@ -7554,11 +7554,23 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
+      propertyPath: availableCommands.Array.data[4].sceneTargets.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
       propertyPath: availableCommands.Array.data[0].sceneTargets.Array.data[0]
       value: 
       objectReference: {fileID: 2081381566}
     - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
       propertyPath: availableCommands.Array.data[2].sceneTargets.Array.data[0]
+      value: 
+      objectReference: {fileID: 2081381566}
+    - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
+      propertyPath: availableCommands.Array.data[3].sceneTargets.Array.data[0]
+      value: 
+      objectReference: {fileID: 2081381566}
+    - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
+      propertyPath: availableCommands.Array.data[4].sceneTargets.Array.data[0]
       value: 
       objectReference: {fileID: 2081381566}
     - target: {fileID: 6403494491631451098, guid: 64849051c7d1000488610aec31a33e64, type: 3}

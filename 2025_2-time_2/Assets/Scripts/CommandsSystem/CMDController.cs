@@ -175,6 +175,10 @@ public class CMDController : MonoBehaviour
 
         if (commandScriptable.hasTarget) 
         {
+            if (targetDropdown.value >= targetDropdown.options.Count) 
+            {
+                return null;
+            }
             string targetName = targetDropdown.options[targetDropdown.value].text;
             parameters.Add(targetName);
         }

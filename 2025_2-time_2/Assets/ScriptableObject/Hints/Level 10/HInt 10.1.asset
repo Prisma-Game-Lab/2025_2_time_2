@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa2e8eac3cde8cc48a52e7889215f788, type: 3}
-  m_Name: Dialogue 10.1
+  m_Name: HInt 10.1
   m_EditorClassIdentifier: 
   hintLabel: 
   dialogue:
-  - "T\xE1... agora \xE9 habilidade!"
+  - "Voc\xEA tem que parar a caixa no ar pra eu passar"

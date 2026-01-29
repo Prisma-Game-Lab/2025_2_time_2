@@ -1219,20 +1219,20 @@ PrefabInstance:
       objectReference: {fileID: 850030519}
     - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: hints.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: dialogue.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: hints.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 608e40238f5dd80458c922328316b43e, type: 2}
+      objectReference: {fileID: 11400000, guid: 7e39d53e62df9f047b18efb0d25636a5, type: 2}
     - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: dialogue.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 64fbe1499f0376c4fa5fad6033b07b8f, type: 2}
+      objectReference: {fileID: 11400000, guid: 6ebeb4eb3cd5ffd4d88294aadf7b49f2, type: 2}
     - target: {fileID: 6299753315797341559, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2272.6792

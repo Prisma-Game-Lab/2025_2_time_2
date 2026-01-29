@@ -9072,12 +9072,16 @@ PrefabInstance:
       objectReference: {fileID: 394349408}
     - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: hints.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: hints.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 3db6912a72e38794a81d0b6442728db0, type: 2}
+    - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
+      propertyPath: hints.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: beca90ae03b89184ba0a0418e9b0d4bb, type: 2}
     - target: {fileID: 6299753315797341559, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2272.6792

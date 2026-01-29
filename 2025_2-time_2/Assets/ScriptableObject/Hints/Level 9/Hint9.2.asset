@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa2e8eac3cde8cc48a52e7889215f788, type: 3}
-  m_Name: Hint4.1
+  m_Name: Hint9.2
   m_EditorClassIdentifier: 
-  hintLabel: Dica 1
+  hintLabel: 
   dialogue:
-  - "Caixas da mesma cor\u2026 s\xF3 est\xE3o um pouco pequenas, acho que d\xE1 pra
-    resolver em duas linhas de c\xF3digo"
+  - Vou ter que ficar pequeno igual a porta

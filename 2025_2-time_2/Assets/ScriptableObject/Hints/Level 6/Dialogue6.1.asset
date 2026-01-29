@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hintLabel: Dialogue 1
   dialogue:
-  - "Aff, voc\xEA vai precisar de um novo comando dessa vez de novo..."
-  - "J\xE1 coloquei ele no help pra voc\xEA     (-_-)"
+  - Como essas caixas vieram parar aqui?!

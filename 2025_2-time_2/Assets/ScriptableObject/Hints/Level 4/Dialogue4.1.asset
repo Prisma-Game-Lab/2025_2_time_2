@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hintLabel: Dialogue 1
   dialogue:
-  - "Ah, eu esqueci de mencionar. O comando size s\xF3 altera um tipo de entidade
-    por vez"
+  - "Caixas da mesma cor\u2026 s\xF3 est\xE3o um pouco pequenas, acho que d\xE1 pra
+    resolver em uma linha de c\xF3digo"

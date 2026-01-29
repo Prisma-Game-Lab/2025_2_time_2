@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa2e8eac3cde8cc48a52e7889215f788, type: 3}
-  m_Name: Hint6.1
+  m_Name: Hint6.2
   m_EditorClassIdentifier: 
-  hintLabel: Hint 1
+  hintLabel: HInt 1
   dialogue:
-  - "Essas caixas coloridas claramente n\xE3o s\xE3o iguais, acho que voc\xEA j\xE1
-    entendeu o que eu t\xF4 querendo dizer\u2026 "
+  - "Como voc\xEA viu antes, se s\xE3o da mesma cor elas s\xE3o alteradas ao mesmo
+    tempo"

@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa2e8eac3cde8cc48a52e7889215f788, type: 3}
   m_Name: Hint5.1
   m_EditorClassIdentifier: 
-  hintLabel: Hint1
+  hintLabel: ' Hint 1'
   dialogue:
   - "Ah essa caixa \xE9 meio grande pra empurrar. Nesse corpo de personagem n\xE3o
     consigo, mas se fosse no meu corpo real isso seria f\xE1cil."
-  - "Nem com tamanho m\xE9dio eu consigo (T_T)"

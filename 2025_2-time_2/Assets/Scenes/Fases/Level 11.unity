@@ -345,6 +345,10 @@ PrefabInstance:
       value: CommandsManager
       objectReference: {fileID: 0}
     - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
+      propertyPath: nSlots
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
       propertyPath: timeBetweenCommands
       value: 2
       objectReference: {fileID: 0}

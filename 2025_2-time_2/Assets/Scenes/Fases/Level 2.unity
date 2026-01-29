@@ -209,11 +209,11 @@ PrefabInstance:
       objectReference: {fileID: 1185674814}
     - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: hints.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: dialogue.Array.size
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: hints.Array.data[0]
@@ -226,11 +226,11 @@ PrefabInstance:
     - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: dialogue.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: b9294b9978e2aa7439d3b8219e63ea36, type: 2}
+      objectReference: {fileID: 11400000, guid: 1e315a5109f612f4ca3e1a0309e2d3d3, type: 2}
     - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: dialogue.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 07b6de9d97c53c644bcbafb3034dfc73, type: 2}
+      objectReference: {fileID: 11400000, guid: 5af865fd8517ba1458754b1b797e8960, type: 2}
     - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: OnDialogueEnd.m_PersistentCalls.m_Calls.Array.size
       value: 0

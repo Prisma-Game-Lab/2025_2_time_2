@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hintLabel: Dialogue 1
   dialogue:
-  - "Finalmente algu\xE9m apareceu!  Espero que assim como eu, voc\xEA tenha os conhecimentos
-    de tecnologia"
-  - "Quero que voc\xEA me leve at\xE9 o final desse jogo\u2026n\xE3o posso explicar
-    o porqu\xEA agora, s\xF3 preste aten\xE7\xE3o"
+  - "Acho que voc\xEA n\xE3o \xE9 t\xE3o incompetente assim (;\xAC_\xAC)"
+  - "Olha, t\xEAm outras coisas sobre o console"
+  - "Uma delas \xE9 que voc\xEA tem um limite de linhas de c\xF3digo"
+  - "Voc\xEA n\xE3o \xE9 obrigado a usar todas elas, mas tamb\xE9m, n\xE3o pode passar
+    dessa quantidade"

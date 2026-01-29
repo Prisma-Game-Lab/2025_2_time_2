@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hintLabel: 
   dialogue:
-  - Cai
+  - "Ah\u2026"
+  - "Voc\xEA conseguiu me decepcionar em poucos segundos"
+  - "Aperta aquele bot\xE3o das setas e eu volto pro in\xEDcio da fase"

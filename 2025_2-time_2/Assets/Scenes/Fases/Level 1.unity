@@ -295,16 +295,16 @@ PrefabInstance:
       objectReference: {fileID: 1185674814}
     - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: hints.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: dialogue.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: hints.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 78f408e448324e64dbe3c8983801fe14, type: 2}
+      objectReference: {fileID: 11400000, guid: bf2549a33b7bd3a4081d37c339d29751, type: 2}
     - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: hints.Array.data[1]
       value: 
@@ -312,7 +312,7 @@ PrefabInstance:
     - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: dialogue.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: b9294b9978e2aa7439d3b8219e63ea36, type: 2}
+      objectReference: {fileID: 11400000, guid: 02ebb0a6873d9be41b57c7bbf4700c23, type: 2}
     - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: dialogue.Array.data[1]
       value: 
@@ -622,7 +622,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
     textureRect:
       serializedVersion: 2
@@ -832,7 +832,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
     textureRect:
       serializedVersion: 2

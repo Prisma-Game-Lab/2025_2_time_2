@@ -14,8 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hintLabel: Dialogue 2
   dialogue:
-  - "T\xE1 vendo esse console? \xC9 ai que voc\xEA usa os comandos para alterar as
-    coisas \xE0 minha volta."
   - "Voc\xEA s\xF3 pode escrever no m\xE1ximo essa quantidade de linhas de c\xF3digo,
     como voc\xEA deve saber, esse limite se d\xE1 por causa da RAM dispon\xEDvel."
   - "Se voc\xEA n\xE3o se lembrar de algum comando que j\xE1 utilizou antes, pode
@@ -23,8 +21,3 @@ MonoBehaviour:
   - "Como uma ajudinha, o comando que voc\xEA precisa j\xE1 esta no help"
   - "Depois voc\xEA especifica qual ser\xE1 o objeto que voc\xEA quer alterar e como
     ele vai ser"
-  - "Quando terminar aperte no bot\xE3o de run para rodar o c\xF3digo, obviamente\u2026
-    (\xAC_\xAC)"
-  - "S\xF3 mais um detalhe, s\xF3 consigo me mexer quando voc\xEA roda os c\xF3digos,
-    e todos tem que ser v\xE1lidos, ou seja, serem coloridos"
-  - "S\xF3 d\xE1 um toque em mim, que eu repito tudo"

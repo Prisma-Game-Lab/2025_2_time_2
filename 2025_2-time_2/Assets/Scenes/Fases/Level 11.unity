@@ -762,10 +762,6 @@ PrefabInstance:
       propertyPath: locked
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5755920594512782612, guid: dd8d0fe44e1ff6d48811472c0e4e3aa7, type: 3}
-      propertyPath: nextSceneName
-      value: MainMenu
-      objectReference: {fileID: 0}
     - target: {fileID: 5880774917157974048, guid: dd8d0fe44e1ff6d48811472c0e4e3aa7, type: 3}
       propertyPath: m_Name
       value: Door
@@ -1064,20 +1060,20 @@ PrefabInstance:
       objectReference: {fileID: 850030519}
     - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: hints.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: dialogue.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: hints.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 608e40238f5dd80458c922328316b43e, type: 2}
+      objectReference: {fileID: 11400000, guid: 9e73eb2d81469ca40b66dc6f9498b975, type: 2}
     - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: dialogue.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 64fbe1499f0376c4fa5fad6033b07b8f, type: 2}
+      objectReference: {fileID: 11400000, guid: 9f3d1b3ab932c934fbbc8a73bba50759, type: 2}
     - target: {fileID: 6299753315797341559, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2272.6792

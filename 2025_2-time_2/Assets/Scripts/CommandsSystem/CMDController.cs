@@ -36,13 +36,18 @@ public class CMDController : MonoBehaviour
     private bool valid = false;
     private bool empty = true;
 
+    private bool originalColorSaved;
     private Color originalColor;
 
     private HelpManager helpManager;
 
     private void Start()
     {
-        originalColor = cmdInputField.textComponent.color;
+        if (!originalColorSaved)
+        {
+            originalColor = cmdInputField.textComponent.color;
+            originalColorSaved = true;
+        }
         helpManager = FindObjectOfType<HelpManager>();
     }
 
@@ -55,7 +60,12 @@ public class CMDController : MonoBehaviour
     {
         string currentText = cmdInputField.text;
 
-        currentStoredCommand = consoleWindow.ValidateCommand(currentText, ref empty, ref valid);
+        CommandData newCommand = consoleWindow.ValidateCommand(currentText, ref empty, ref valid);
+
+        if (newCommand == currentStoredCommand)
+            return;
+
+        currentStoredCommand = newCommand;
 
         if (!valid)
         {
@@ -223,6 +233,12 @@ public class CMDController : MonoBehaviour
         if (data == null)
             return;
 
+        if (!originalColorSaved)
+        {
+            originalColor = cmdInputField.textComponent.color;
+            originalColorSaved = true;
+        }
+        
         cmdInputField.text = data.slotText;
 
         CheckCommand(cmdInputField.text);
@@ -281,6 +297,7 @@ public class CMDController : MonoBehaviour
             if (currentStoredCommand != null)
             {
                 ResetState();
+                currentStoredCommand = null;
                 consoleWindow.AlterTextStatus(currentText, commandData, ref empty, ref valid);
             }
             cmdInputField.textComponent.color = originalColor;

@@ -8691,6 +8691,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 203678483}
     m_Modifications:
+    - target: {fileID: 472745195433615186, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
+      propertyPath: m_GravityScale
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1690095851677356945, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: colorName
       value: Blue
@@ -9481,7 +9485,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 472745195433615186, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: m_GravityScale
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1690095851677356945, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: colorName

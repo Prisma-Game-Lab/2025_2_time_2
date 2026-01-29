@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hintLabel: Dica 1
   dialogue:
-  - "Pensando bem, acho que eu esqueci de arrumar o tamanho dessa caixa. Ela t\xE1
-    grande de mais..."
+  - "Legal! Esqueci dessa tamb\xE9m, ela t\xE1 grande demais..."

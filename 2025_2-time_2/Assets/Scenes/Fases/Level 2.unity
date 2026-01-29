@@ -213,24 +213,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: dialogue.Array.size
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: hints.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 78f408e448324e64dbe3c8983801fe14, type: 2}
+      objectReference: {fileID: 11400000, guid: 908687e3eda215f469563b208ee3aac0, type: 2}
     - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: hints.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: bf2549a33b7bd3a4081d37c339d29751, type: 2}
+      objectReference: {fileID: 11400000, guid: 6038d754b8034d2468082edb3c4bbecf, type: 2}
     - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: dialogue.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: b9294b9978e2aa7439d3b8219e63ea36, type: 2}
+      objectReference: {fileID: 11400000, guid: 1e315a5109f612f4ca3e1a0309e2d3d3, type: 2}
     - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: dialogue.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 07b6de9d97c53c644bcbafb3034dfc73, type: 2}
+      objectReference: {fileID: 11400000, guid: 5af865fd8517ba1458754b1b797e8960, type: 2}
     - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: OnDialogueEnd.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -310,7 +310,7 @@ PrefabInstance:
     - target: {fileID: 7114385056263136551, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: hintButtons.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 753644666}
     - target: {fileID: 9121316655820706455, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: m_Name
       value: HintManager

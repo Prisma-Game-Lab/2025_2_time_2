@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hintLabel: Dialogue 1
   dialogue:
-  - "R\xE1pido preciso passar por aquela porta!"
+  - "Finalmente algu\xE9m apareceu!  Espero que assim como eu, voc\xEA tenha os conhecimentos
+    de tecnologia"
+  - "Quero que voc\xEA me leve at\xE9 o final desse jogo\u2026n\xE3o posso explicar
+    o porqu\xEA agora, s\xF3 passe por aquela porta"

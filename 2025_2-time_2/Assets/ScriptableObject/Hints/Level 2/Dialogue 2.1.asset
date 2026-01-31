@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hintLabel: 
   dialogue:
-  - "Finalmente! Para alguma coisa voc\xEA serviu"
+  - 'Finalmente!  '
   - ...
   - "P\xF4\u2026 esqueci de arrumar o tamanho dessa caixa"
   - "T\xE1, voc\xEA vai ter que mexer nisso"

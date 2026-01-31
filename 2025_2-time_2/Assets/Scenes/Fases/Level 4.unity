@@ -378,6 +378,10 @@ PrefabInstance:
       value: HUD
       objectReference: {fileID: 0}
     - target: {fileID: 2074995093310254638, guid: 882d69153106edf4fb7cb996d4ae1da5, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074995093310254638, guid: 882d69153106edf4fb7cb996d4ae1da5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1516261763}

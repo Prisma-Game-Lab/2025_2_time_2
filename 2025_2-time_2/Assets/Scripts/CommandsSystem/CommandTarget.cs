@@ -144,14 +144,14 @@ public class CommandTarget : MonoBehaviour
                 }
                 stop.Initialize(this, arguments);
                 break;
-            case CommandEffectType.Teleport:
-                TeleportEffect teleport = GetComponent<TeleportEffect>();
-                if (teleport == null)
+            case CommandEffectType.Swap:
+                SwapEffect swap = GetComponent<SwapEffect>();
+                if (swap == null)
                 {
-                    teleport = gameObject.AddComponent<TeleportEffect>();
+                    swap = gameObject.AddComponent<SwapEffect>();
 
                 }
-                teleport.Initialize(this,arguments);
+                swap.Initialize(this,arguments);
                 break;
         }
 

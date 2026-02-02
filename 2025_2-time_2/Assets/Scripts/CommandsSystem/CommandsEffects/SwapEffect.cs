@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TeleportEffect : CommandEffect
+public class SwapEffect : CommandEffect
 {
      private CommandTarget target1;
 

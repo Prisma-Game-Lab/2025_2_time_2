@@ -12,6 +12,7 @@ public class BoxScript : MonoBehaviour
     [SerializeField] private float bigMass;
     [SerializeField] private float alteringMass;
     [SerializeField] private float frictionCoeficient;
+    [SerializeField] private float minSpeed;
 
     private bool stopped = false;
 
@@ -25,7 +26,10 @@ public class BoxScript : MonoBehaviour
     {
         if (stopped) return;
 
-        rb.velocity -= Vector2.right * rb.velocity.x * (frictionCoeficient * Time.deltaTime);
+        if (Mathf.Abs(rb.velocity.x) > minSpeed)
+            rb.velocity -= Vector2.right * rb.velocity.x * (frictionCoeficient * Time.deltaTime);
+        //else
+            //rb.velocity *= Vector2.up;
     }
 
     public void OnCommandStart(CommandEffectType effect) 

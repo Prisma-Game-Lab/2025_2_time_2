@@ -33,7 +33,7 @@ public class CommandTarget : MonoBehaviour
         StartUp();
     }
 
-    protected void StartUp() 
+    protected virtual void StartUp() 
     {
         if (sr == null)
             sr = GetComponent<SpriteRenderer>();
@@ -49,7 +49,7 @@ public class CommandTarget : MonoBehaviour
         }
     }
 
-    public void ChangeCurrentColor(string newColor)
+    public virtual void ChangeCurrentColor(string newColor)
     {
         if (LevelColors.instance == null || newColor == null)
         {
@@ -78,7 +78,7 @@ public class CommandTarget : MonoBehaviour
         //}
     }
 
-    public string GetDisplayName()
+    public virtual string GetDisplayName()
     {
         if (colorName != null)
         {

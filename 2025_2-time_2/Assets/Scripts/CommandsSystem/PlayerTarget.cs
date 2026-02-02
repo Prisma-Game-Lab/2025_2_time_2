@@ -6,7 +6,7 @@ public class PlayerTarget : CommandTarget
 {
     //This script is absolutely crap
 
-    new protected void StartUp()
+    protected override void StartUp()
     {
         if (size == null)
             size = GetComponent<SizeEffect>();
@@ -17,12 +17,12 @@ public class PlayerTarget : CommandTarget
         }
     }
 
-    new public void ChangeCurrentColor(string newColor) 
+    public override void ChangeCurrentColor(string newColor) 
     {
         return;
     }
 
-    new public string GetDisplayName()
+    public override string GetDisplayName()
     {
         return targetName;
     }

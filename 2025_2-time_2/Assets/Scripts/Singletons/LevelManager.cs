@@ -22,6 +22,10 @@ public class LevelManager : MonoBehaviour
         }
 
         Instance = this;
+        if (transform.parent != null)
+        {
+            transform.parent = null;
+        }
         DontDestroyOnLoad(gameObject);
 
         unlockedLevels = PlayerPrefs.GetInt("unlockedLevels", 0);

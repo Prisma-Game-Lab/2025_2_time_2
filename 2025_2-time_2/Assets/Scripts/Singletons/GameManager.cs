@@ -22,6 +22,10 @@ public class GameManager : MonoBehaviour
         else
         {
             Instance = this;
+            if (transform.parent != null)
+            {
+                transform.parent = null;
+            }
             DontDestroyOnLoad(gameObject);
         }
     }

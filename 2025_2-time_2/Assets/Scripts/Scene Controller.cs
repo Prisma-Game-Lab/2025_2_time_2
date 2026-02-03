@@ -15,6 +15,10 @@ public class SceneController : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            if (transform.parent != null)
+            {
+                transform.parent = null;
+            }
             DontDestroyOnLoad(gameObject);
         }
         else

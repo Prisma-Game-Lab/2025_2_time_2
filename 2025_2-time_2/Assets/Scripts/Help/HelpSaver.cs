@@ -14,13 +14,15 @@ public class HelpSaver : MonoBehaviour
             return;
         }
         
-        
         Instance = this;
+        if (transform.parent != null)
+        {
+            transform.parent = null;
+        }
         DontDestroyOnLoad(gameObject);
 
         if (knownCommands == null)
             knownCommands = new List<CommandTooltipSO>();
-        
     }
     
     public List<CommandTooltipSO> GetKnowCommands()

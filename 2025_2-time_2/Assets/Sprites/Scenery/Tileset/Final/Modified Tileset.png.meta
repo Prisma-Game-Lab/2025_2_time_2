@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ff10247f869e67243a37c59c194e4963
+guid: c2cf5aa00c434d045aa2e76e63417235
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -45,10 +45,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 275
+  spritePixelsToUnits: 432
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,7 +110,70 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Quinas Tileset1_0
+      name: tileset cenario1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 692
+        width: 346
+        height: 346
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51fd32cddb6bb7b4e81f45273e413b44
+      internalID: -1402131223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset cenario1_1
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 692
+        width: 346
+        height: 346
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ae72530eee920643ad1fa8104894df2
+      internalID: 368866793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset cenario1_2
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 692
+        width: 346
+        height: 346
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94c76506d5356ee47b7220dd4409fdd7
+      internalID: -2127541449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset cenario1_3
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 800b6c55e5b06e74bb6b0de952aad11e
-      internalID: 1897883108
+      spriteID: 40a1616008d352b4f8439649ee43f3d1
+      internalID: 1014763969
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Quinas Tileset1_1
+      name: tileset cenario1_4
       rect:
         serializedVersion: 2
         x: 346
@@ -145,14 +208,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a47f604ef1f14249a4acd770c68448e
-      internalID: -1139720014
+      spriteID: 1d6378eb4ad302e4d8c4bd9772ece458
+      internalID: -94687956
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Quinas Tileset1_2
+      name: tileset cenario1_5
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 346
+        width: 346
+        height: 346
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbe4bf3b3f4ce8f499726094ce513155
+      internalID: 1120659615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset cenario1_6
       rect:
         serializedVersion: 2
         x: 0
@@ -166,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3de40b91a7ba3624f816b7011e80e849
-      internalID: 236470351
+      spriteID: 842cea9dc499f6748aa59ab09ac54eda
+      internalID: 894598816
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Quinas Tileset1_3
+      name: tileset cenario1_7
       rect:
         serializedVersion: 2
         x: 346
@@ -187,8 +271,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6060f47430306ef40b36486ffccd4e9d
-      internalID: 265589834
+      spriteID: 90dd0bd77f17fe6478e04be9ec0c282c
+      internalID: 1963468476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset cenario1_8
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 0
+        width: 346
+        height: 346
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7f29e6dfbc444447b7dff5babd271b2
+      internalID: -741976604
       vertices: []
       indices: 
       edges: []
@@ -204,10 +309,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Quinas Tileset1_0: 1897883108
-      Quinas Tileset1_1: -1139720014
-      Quinas Tileset1_2: 236470351
-      Quinas Tileset1_3: 265589834
+      tileset cenario1_0: -1402131223
+      tileset cenario1_1: 368866793
+      tileset cenario1_2: -2127541449
+      tileset cenario1_3: 1014763969
+      tileset cenario1_4: -94687956
+      tileset cenario1_5: 1120659615
+      tileset cenario1_6: 894598816
+      tileset cenario1_7: 1963468476
+      tileset cenario1_8: -741976604
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

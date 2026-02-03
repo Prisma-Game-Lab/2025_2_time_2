@@ -165,6 +165,8 @@ GameObject:
   - component: {fileID: 9054844470443608963}
   - component: {fileID: 1136161788765889859}
   - component: {fileID: 7071176496080572082}
+  - component: {fileID: 8478528803414183295}
+  - component: {fileID: 1107407188075622394}
   - component: {fileID: 6104710625975912273}
   m_Layer: 6
   m_Name: Player
@@ -312,7 +314,7 @@ MonoBehaviour:
   desaccelerationRate: 12
   minTurnSpeed: 0.25
   minSpeed: 0.01
-  jumpForce: 400
+  jumpForce: 375
   lowJumpMultiplier: 2
   fallMultiplier: 1
   jumpCooldown: 0.2
@@ -380,6 +382,46 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8478528803414183295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5550549093014073896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b17986637a43fa4e9fc2378cb4fbff4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sr: {fileID: 8603809756791168462}
+  size: {fileID: 1107407188075622394}
+  sizeScriptable: {fileID: 11400000, guid: 48f5b5d8de9a99e4fb2063000c19ea82, type: 2}
+  targetName: Henry
+  colorName: 
+  targetSize: 1
+  OnCommandEffectStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCommandEffectEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSizeChange:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1107407188075622394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5550549093014073896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4315406a188a7343ae1cd71d1c84c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interpolationTime: 1.5
 --- !u!114 &6104710625975912273
 MonoBehaviour:
   m_ObjectHideFlags: 0

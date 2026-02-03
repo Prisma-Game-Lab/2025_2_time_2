@@ -65,6 +65,7 @@ public class SizeEffect : CommandEffect
 
         currentTime = 0;
         initialScale = transform.localScale;
+        print(modifierValue);
         targetScale = Vector2.one * modifierValue;
         interpolateScale = true;
 

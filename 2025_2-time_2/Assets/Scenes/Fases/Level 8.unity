@@ -182,6 +182,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5838390499060260533, guid: 4a8dda8f02d45214f87aee42d3bf3d8f, type: 3}
+      propertyPath: maxCollisionFrames
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

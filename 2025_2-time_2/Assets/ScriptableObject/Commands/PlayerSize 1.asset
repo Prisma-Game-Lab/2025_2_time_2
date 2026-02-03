@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6447fb6a3a72a745901f404cb855c37, type: 3}
+  m_Name: PlayerSize 1
+  m_EditorClassIdentifier: 
+  commandName: Size
+  effect: 0
+  hasTarget: 1
+  modifiers:
+  - displayName: Small
+    modifierValue: 0.8
+  - displayName: Medium
+    modifierValue: 1
+  - displayName: Big
+    modifierValue: 1.2
+  strength: 0

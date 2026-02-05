@@ -116,6 +116,7 @@ public class SizeEffect : CommandEffect
         initialScale = transform.localScale;
         desiredSize = startSize;
         interpolateScale = true;
+        target.SetTargetSize(TargetSize.Altering);
     }
 
     private IEnumerator DestructionSequence()

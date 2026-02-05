@@ -8,9 +8,6 @@ using UnityEngine.SceneManagement;
 
 public class HintManager : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] private HintUIManager hintUIManager;
-
     [Header("Hint Configuration")]
     [SerializeField] private List<HintSO> hints;      
     [SerializeField] private List<HintSO> dialogue;   
@@ -244,12 +241,6 @@ public class HintManager : MonoBehaviour
 
     private void FinishCurrentHint(bool immediate)
     {
-        
-        if (!isDialogueSequence && hintUIManager != null)
-        {
-            hintUIManager.UnlockNextHint();
-        }
-
         if (autoAdvanceCoroutine != null)
         {
             StopCoroutine(autoAdvanceCoroutine);

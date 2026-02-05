@@ -2268,23 +2268,19 @@ MonoBehaviour:
   availableCommands:
   - commandScriptable: {fileID: 11400000, guid: 23a3e051974d77c41bc393781683d493, type: 2}
     commandModifier: 0
-    sceneTargets:
-    - {fileID: 0}
+    sceneTargets: []
   - commandScriptable: {fileID: 11400000, guid: e1ccec283bee91d41b20ed7820ff564d, type: 2}
     commandModifier: 0
     sceneTargets: []
   - commandScriptable: {fileID: 11400000, guid: 1ab627dbc9c917a45b277774e94b0ddf, type: 2}
     commandModifier: 0
-    sceneTargets:
-    - {fileID: 0}
+    sceneTargets: []
   - commandScriptable: {fileID: 11400000, guid: bf7c6956fffb455498acfd0c52149ce8, type: 2}
     commandModifier: 0
-    sceneTargets:
-    - {fileID: 0}
+    sceneTargets: []
   - commandScriptable: {fileID: 11400000, guid: bedc3e0cfbda75a44911d3accf9a2e27, type: 2}
     commandModifier: 0
-    sceneTargets:
-    - {fileID: 0}
+    sceneTargets: []
   nSlots: 5
   startTime: 1
   timeBetweenCommands: 3

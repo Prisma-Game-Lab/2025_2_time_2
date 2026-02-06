@@ -16111,6 +16111,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -3.05
       objectReference: {fileID: 0}
+    - target: {fileID: 1240154386012908502, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
+      propertyPath: maxCollisionFrames
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2543232917445551074, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: m_Name
       value: SceneRequirements
@@ -16618,6 +16622,10 @@ PrefabInstance:
     - target: {fileID: 4899323078864877436, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5397911457594012851, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
+      propertyPath: m_Size.y
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 5570857410181648443, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: m_SizeDelta.x

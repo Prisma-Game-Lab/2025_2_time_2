@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 32592033}
   - component: {fileID: 32592032}
   - component: {fileID: 32592031}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 541842271}
   - component: {fileID: 541842270}
   - component: {fileID: 541842269}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -449,7 +449,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 724400217}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Triggers
   m_TagString: Untagged
   m_Icon: {fileID: 0}

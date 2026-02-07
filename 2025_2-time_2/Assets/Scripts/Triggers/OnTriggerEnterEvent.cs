@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class OnTriggerEnterEvent : MonoBehaviour
 {
-    [SerializeField] private UnityEvent customEvent;
+    [SerializeField] private UnityEvent<Collider2D> customEvent;
     [SerializeField] private bool oneTime;
 
     private bool triggered;
@@ -17,7 +17,7 @@ public class OnTriggerEnterEvent : MonoBehaviour
             return;
         }
 
-        customEvent.Invoke();
+        customEvent.Invoke(collision);
         triggered = true;
     }
 }

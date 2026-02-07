@@ -16,8 +16,6 @@ public class DoorScript : MonoBehaviour
     [SerializeField] private Sprite unlockedSprite;
     [SerializeField] private ParticleSystem unlockedParticles;
 
-    private bool triggered;
-
     private void Start()
     {
         Initialization();
@@ -66,11 +64,9 @@ public class DoorScript : MonoBehaviour
         KeyScript.OnKeyPickup.RemoveListener(Unlock);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void Open(Collider2D collision) 
     {
         if (locked)
-            return;
-        if (triggered)
             return;
 
         if (unlockNextLevel)
@@ -80,7 +76,6 @@ public class DoorScript : MonoBehaviour
         PlayerController pc = collision.GetComponent<PlayerController>();
         pc.SetCurrentPlayerState(PlayerController.PlayerState.Blocked);
         pc.rb.velocity = Vector2.up * pc.rb.velocity;
-        triggered = true;
     }
 
     public void SetLockState(bool locked) 

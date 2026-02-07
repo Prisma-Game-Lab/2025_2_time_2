@@ -21,5 +21,5 @@ MonoBehaviour:
   - displayName: Medium
     modifierValue: 1
   - displayName: Big
-    modifierValue: 1.5
+    modifierValue: 2
   strength: 0

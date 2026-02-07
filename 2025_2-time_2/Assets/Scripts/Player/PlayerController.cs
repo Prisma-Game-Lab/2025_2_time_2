@@ -31,6 +31,11 @@ public class PlayerController : MonoBehaviour
     
     public void OnCrush() 
     {
+        OnDeath();
+    }
+
+    public void OnDeath() 
+    {
         LevelManager.RestartLevel();
     }
 }

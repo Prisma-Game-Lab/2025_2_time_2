@@ -19,23 +19,31 @@ public class SizeEffect : CommandEffect
     private Vector2 targetScale;
     private TargetSize desiredSize;
 
+    private int skipFrame;
     private bool interpolateScale;
     private float currentTime;
+    [SerializeField] private Command sizeScriptable;
     [SerializeField] private float interpolationTime = 2;
-
-    private Coroutine activeDestructionCoroutine;
 
     private void Start()
     {
         startScale = transform.localScale;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (interpolateScale)
         {
             currentTime += Time.deltaTime;
-            InterpolateScale(initialScale, targetScale);
+            if (skipFrame != 1) 
+            {
+                InterpolateScale(initialScale, targetScale);
+                skipFrame++;
+            }
+            else 
+            {
+                skipFrame = 0;
+            }
         }
     }
 
@@ -45,11 +53,10 @@ public class SizeEffect : CommandEffect
         if (startSize == TargetSize.Altering)
             startSize = target.GetTargetSize();
 
-        Command commandScriptable = arguments.commandScriptable;
         List<string> parameters = arguments.parameters;
 
         int index;
-        if (!commandScriptable.GetModifierValue(parameters[1], out modifierValue, out index))
+        if (!sizeScriptable.GetModifierValue(parameters[1], out modifierValue, out index))
             Debug.LogError("No Modifier Value found for Size");
 
         desiredSize = (TargetSize)index;
@@ -57,35 +64,22 @@ public class SizeEffect : CommandEffect
         if (target.GetTargetSize() == desiredSize)
             return;
 
-        if (activeDestructionCoroutine != null)
-        {
-            StopCoroutine(activeDestructionCoroutine);
-            activeDestructionCoroutine = null;
-        }
-
         currentTime = 0;
         initialScale = transform.localScale;
-        print(modifierValue);
         targetScale = Vector2.one * modifierValue;
         interpolateScale = true;
 
         target.SetTargetSize(TargetSize.Altering);
     }
 
-    public void Initialize(CommandTarget target, TargetSize targetSize, Command commandScriptable)
+    public void Initialize(CommandTarget target, TargetSize targetSize)
     {
         this.target = target;
         if (startSize == TargetSize.Altering)
             startSize = target.GetTargetSize();
 
-        if (!commandScriptable.GetModifierValue((int)targetSize, out modifierValue))
+        if (!sizeScriptable.GetModifierValue((int)targetSize, out modifierValue))
             Debug.LogError("No Modifier Value found for Size");
-
-        if (activeDestructionCoroutine != null)
-        {
-            StopCoroutine(activeDestructionCoroutine);
-            activeDestructionCoroutine = null;
-        }
 
         transform.localScale = Vector3.one * modifierValue;
         target.SetTargetSize(targetSize);
@@ -93,7 +87,7 @@ public class SizeEffect : CommandEffect
 
     public override void Destroy()
     {
-        activeDestructionCoroutine = StartCoroutine(DestructionSequence());
+        ReturnToOriginalScale();
     }
 
     private void InterpolateScale(Vector2 startScale, Vector2 targetScale) 
@@ -111,19 +105,15 @@ public class SizeEffect : CommandEffect
 
     private void ReturnToOriginalScale()
     {
+        if (startSize == target.GetTargetSize())
+            return;
+
         currentTime = 0;
         targetScale = startScale;
         initialScale = transform.localScale;
         desiredSize = startSize;
         interpolateScale = true;
         target.SetTargetSize(TargetSize.Altering);
-    }
-
-    private IEnumerator DestructionSequence()
-    {
-        ReturnToOriginalScale();
-        yield return new WaitForSeconds(interpolationTime);
-        //Destroy(this);
     }
 }
 

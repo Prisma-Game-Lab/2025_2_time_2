@@ -8,7 +8,6 @@ public class CommandTarget : MonoBehaviour
     [Header("Components")]
     [SerializeField] private SpriteRenderer sr;
     [SerializeField] protected SizeEffect size;
-    [SerializeField] protected Command sizeScriptable;
 
     [Header("Variables")]
     [SerializeField] protected string targetName;
@@ -45,7 +44,7 @@ public class CommandTarget : MonoBehaviour
 
         if (size != null)
         {
-            size.Initialize(this, targetSize, sizeScriptable);
+            size.Initialize(this, targetSize);
         }
     }
 

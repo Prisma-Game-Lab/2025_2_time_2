@@ -17,9 +17,9 @@ MonoBehaviour:
   hasTarget: 1
   modifiers:
   - displayName: Small
-    modifierValue: 0.75
+    modifierValue: 0.5
   - displayName: Medium
-    modifierValue: 1.25
+    modifierValue: 1
   - displayName: Big
-    modifierValue: 2
+    modifierValue: 1.5
   strength: 0

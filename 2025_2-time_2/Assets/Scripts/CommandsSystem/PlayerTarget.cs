@@ -13,7 +13,7 @@ public class PlayerTarget : CommandTarget
 
         if (size != null)
         {
-            size.Initialize(this, targetSize, sizeScriptable);
+            size.Initialize(this, targetSize);
         }
     }
 

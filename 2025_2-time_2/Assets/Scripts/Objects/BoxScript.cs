@@ -13,6 +13,7 @@ public class BoxScript : MonoBehaviour
     [SerializeField] private float alteringMass;
     [SerializeField] private float frictionCoeficient;
     [SerializeField] private float minSpeed;
+    [SerializeField] private GameObject playerPushNegator;
 
     private bool stopped = false;
 
@@ -55,17 +56,20 @@ public class BoxScript : MonoBehaviour
         if (target.GetTargetSize() == TargetSize.Small)
         {
             rb.mass = smallMass;
-            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            playerPushNegator.SetActive(false);
+            //rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
         else if (target.GetTargetSize() == TargetSize.Altering) 
         {
             rb.mass = alteringMass;
-            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            playerPushNegator.SetActive(true);
+            //rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
         else 
         {
             rb.mass = bigMass;
-            rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
+            playerPushNegator.SetActive(true);
+            //rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
         }
     }
 

@@ -396,7 +396,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sr: {fileID: 8603809756791168462}
   size: {fileID: 1107407188075622394}
-  sizeScriptable: {fileID: 11400000, guid: 48f5b5d8de9a99e4fb2063000c19ea82, type: 2}
   targetName: Henry
   colorName: 
   targetSize: 1
@@ -421,6 +420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4315406a188a7343ae1cd71d1c84c57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sizeScriptable: {fileID: 11400000, guid: 48f5b5d8de9a99e4fb2063000c19ea82, type: 2}
   interpolationTime: 1.5
 --- !u!114 &6104710625975912273
 MonoBehaviour:

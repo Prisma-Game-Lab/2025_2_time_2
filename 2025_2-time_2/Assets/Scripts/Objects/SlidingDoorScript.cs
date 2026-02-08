@@ -11,6 +11,7 @@ public class SlidingDoorScript : MonoBehaviour
     private Vector3 closedPosition;
     private Vector3 openPosition;
     private bool buttonPressed = false;
+    private bool stopped;
 
     private void Awake()
     {
@@ -20,11 +21,12 @@ public class SlidingDoorScript : MonoBehaviour
         openPosition = closedPosition + transform.up * travelDistance;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
+        if (stopped) return;
+
         Vector3 target = buttonPressed ? openPosition : closedPosition;
 
-        
         transform.position = Vector3.MoveTowards(
             transform.position,
             target,
@@ -32,7 +34,6 @@ public class SlidingDoorScript : MonoBehaviour
         );
     }
 
-    
     public void OnButtonPressed()
     {
         buttonPressed = true;
@@ -41,5 +42,21 @@ public class SlidingDoorScript : MonoBehaviour
     public void OnButtonReleased()
     {
         buttonPressed = false;
+    }
+
+    public void OnCommandStart(CommandEffectType effect) 
+    {
+        if (effect == CommandEffectType.Stop) 
+        {
+            stopped = true;
+        }
+    }
+
+    public void OnCommandEnd(CommandEffectType effect)
+    {
+        if (effect == CommandEffectType.Stop)
+        {
+            stopped = false;
+        }
     }
 }

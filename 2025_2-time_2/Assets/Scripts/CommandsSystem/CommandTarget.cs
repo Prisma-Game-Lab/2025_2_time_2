@@ -99,7 +99,7 @@ public class CommandTarget : MonoBehaviour
             OnSizeChange.Invoke();
     }
 
-    private void ActivateCommand(CommandArguments arguments)
+    protected virtual void ActivateCommand(CommandArguments arguments)
     {
         CommandEffectType commandEffect = arguments.commandScriptable.effect;
 

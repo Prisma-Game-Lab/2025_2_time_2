@@ -23,15 +23,22 @@ public class StopEffect : CommandEffect
 
     private void ApplyEffect() 
     {
-        targetPreviousBodyType = targetRb.bodyType;
-        originalVelocity = targetRb.velocity;
-        targetRb.bodyType = RigidbodyType2D.Static;
+        if (targetRb != null)
+        {
+            targetPreviousBodyType = targetRb.bodyType;
+            originalVelocity = targetRb.velocity;
+            targetRb.bodyType = RigidbodyType2D.Static;
+        }
     }
 
     private void EndEffect()
     {
-        targetRb.bodyType = targetPreviousBodyType;
-        targetRb.velocity = originalVelocity;
+        if (targetRb != null)
+        {
+            targetRb.bodyType = targetPreviousBodyType;
+            targetRb.velocity = originalVelocity;
+        }
+
         targetScript.OnCommandEnd(CommandEffectType.Stop);
     }
 

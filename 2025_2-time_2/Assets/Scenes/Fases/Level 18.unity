@@ -22079,6 +22079,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6575475465411690208, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
+      propertyPath: nSlots
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6575475465411690208, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: availableCommands.Array.size
       value: 5
       objectReference: {fileID: 0}

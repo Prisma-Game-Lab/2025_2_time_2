@@ -9,6 +9,7 @@ public class BoxScript : MonoBehaviour
 
     [Header("Variables")]
     [SerializeField] private float smallMass;
+    [SerializeField] private float mediumMass;
     [SerializeField] private float bigMass;
     [SerializeField] private float alteringMass;
     [SerializeField] private float frictionCoeficient;
@@ -53,23 +54,24 @@ public class BoxScript : MonoBehaviour
     {
         SetReferences();
 
-        if (target.GetTargetSize() == TargetSize.Small)
+        switch (target.GetTargetSize()) 
         {
-            rb.mass = smallMass;
-            playerPushNegator.SetActive(false);
-            //rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        }
-        else if (target.GetTargetSize() == TargetSize.Altering) 
-        {
-            rb.mass = alteringMass;
-            playerPushNegator.SetActive(true);
-            //rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        }
-        else 
-        {
-            rb.mass = bigMass;
-            playerPushNegator.SetActive(true);
-            //rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
+            case TargetSize.Small:
+                rb.mass = smallMass;
+                playerPushNegator.SetActive(false);
+                break;
+            case TargetSize.Medium:
+                rb.mass = mediumMass;
+                playerPushNegator.SetActive(true);
+                break;
+            case TargetSize.Big:
+                rb.mass = bigMass;
+                playerPushNegator.SetActive(true);
+                break;
+            case TargetSize.Altering:
+                rb.mass = alteringMass;
+                playerPushNegator.SetActive(true);
+                break;
         }
     }
 

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6742586553870860716}
   m_Layer: 12
   m_Name: BoxMovementInhibitor
-  m_TagString: Untagged
+  m_TagString: BoxMovementInhibitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 6565771751089181575}
   m_Layer: 9
   m_Name: Box
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -406,8 +406,9 @@ MonoBehaviour:
   rb: {fileID: 472745195433615186}
   target: {fileID: 1690095851677356945}
   smallMass: 0.8
-  bigMass: 1
-  alteringMass: 1
+  mediumMass: 1
+  bigMass: 2
+  alteringMass: 3
   frictionCoeficient: 5
   minSpeed: 0.05
   playerPushNegator: {fileID: 6367574586479536668}

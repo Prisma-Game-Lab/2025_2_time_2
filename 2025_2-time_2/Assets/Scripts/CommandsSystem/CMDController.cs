@@ -159,7 +159,7 @@ public class CMDController : MonoBehaviour
     {
         selected = true;
         PlayerController playerRef = GameManager.Instance.GetPlayerRef().GetComponent<PlayerController>();
-        playerRef.SetCurrentPlayerState(PlayerController.PlayerState.Blocked);
+        playerRef.SetCurrentPlayerState(PlayerState.Blocked);
         RestartManager.blocked = true;
     }
 
@@ -167,7 +167,7 @@ public class CMDController : MonoBehaviour
     {
         selected = false;
         PlayerController playerRef = GameManager.Instance.GetPlayerRef().GetComponent<PlayerController>();
-        playerRef.SetCurrentPlayerState(PlayerController.PlayerState.Idle);
+        playerRef.SetCurrentPlayerState(PlayerState.Idle);
         RestartManager.blocked = false;
         CheckCommand(cmdInputField.text);
     }

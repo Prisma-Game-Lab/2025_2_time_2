@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
     {
         float desiredMoveDir = moveInput;
 
-        if (playerController.GetCurrentPlayerState() == PlayerController.PlayerState.Blocked)
+        if (playerController.GetCurrentPlayerState() == PlayerState.Blocked)
             desiredMoveDir = 0;
 
         float desiredSpeed = desiredMoveDir * moveSpeed;
@@ -99,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void SetOrientation() 
     {
-        if (playerController.GetCurrentPlayerState() == PlayerController.PlayerState.Blocked)
+        if (playerController.GetCurrentPlayerState() == PlayerState.Blocked)
             return;
 
         if (rb.velocity.x < -minTurnSpeed)
@@ -121,13 +121,13 @@ public class PlayerMovement : MonoBehaviour
         }
 
         isGrounded = Physics2D.OverlapBox(groundCheck.position, new Vector2(groundCheckWidth, groundCheckHeight), 0, groundLayer);
-        if (isGrounded && playerController.GetCurrentPlayerState() == PlayerController.PlayerState.Jumping)
-            playerController.SetCurrentPlayerState(PlayerController.PlayerState.Idle);
+        if (isGrounded && playerController.GetCurrentPlayerState() == PlayerState.Jumping)
+            playerController.SetCurrentPlayerState(PlayerState.Idle);
     }
 
     private void Jump()
     {
-        if (!isGrounded || jumpOnCooldown || playerController.GetCurrentPlayerState() == PlayerController.PlayerState.Blocked)
+        if (!isGrounded || jumpOnCooldown || playerController.GetCurrentPlayerState() == PlayerState.Blocked)
             return;
 
         if (rb.velocity.y < 0)
@@ -135,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
 
         rb.AddForce(Vector2.up * jumpForce);
 
-        playerController.SetCurrentPlayerState(PlayerController.PlayerState.Jumping);
+        playerController.SetCurrentPlayerState(PlayerState.Jumping);
 
         shouldJump = false;
         StartCoroutine(JumpCooldown());
@@ -162,22 +162,22 @@ public class PlayerMovement : MonoBehaviour
 
         switch (playerController.GetCurrentPlayerState())
         {
-            case PlayerController.PlayerState.Idle:
+            case PlayerState.Idle:
                 if (xVelocityAbs > minSpeed)
                 {
-                    playerController.SetCurrentPlayerState(PlayerController.PlayerState.Running);
+                    playerController.SetCurrentPlayerState(PlayerState.Running);
                 }
                 break;
 
-            case PlayerController.PlayerState.Running:
+            case PlayerState.Running:
                 if (xVelocityAbs < minSpeed)
                 {
-                    playerController.SetCurrentPlayerState(PlayerController.PlayerState.Idle);
+                    playerController.SetCurrentPlayerState(PlayerState.Idle);
                     rb.velocity *= Vector2.up;
                 }
                 break;
 
-            case PlayerController.PlayerState.Blocked:
+            case PlayerState.Blocked:
                 if (xVelocityAbs < minSpeed)
                 {
                     rb.velocity *= Vector2.up;

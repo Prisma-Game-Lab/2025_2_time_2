@@ -9,10 +9,6 @@ public class PlayerController : MonoBehaviour
     public SpriteRenderer sr;
     public Animator animator;
 
-    public enum PlayerState
-    {
-        Idle, Running, Jumping, Blocked
-    }
     [SerializeField] private PlayerState currentState = PlayerState.Idle;
 
     [Header("Events")]
@@ -38,4 +34,9 @@ public class PlayerController : MonoBehaviour
     {
         LevelManager.RestartLevel();
     }
+}
+
+public enum PlayerState
+{
+    Idle, Running, Jumping, Blocked
 }

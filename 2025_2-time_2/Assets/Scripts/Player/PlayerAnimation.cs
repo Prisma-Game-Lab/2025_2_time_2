@@ -6,7 +6,7 @@ public class PlayerAnimation : MonoBehaviour
 {
     [SerializeField] private PlayerController pc;
 
-    public void OnStateChange(PlayerController.PlayerState playerState) 
+    public void OnStateChange(PlayerState playerState) 
     {
         bool idle = false;
         bool running = false;
@@ -15,16 +15,16 @@ public class PlayerAnimation : MonoBehaviour
 
         switch (playerState) 
         {
-            case PlayerController.PlayerState.Idle:
+            case PlayerState.Idle:
                 idle = true;
                 break;
-            case PlayerController.PlayerState.Running:
+            case PlayerState.Running:
                 running = true;
                 break;
-            case PlayerController.PlayerState.Jumping:
+            case PlayerState.Jumping:
                 jumping = true;
                 break;
-            case PlayerController.PlayerState.Blocked:
+            case PlayerState.Blocked:
                 blocked = true;
                 break;
         }

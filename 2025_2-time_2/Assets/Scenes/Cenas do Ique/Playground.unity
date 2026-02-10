@@ -141,7 +141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1690095851677356945, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: targetSize
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6639808512304542827, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: m_Color.b
@@ -161,15 +161,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8950409926952276760, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8950409926952276760, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8950409926952276760, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8950409926952276760, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -272,11 +272,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8950409926952276760, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.249
+      value: -2.95
       objectReference: {fileID: 0}
     - target: {fileID: 8950409926952276760, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.812
+      value: 2.95
       objectReference: {fileID: 0}
     - target: {fileID: 8950409926952276760, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: m_LocalPosition.z
@@ -605,6 +605,10 @@ PrefabInstance:
     - target: {fileID: 5550549093014073896, guid: 4a8dda8f02d45214f87aee42d3bf3d8f, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5659254539930114112, guid: 4a8dda8f02d45214f87aee42d3bf3d8f, type: 3}
+      propertyPath: minConcussionForce
+      value: -0.025
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

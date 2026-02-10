@@ -93,8 +93,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4598071690414487329}
-  - component: {fileID: 5698677199621425833}
   - component: {fileID: 1498283484311731405}
+  - component: {fileID: 5698677199621425833}
+  - component: {fileID: 2258642343042590469}
   m_Layer: 13
   m_Name: SlidingDoor
   m_TagString: Untagged
@@ -118,20 +119,6 @@ Transform:
   - {fileID: 754946166064426138}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5698677199621425833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7610967216755568463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1e24740366db5d45b736f3d5c35bc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  travelDistance: 3
-  speed: 2
 --- !u!61 &1498283484311731405
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -177,3 +164,67 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6588411, y: 3.769804}
   m_EdgeRadius: 0
+--- !u!114 &5698677199621425833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7610967216755568463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1e24740366db5d45b736f3d5c35bc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  travelDistance: 3
+  speed: 2
+--- !u!114 &2258642343042590469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7610967216755568463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ef70e95207a66b4d91ec5d36df3a7fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sr: {fileID: 0}
+  size: {fileID: 0}
+  targetName: Sliding Door
+  colorName: 
+  targetSize: 1
+  OnCommandEffectStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5698677199621425833}
+        m_TargetAssemblyTypeName: SlidingDoorScript, Assembly-CSharp
+        m_MethodName: OnCommandStart
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnCommandEffectEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5698677199621425833}
+        m_TargetAssemblyTypeName: SlidingDoorScript, Assembly-CSharp
+        m_MethodName: OnCommandEnd
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnSizeChange:
+    m_PersistentCalls:
+      m_Calls: []

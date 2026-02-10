@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using Microsoft.Unity.VisualStudio.Editor;
 
 public class HintManager : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class HintManager : MonoBehaviour
     [SerializeField] private List<HintSO> dialogue;   
 
     [SerializeField] private TextMeshProUGUI text;
+
+    private GameObject dialogueBox;
+
     [SerializeField] private float textSpeed = 0.05f;
 
     [Header("Auto Progression")]
@@ -29,6 +33,8 @@ public class HintManager : MonoBehaviour
     private bool isShowing = false;
     private bool isDialogueSequence = false;   
 
+    private RectTransform dialogueBoxRect;
+
     private Coroutine typingCoroutine;
     private Coroutine autoAdvanceCoroutine;
 
@@ -43,11 +49,25 @@ public class HintManager : MonoBehaviour
 
     private static HashSet<int> scenesWithIntroPlayed = new HashSet<int>();
 
+    public Image test;
+
     void Start()
     {
+        GameObject dialogueRoot = GameObject.FindGameObjectWithTag("DialogueBox");
+
+    if (dialogueRoot != null)
+    {
+        
+        Transform child = dialogueRoot.transform.Find("DialogueBox");
+        if (child != null)
+            dialogueBox = child.gameObject;
+    }
         player = GameObject.FindGameObjectWithTag("Player");
         cam = Camera.main;
         
+        if (dialogueBox != null)
+        dialogueBoxRect = dialogueBox.GetComponent<RectTransform>();
+
         if (text != null)
         {
             text.text = string.Empty;
@@ -67,33 +87,32 @@ public class HintManager : MonoBehaviour
 
     void Update()
     {
-        if (!isShowing || player == null || cam == null || text == null) return;
+        if (!isShowing || player == null || cam == null || dialogueBoxRect == null || text == null) return;
 
-        
-        Vector3 screenPos = cam.WorldToScreenPoint(
-            new Vector3(
-                player.transform.position.x + x_offset,
-                player.transform.position.y + y_offset,
-                player.transform.position.z
-            )
-        );
+    Vector3 screenPos = cam.WorldToScreenPoint(
+        new Vector3(
+            player.transform.position.x + x_offset,
+            player.transform.position.y + y_offset,
+            player.transform.position.z
+        )
+    );
 
-        
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            text.canvas.transform as RectTransform,
-            screenPos,
-            text.canvas.worldCamera,
-            out Vector2 localPoint
-        );
+    RectTransformUtility.ScreenPointToLocalPointInRectangle(
+        text.canvas.transform as RectTransform,
+        screenPos,
+        text.canvas.worldCamera,
+        out Vector2 localPoint
+    );
 
-       
-        text.rectTransform.pivot = new Vector2(0.5f, 0f); 
-        text.rectTransform.anchoredPosition = localPoint;
+    
+    dialogueBoxRect.pivot = new Vector2(0.5f, 0f);
+    dialogueBoxRect.anchoredPosition = localPoint;
     }
 
   
     public void DisplayCurrentHint(int hintIndex)
     {
+        
         if (hints == null || hints.Count == 0 || text == null) return;
         if (hintIndex < 0 || hintIndex >= hints.Count) return;
         if (isShowing) return;
@@ -174,6 +193,7 @@ public class HintManager : MonoBehaviour
 
     private void StartHint()
     {
+        dialogueBox.SetActive(true);
         isShowing = true;
         currentLineIndex = 0;
 
@@ -241,6 +261,7 @@ public class HintManager : MonoBehaviour
 
     private void FinishCurrentHint(bool immediate)
     {
+        dialogueBox.SetActive(false);
         if (autoAdvanceCoroutine != null)
         {
             StopCoroutine(autoAdvanceCoroutine);

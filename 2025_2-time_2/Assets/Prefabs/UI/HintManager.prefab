@@ -93,15 +93,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ab246f631dcd5f47acc0e98d29e6809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hintUIManager: {fileID: 7114385056263136551}
   hints: []
   dialogue: []
   text: {fileID: 0}
+  dialogueBox: {fileID: 0}
   textSpeed: 0.03
   autoAdvanceDelay: 1e+9
   autoHideDelay: 1
-  y_offset: 0.2
-  x_offset: 0
+  y_offset: -0.2
+  x_offset: 3.3
   OnDialogueEnd:
     m_PersistentCalls:
       m_Calls: []
@@ -155,6 +155,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 0020c78e-bcfa-4b0d-ae89-8f82075683b5
     m_ActionName: Normal/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f748d10a-4ba7-40fa-97fd-0698a220275b
+    m_ActionName: Normal/Console[/Keyboard/tab]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 40a6b86c-6616-4fc8-996c-e8b8121e7a42
+    m_ActionName: Normal/Mouse[/Mouse/position]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Normal

@@ -11,10 +11,13 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject Controls;
     [SerializeField] private GameObject Audio;
 
+    [SerializeField] private GameObject Background;
+
     public void TogglePause()
     {
-        bool isActive = PausePanel.activeSelf;
+        bool isActive = Background.activeSelf;
 
+        Background.SetActive(!isActive);
         PausePanel.SetActive(!isActive);
         Controls.SetActive(false);
         Audio.SetActive(false);

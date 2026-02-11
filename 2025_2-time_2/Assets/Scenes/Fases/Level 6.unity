@@ -20144,7 +20144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6575475465411690208, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: availableCommands.Array.data[2].sceneTargets.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6575475465411690208, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: availableCommands.Array.data[3].sceneTargets.Array.size
@@ -20157,11 +20157,11 @@ PrefabInstance:
     - target: {fileID: 6575475465411690208, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: availableCommands.Array.data[0].sceneTargets.Array.data[0]
       value: 
-      objectReference: {fileID: 1331540842}
+      objectReference: {fileID: 1830665126}
     - target: {fileID: 6575475465411690208, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: availableCommands.Array.data[0].sceneTargets.Array.data[1]
       value: 
-      objectReference: {fileID: 1830665126}
+      objectReference: {fileID: 1147463292}
     - target: {fileID: 6575475465411690208, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: availableCommands.Array.data[2].sceneTargets.Array.data[0]
       value: 
@@ -20171,9 +20171,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1147463292}
     - target: {fileID: 6575475465411690208, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
-      propertyPath: availableCommands.Array.data[3].sceneTargets.Array.data[0]
+      propertyPath: availableCommands.Array.data[2].sceneTargets.Array.data[2]
       value: 
       objectReference: {fileID: 1331540842}
+    - target: {fileID: 6575475465411690208, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
+      propertyPath: availableCommands.Array.data[3].sceneTargets.Array.data[0]
+      value: 
+      objectReference: {fileID: 1830665126}
     - target: {fileID: 6575475465411690208, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: availableCommands.Array.data[3].sceneTargets.Array.data[1]
       value: 
@@ -20181,7 +20185,7 @@ PrefabInstance:
     - target: {fileID: 6575475465411690208, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: availableCommands.Array.data[4].sceneTargets.Array.data[0]
       value: 
-      objectReference: {fileID: 1331540842}
+      objectReference: {fileID: 1830665126}
     - target: {fileID: 6575475465411690208, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: availableCommands.Array.data[4].sceneTargets.Array.data[1]
       value: 
@@ -20299,7 +20303,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7925384258349615856, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: m_Name
-      value: Box (1)
+      value: RedBox
       objectReference: {fileID: 0}
     - target: {fileID: 8950409926952276760, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: m_LocalScale.x
@@ -20379,7 +20383,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7925384258349615856, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: m_Name
-      value: Box
+      value: BlueBox
       objectReference: {fileID: 0}
     - target: {fileID: 8950409926952276760, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20456,7 +20460,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7925384258349615856, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: m_Name
-      value: Box (2)
+      value: PurpleBox
       objectReference: {fileID: 0}
     - target: {fileID: 8950409926952276760, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: m_LocalScale.x

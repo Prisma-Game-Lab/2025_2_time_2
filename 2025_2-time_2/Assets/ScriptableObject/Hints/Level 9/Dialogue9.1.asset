@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hintLabel: Dica 1
   dialogue:
-  - "Eu n\xE3o lembro de ter deixado a porta t\xE3o pequena assim (\u30FB_\u30FB;)"
+  - "Eu n\xE3o lembro de ter deixado a porta t\xE3o pequena assim "

@@ -5,7 +5,6 @@ using UnityEngine.Audio;
 
 public class MainMenu : MonoBehaviour
 {
-
     [SerializeField] private AudioMixer Mixer;
     [SerializeField] private string menuMusic;
     [SerializeField] private string levelMusic;
@@ -36,5 +35,10 @@ public class MainMenu : MonoBehaviour
     public void EraseData() 
     {
         LevelManager.EraseLevelData();
+    }
+
+    public void OnButtonHover() 
+    {
+        AudioManager.Instance.PlaySFX("ButtonHover");
     }
 }

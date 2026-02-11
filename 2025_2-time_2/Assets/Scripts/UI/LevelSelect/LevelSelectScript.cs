@@ -21,6 +21,7 @@ public class LevelSelectScript : MonoBehaviour
             else 
             {
                 levelButton.interactable = false;
+                levelButton.GetComponent<LevelSelectButton>().OnBlocked();
             }
 
             i++;
@@ -37,5 +38,10 @@ public class LevelSelectScript : MonoBehaviour
     public void OnExitButtonPress() 
     {
         LevelManager.LoadSceneByName("MainMenu");
+    }
+
+    public void OnButtonHover()
+    {
+        AudioManager.Instance.PlaySFX("ButtonHover");
     }
 }

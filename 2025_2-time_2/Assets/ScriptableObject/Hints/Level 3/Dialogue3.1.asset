@@ -16,7 +16,7 @@ MonoBehaviour:
   dialogue:
   - "Olha, t\xEAm outras coisas sobre o console que voc\xEA precisa saber"
   - "Uma delas \xE9 que voc\xEA tem um limite de linhas de c\xF3digo"
-  - "Voc\xEA n\xE3o \xE9 obrigado a usar todas elas, mas tamb\xE9m, n\xE3o pode passar
-    dessa quantidade"
-  - "Ah, e caso voc\xEA n\xE3o se lembre de algum comando que j\xE1 utilizou antes,
-    pode apertar o bot\xE3o help para se lembrar."
+  - "Voc\xEA n\xE3o \xE9 obrigado a usar todas elas, mas tamb\xE9m"
+  - " n\xE3o pode passar dessa quantidade"
+  - "Ah, e caso voc\xEA n\xE3o se lembre de algum comando que j\xE1 utilizou antes "
+  - "pode apertar o bot\xE3o help para se lembrar"

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hintLabel: Dialogue 1
   dialogue:
-  - "Caixas da mesma cor\u2026 s\xF3 est\xE3o um pouco pequenas, acho que d\xE1 pra
-    resolver em uma linha de c\xF3digo"
+  - "Caixas da mesma cor\u2026 s\xF3 est\xE3o um pouco pequenas"
+  - "acho que d\xE1 pra resolver em uma linha de c\xF3digo"

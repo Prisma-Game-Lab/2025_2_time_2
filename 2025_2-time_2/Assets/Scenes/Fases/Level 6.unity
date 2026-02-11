@@ -20132,7 +20132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6575475465411690208, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: availableCommands.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6575475465411690208, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: availableCommands.Array.data[4].commandScriptable
@@ -20152,16 +20152,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6575475465411690208, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: availableCommands.Array.data[4].sceneTargets.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6575475465411690208, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: availableCommands.Array.data[0].sceneTargets.Array.data[0]
       value: 
-      objectReference: {fileID: 1331540842}
+      objectReference: {fileID: 1830665126}
     - target: {fileID: 6575475465411690208, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: availableCommands.Array.data[0].sceneTargets.Array.data[1]
       value: 
-      objectReference: {fileID: 1830665126}
+      objectReference: {fileID: 1147463292}
     - target: {fileID: 6575475465411690208, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: availableCommands.Array.data[2].sceneTargets.Array.data[0]
       value: 

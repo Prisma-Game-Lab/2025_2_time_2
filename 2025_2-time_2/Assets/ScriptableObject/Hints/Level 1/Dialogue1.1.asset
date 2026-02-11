@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hintLabel: Dialogue 1
   dialogue:
-  - "Finalmente algu\xE9m apareceu!  Espero que assim como eu, voc\xEA tenha os conhecimentos
-    de tecnologia"
+  - "Finalmente algu\xE9m apareceu! "
+  - "Espero que assim como eu, voc\xEA tenha os conhecimentos de tecnologia"
+  - "Quero que voc\xEA me leve at\xE9 o final desse jogo\u2026"
+  - "n\xE3o posso explicar o porqu\xEA agora, s\xF3 passe por aquela porta"
   - "Caso voc\xEA perca alguma coisa que eu falei, \xE9 s\xF3 clicar em mim de novo"
-  - "Quero que voc\xEA me leve at\xE9 o final desse jogo\u2026n\xE3o posso explicar
-    o porqu\xEA agora, s\xF3 passe por aquela porta"

@@ -3,9 +3,7 @@ using UnityEngine;
 public class SlidingDoorScript : MonoBehaviour
 {
     [Header("Movement")]
-   
-    [SerializeField] private float travelDistance = 3f;
-
+    [SerializeField] private Transform destination;
     [SerializeField] private float speed = 2f;
 
     private Vector3 closedPosition;
@@ -16,9 +14,7 @@ public class SlidingDoorScript : MonoBehaviour
     private void Awake()
     {
         closedPosition = transform.position;
-
-        
-        openPosition = closedPosition + transform.up * travelDistance;
+        openPosition = destination.position;
     }
 
     private void FixedUpdate()

@@ -136,11 +136,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4598071690414487329, guid: 0d2fc7b53deeab548a7307ef64cb63f6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.5
+      value: 7.35
       objectReference: {fileID: 0}
     - target: {fileID: 4598071690414487329, guid: 0d2fc7b53deeab548a7307ef64cb63f6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.75
+      value: -1.6
       objectReference: {fileID: 0}
     - target: {fileID: 4598071690414487329, guid: 0d2fc7b53deeab548a7307ef64cb63f6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -148,7 +148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4598071690414487329, guid: 0d2fc7b53deeab548a7307ef64cb63f6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4598071690414487329, guid: 0d2fc7b53deeab548a7307ef64cb63f6, type: 3}
       propertyPath: m_LocalRotation.x
@@ -160,7 +160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4598071690414487329, guid: 0d2fc7b53deeab548a7307ef64cb63f6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4598071690414487329, guid: 0d2fc7b53deeab548a7307ef64cb63f6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -172,11 +172,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4598071690414487329, guid: 0d2fc7b53deeab548a7307ef64cb63f6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7610967216755568463, guid: 0d2fc7b53deeab548a7307ef64cb63f6, type: 3}
       propertyPath: m_Name
       value: SlidingDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759869825242702100, guid: 0d2fc7b53deeab548a7307ef64cb63f6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9152,7 +9156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 858194421197847967, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.07
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 858194421197847967, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11406,11 +11410,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4598071690414487329, guid: 0d2fc7b53deeab548a7307ef64cb63f6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.68
+      value: 4.65
       objectReference: {fileID: 0}
     - target: {fileID: 4598071690414487329, guid: 0d2fc7b53deeab548a7307ef64cb63f6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.37
+      value: -1.6
       objectReference: {fileID: 0}
     - target: {fileID: 4598071690414487329, guid: 0d2fc7b53deeab548a7307ef64cb63f6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11418,7 +11422,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4598071690414487329, guid: 0d2fc7b53deeab548a7307ef64cb63f6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4598071690414487329, guid: 0d2fc7b53deeab548a7307ef64cb63f6, type: 3}
       propertyPath: m_LocalRotation.x
@@ -11430,7 +11434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4598071690414487329, guid: 0d2fc7b53deeab548a7307ef64cb63f6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4598071690414487329, guid: 0d2fc7b53deeab548a7307ef64cb63f6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -11442,11 +11446,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4598071690414487329, guid: 0d2fc7b53deeab548a7307ef64cb63f6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233969864512135292, guid: 0d2fc7b53deeab548a7307ef64cb63f6, type: 3}
+      propertyPath: m_FlipX
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7610967216755568463, guid: 0d2fc7b53deeab548a7307ef64cb63f6, type: 3}
       propertyPath: m_Name
       value: SlidingDoor (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759869825242702100, guid: 0d2fc7b53deeab548a7307ef64cb63f6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

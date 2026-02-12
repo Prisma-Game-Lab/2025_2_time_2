@@ -19462,6 +19462,10 @@ PrefabInstance:
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[2].Array.data[15].Y
       value: -48004632
       objectReference: {fileID: 0}
+    - target: {fileID: 3963235326634835988, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
+      propertyPath: availableColors.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4237135224967673681, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0

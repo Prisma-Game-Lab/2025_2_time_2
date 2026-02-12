@@ -7179,14 +7179,26 @@ PrefabInstance:
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[1].Array.data[15].Y
       value: -39995372
       objectReference: {fileID: 0}
+    - target: {fileID: 3963235326634835988, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
+      propertyPath: availableColors.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4237135224967673681, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4402406995525436519, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
+      propertyPath: hints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4402406995525436519, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: dialogue.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4402406995525436519, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
+      propertyPath: hints.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 540df42869f5b244f86826320a16b8e6, type: 2}
     - target: {fileID: 4402406995525436519, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: dialogue.Array.data[0]
       value: 

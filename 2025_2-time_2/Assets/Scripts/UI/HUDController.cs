@@ -6,6 +6,17 @@ public class HUDController : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GameObject hintPanel;
+    [SerializeField] private GameObject hudHolder;
+
+    private void OnEnable()
+    {
+        GameManager.Instance.OnPause.AddListener(OnPause);
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.OnPause.RemoveListener(OnPause);
+    }
 
     public void OnConsoleButton() 
     {
@@ -20,5 +31,15 @@ public class HUDController : MonoBehaviour
     public void OnRestartButton() 
     {
         LevelManager.RestartLevel();
+    }
+
+    public void OnPause(bool state) 
+    {
+        SetHUD(!state);
+    }
+
+    public void SetHUD(bool state) 
+    {
+        hudHolder.SetActive(state);
     }
 }

@@ -55,13 +55,12 @@ public class HintManager : MonoBehaviour
     {
         GameObject dialogueRoot = GameObject.FindGameObjectWithTag("DialogueBox");
 
-    if (dialogueRoot != null)
-    {
-        
-        Transform child = dialogueRoot.transform.Find("DialogueBox");
-        if (child != null)
-            dialogueBox = child.gameObject;
-    }
+        if (dialogueRoot != null)
+        {
+            Transform child = dialogueRoot.transform.Find("DialogueBox");
+            if (child != null)
+                dialogueBox = child.gameObject;
+        }
         player = GameObject.FindGameObjectWithTag("Player");
         cam = Camera.main;
         
@@ -75,41 +74,38 @@ public class HintManager : MonoBehaviour
         }
 
         
-         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
 
         if (!scenesWithIntroPlayed.Contains(sceneIndex))
         {
             scenesWithIntroPlayed.Add(sceneIndex);
             StartDialogueSequence();
         }
-        
     }
 
     void Update()
     {
         if (!isShowing || player == null || cam == null || dialogueBoxRect == null || text == null) return;
 
-    Vector3 screenPos = cam.WorldToScreenPoint(
-        new Vector3(
-            player.transform.position.x + x_offset,
-            player.transform.position.y + y_offset,
-            player.transform.position.z
-        )
-    );
+        Vector3 screenPos = cam.WorldToScreenPoint(
+            new Vector3(
+                player.transform.position.x + x_offset,
+                player.transform.position.y + y_offset,
+                player.transform.position.z
+            )
+        );
 
-    RectTransformUtility.ScreenPointToLocalPointInRectangle(
-        text.canvas.transform as RectTransform,
-        screenPos,
-        text.canvas.worldCamera,
-        out Vector2 localPoint
-    );
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            text.canvas.transform as RectTransform,
+            screenPos,
+            text.canvas.worldCamera,
+            out Vector2 localPoint
+        );
 
-    
-    dialogueBoxRect.pivot = new Vector2(0.5f, 0f);
-    dialogueBoxRect.anchoredPosition = localPoint;
+        dialogueBoxRect.pivot = new Vector2(0.5f, 0f);
+        dialogueBoxRect.anchoredPosition = localPoint;
     }
-
-  
+    
     public void DisplayCurrentHint(int hintIndex)
     {
         
@@ -162,7 +158,7 @@ public class HintManager : MonoBehaviour
         typingCoroutine = StartCoroutine(TypeLine());
     }
 
-   public void OnClick(InputAction.CallbackContext context)
+    public void OnClick(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
 
@@ -187,9 +183,7 @@ public class HintManager : MonoBehaviour
         {
             StartDialogueSequence();
         }
-        }
-
-  
+    }
 
     private void StartHint()
     {
@@ -268,8 +262,6 @@ public class HintManager : MonoBehaviour
             autoAdvanceCoroutine = null;
         }
 
-        
-
         if (immediate)
         {
             EndHintSession();
@@ -293,44 +285,32 @@ public class HintManager : MonoBehaviour
 
         if (isDialogueSequence)
         {
-
             currentHintIndex++;
 
             if (dialogue != null && currentHintIndex < dialogue.Count)
             {  
-
-                
-                
-                
                 currentHint = dialogue[currentHintIndex];
                 
                 StartHint();
             }
             else
             {
-               
                 currentHint = null;
                 isDialogueSequence = false;
             }
-            
-        }
-        else
-        {
-            
         }
     }
 
     public void StartDialogueSequence()
     {
-    if (dialogue == null || dialogue.Count == 0 || text == null) return;
+        if (dialogue == null || dialogue.Count == 0 || text == null) return;
 
-   
-    if (isShowing) return;
+        if (isShowing) return;
 
-    isDialogueSequence = true;
-    currentHintIndex = 0;
-    currentHint = dialogue[currentHintIndex];
+        isDialogueSequence = true;
+        currentHintIndex = 0;
+        currentHint = dialogue[currentHintIndex];
 
-    StartHint(); 
+        StartHint(); 
     }
 }

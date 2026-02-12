@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -11,12 +10,19 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip[] musicSounds, sfxSounds;
     public AudioSource musicSource, sfxSource;
-    
-    public AudioMixerGroup sfxMixerGroup;
 
-    [SerializeField] private string menuMusic;
+    [SerializeField] private AudioMixer audioMixer;
+    [SerializeField] private AudioSubgroup[] audioSubgroups;
 
+    private const float dbMultiplier = 40;
+    private string currentMusic;
 
+    [Serializable]
+    class AudioSubgroup
+    {
+        public string name;
+        public float defaultVolume;
+    };
 
     private void Awake()
     {
@@ -26,59 +32,37 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-
             Instance = this;
             //DontDestroyOnLoad(gameObject);
         }
-
-    }
-   
-    private string currentlyToggledSong = null;
-    private string originalSong = null;
-
-    public void ToggleMusic(string newSong)
-    {
-    
-    if (musicSource.clip == null || !musicSource.isPlaying)
-    {
-        PlayMusic(newSong);
-        currentlyToggledSong = newSong;
-        return;
     }
 
-    if (musicSource.clip.name == newSong)
+    private void Start()
     {
-        if (!string.IsNullOrEmpty(originalSong))
+        foreach (var subgroup in audioSubgroups)
         {
-            PlayMusic(originalSong);
-            currentlyToggledSong = null;
-        }
-        else
-        {
-            musicSource.Stop();
-            currentlyToggledSong = null;
+            float savedValue = PlayerPrefs.GetFloat(subgroup.name, subgroup.defaultVolume);
+            SetSubgroupVolume(subgroup.name, savedValue);
         }
     }
-    else
-    {
-        originalSong = musicSource.clip.name;
-        PlayMusic(newSong);
-        currentlyToggledSong = newSong;
-    }
-    }
 
-    public void StopMusic()
-    {
-        musicSource.Stop();
-    }
     public void PlayMusic(string name)
     {
+        if (currentMusic == name)
+            return;
+
         AudioClip s = Array.Find(musicSounds, x => x.name == name);
         if (s != null)
         {
             musicSource.clip = s;
             musicSource.Play();
+            currentMusic = name;
         }
+    }
+
+    public void StopMusic()
+    {
+        musicSource.Stop();
     }
 
     public void PlaySFX(string name)
@@ -94,8 +78,32 @@ public class AudioManager : MonoBehaviour
     {
         musicSource.volume = volume;
     }
+
     public void SFXVolume(float volume)
     {
         sfxSource.volume = volume;
+    }
+
+    public void SetSubgroupVolume(string subgroupName, float value) 
+    {
+        if (Mathf.Approximately(value, 0f)) 
+        {
+            value = -80;
+        }
+        audioMixer.SetFloat(subgroupName, Mathf.Log10(value) * dbMultiplier);
+    }
+
+    public bool GetSubgroupVolume(string subgroupName, out float transformedValue) 
+    {
+        float rawValue;
+
+        if (!audioMixer.GetFloat(subgroupName, out rawValue)) 
+        {
+            transformedValue = -69;
+            return false;
+        }
+
+        transformedValue = Mathf.Pow(10f, rawValue / dbMultiplier);
+        return true;
     }
 }

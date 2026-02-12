@@ -7,17 +7,23 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     [Header("Tabs")]
+    [SerializeField] private GameObject PauseHolder;
+    [SerializeField] private Canvas canvas;
     [SerializeField] private GameObject PausePanel;
     [SerializeField] private GameObject Controls;
     [SerializeField] private GameObject Audio;
 
-    [SerializeField] private GameObject Background;
+    private void Start()
+    {
+        canvas.worldCamera = Camera.main;
+        canvas.sortingLayerName = "UI";
+    }
 
     public void TogglePause()
     {
-        bool isActive = Background.activeSelf;
+        bool isActive = PauseHolder.activeSelf;
 
-        Background.SetActive(!isActive);
+        PauseHolder.SetActive(!isActive);
         PausePanel.SetActive(!isActive);
         Controls.SetActive(false);
         Audio.SetActive(false);
@@ -34,5 +40,10 @@ public class PauseMenu : MonoBehaviour
     {
         if (context.performed)
             TogglePause();
+    }
+
+    public void OnButtonHover()
+    {
+        AudioManager.Instance.PlaySFX("ButtonHover");
     }
 }

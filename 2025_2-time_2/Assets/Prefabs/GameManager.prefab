@@ -586,6 +586,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7053968997044252490}
   - component: {fileID: 5277111416046384405}
+  - component: {fileID: 6678953735545410603}
+  - component: {fileID: 4006495616358154760}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -622,9 +624,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3437147e6caf68b499fc0bb701cff344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicSounds: []
-  sfxSounds: []
-  musicSource: {fileID: 0}
-  sfxSource: {fileID: 0}
-  sfxMixerGroup: {fileID: 0}
-  menuMusic: 
+  musicSounds:
+  - {fileID: 8300000, guid: 0817cdcaf7797e1479da7d3cb4c7ea83, type: 3}
+  - {fileID: 8300000, guid: 15a1c87f7370b704187691639943407c, type: 3}
+  sfxSounds:
+  - {fileID: 8300000, guid: 1c8531830ff7f5043a448ea53185e7c7, type: 3}
+  musicSource: {fileID: 8960033833816196176}
+  sfxSource: {fileID: 8806048028933887066}
+  audioMixer: {fileID: 24100000, guid: 815c8e1b3ec086f49bdf799d3aa7e9fb, type: 2}
+  audioSubgroups:
+  - name: Volume
+    defaultVolume: 0.5
+  - name: SFXVolume
+    defaultVolume: 0.5
+  - name: MusicVolume
+    defaultVolume: 0.5
+--- !u!114 &6678953735545410603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8476507573709397822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7587bb82c4611f34aa9bed2a004a7370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SFXSounds: []
+--- !u!114 &4006495616358154760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8476507573709397822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e41c8d48f589a444834cbab3e6bd47b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicList: []

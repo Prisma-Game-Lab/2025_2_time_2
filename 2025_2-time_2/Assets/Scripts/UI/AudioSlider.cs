@@ -2,33 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class AudioSlider : MonoBehaviour
 {
-    [SerializeField] private AudioMixer Mixer;
+    [SerializeField] private TMP_Text displayText;
+    [SerializeField] private Slider slider;
+    [SerializeField] private string subgroupVolume;
 
-    [SerializeField] private AudioSource AudioSource;
-
-    [SerializeField] TMP_Text displayText;
-
-    [SerializeField] Slider slider;
-
-    [SerializeField] string subgroupVolume;
-
-       private void Start()
+    private void Start()
     {
         SyncSlider();
-      
     }
 
     private void SyncSlider()
     {
-        if (Mixer.GetFloat(subgroupVolume, out float dB))
+        //if (Mixer.GetFloat(subgroupVolume, out float dB))
+        //{
+        //    float linear = Mathf.Pow(10f, dB / 20f);
+        //    slider.value = linear;
+
+        //    if (slider.targetGraphic != null)
+        //        UpdateDisplayText(slider.value);
+        //}
+        if (AudioManager.Instance.GetSubgroupVolume(subgroupVolume, out float db)) 
         {
-            float linear = Mathf.Pow(10f, dB / 20f);
-            slider.value = linear;
+            slider.value = db;
 
             if (slider.targetGraphic != null)
                 UpdateDisplayText(slider.value);
@@ -50,9 +49,6 @@ public class AudioSlider : MonoBehaviour
     public void OnChangeSlider(float Value)
     {
         displayText.text = Value.ToString("N2");
-        Mixer.SetFloat(subgroupVolume, Mathf.Log10(Value) * 20);
+        AudioManager.Instance.SetSubgroupVolume(subgroupVolume, Value);
     }
-
-    
-
 }

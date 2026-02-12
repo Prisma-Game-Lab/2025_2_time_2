@@ -7,12 +7,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-   
     private GameObject playerReference;
 
     public UnityEvent<bool> OnPause;
     
-
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -39,8 +37,6 @@ public class GameManager : MonoBehaviour
         return playerReference;
     }
 
-
-
     public void SetPause(bool state)
     {
         if (state)
@@ -54,8 +50,4 @@ public class GameManager : MonoBehaviour
 
         OnPause.Invoke(state);
     }
-    
-    
-
-   
 }

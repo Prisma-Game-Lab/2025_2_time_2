@@ -24,7 +24,7 @@ public class MusicLibrary : MonoBehaviour
 
     public MusicGroup GetMusicClip(string musicName)
     {
-        return musicDictionary[musicName];
+        return new MusicGroup(musicDictionary[musicName]);
     }
 }
 
@@ -34,12 +34,12 @@ public class MusicGroup
     public string musicName;
     public AudioClip musicClip;
     [Range(0, 1)]
-    public float volume = 0.69f;
+    public float volume = 0.5f;
 
-    //public MusicGroup(MusicGroup clone)
-    //{
-    //    musicName = clone.musicName;
-    //    musicClip = clone.musicClip;
-    //    volume = clone.volume;
-    //}
+    public MusicGroup(MusicGroup clone)
+    {
+        musicName = clone.musicName;
+        musicClip = clone.musicClip;
+        volume = clone.volume;
+    }
 }

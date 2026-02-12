@@ -264,7 +264,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7925384258349615856, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8950409926952276760, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: m_LocalScale.x
@@ -280,11 +280,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8950409926952276760, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.993
+      value: 2.47
       objectReference: {fileID: 0}
     - target: {fileID: 8950409926952276760, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.95
+      value: -2.93
       objectReference: {fileID: 0}
     - target: {fileID: 8950409926952276760, guid: 7d45d4e754f7065438aebcdb6acc33ad, type: 3}
       propertyPath: m_LocalPosition.z
@@ -879,23 +879,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
       propertyPath: availableCommands.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
       propertyPath: availableCommands.Array.data[3].commandScriptable
       value: 
       objectReference: {fileID: 11400000, guid: bf7c6956fffb455498acfd0c52149ce8, type: 2}
     - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
+      propertyPath: availableCommands.Array.data[4].commandScriptable
+      value: 
+      objectReference: {fileID: 11400000, guid: bedc3e0cfbda75a44911d3accf9a2e27, type: 2}
+    - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
       propertyPath: availableCommands.Array.data[0].sceneTargets.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
       propertyPath: availableCommands.Array.data[2].sceneTargets.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
       propertyPath: availableCommands.Array.data[3].sceneTargets.Array.size
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
+      propertyPath: availableCommands.Array.data[4].sceneTargets.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
       propertyPath: availableCommands.Array.data[0].sceneTargets.Array.data[0]
@@ -912,7 +920,7 @@ PrefabInstance:
     - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
       propertyPath: availableCommands.Array.data[2].sceneTargets.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1152512726}
     - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
       propertyPath: availableCommands.Array.data[2].sceneTargets.Array.data[1]
       value: 
@@ -920,11 +928,15 @@ PrefabInstance:
     - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
       propertyPath: availableCommands.Array.data[3].sceneTargets.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1152512726}
     - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
       propertyPath: availableCommands.Array.data[3].sceneTargets.Array.data[1]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6305268861370909259, guid: 64849051c7d1000488610aec31a33e64, type: 3}
+      propertyPath: availableCommands.Array.data[4].sceneTargets.Array.data[0]
+      value: 
+      objectReference: {fileID: 1152512726}
     - target: {fileID: 6403494491631451098, guid: 64849051c7d1000488610aec31a33e64, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.1243527

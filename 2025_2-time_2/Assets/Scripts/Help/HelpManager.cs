@@ -55,6 +55,9 @@ public class HelpManager : MonoBehaviour
     
     public void DisplayCommand(CommandTooltipSO command)
     {
+        if (currentTooltipIndex >= tooltipNames.Count)
+            return;
+
         tooltipNames[currentTooltipIndex].text = command.commandName;
         tooltipDesc[currentTooltipIndex].text = command.commandDesc;
 

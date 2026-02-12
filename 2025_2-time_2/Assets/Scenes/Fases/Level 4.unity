@@ -17179,6 +17179,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4305289015854921097, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4402406995525436519, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: dialogue.Array.size
       value: 1

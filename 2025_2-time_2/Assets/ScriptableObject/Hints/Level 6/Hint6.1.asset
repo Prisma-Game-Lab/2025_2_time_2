@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hintLabel: Hint 1
   dialogue:
-  - "Essas caixas coloridas claramente n\xE3o s\xE3o iguais, acho que voc\xEA j\xE1
-    entendeu o que eu t\xF4 querendo dizer\u2026 "
+  - "Essas caixas coloridas claramente n\xE3o s\xE3o iguais"
+  - " acho que voc\xEA j\xE1 entendeu o que eu t\xF4 querendo dizer\u2026 "

@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a0e2332cf5b87743a6a414c893d77c5, type: 3}
-  m_Name: SwapTooltip
+  m_Script: {fileID: 11500000, guid: fa2e8eac3cde8cc48a52e7889215f788, type: 3}
+  m_Name: Dialogue 10.1
   m_EditorClassIdentifier: 
-  commandName: Swap
-  commandDesc: Troca o Henry de lugar com um objeto
+  hintLabel: 
+  dialogue:
+  - "O que que aquela porta t\xE1 fazendo ali?"

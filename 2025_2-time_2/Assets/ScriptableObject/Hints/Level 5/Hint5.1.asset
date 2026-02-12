@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hintLabel: ' Hint 1'
   dialogue:
-  - "Ah essa caixa \xE9 meio grande pra empurrar. Nesse corpo de personagem n\xE3o
-    consigo, mas se fosse no meu corpo real isso seria f\xE1cil."
+  - "Ah essa caixa \xE9 meio grande pra empurrar"
+  - "Nesse corpo de personagem n\xE3o consigo"
+  - "mas se fosse no meu corpo real isso seria f\xE1cil."

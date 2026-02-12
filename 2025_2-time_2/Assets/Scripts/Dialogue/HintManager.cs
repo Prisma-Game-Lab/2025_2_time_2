@@ -101,9 +101,8 @@ public class HintManager : MonoBehaviour
             text.canvas.worldCamera,
             out Vector2 localPoint
         );
-
-        dialogueBoxRect.pivot = new Vector2(0.5f, 0f);
-        dialogueBoxRect.anchoredPosition = localPoint;
+        //dialogueBoxRect.pivot = new Vector2(0.5f, 0f);
+        //dialogueBoxRect.anchoredPosition = localPoint;
     }
     
     public void DisplayCurrentHint(int hintIndex)

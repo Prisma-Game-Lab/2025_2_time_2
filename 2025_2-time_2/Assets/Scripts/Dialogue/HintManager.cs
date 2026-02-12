@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
-using Microsoft.Unity.VisualStudio.Editor;
 
 public class HintManager : MonoBehaviour
 {
@@ -48,8 +47,6 @@ public class HintManager : MonoBehaviour
     [SerializeField] private int dialogueEndEventIndex;
 
     private static HashSet<int> scenesWithIntroPlayed = new HashSet<int>();
-
-    public Image test;
 
     void Start()
     {

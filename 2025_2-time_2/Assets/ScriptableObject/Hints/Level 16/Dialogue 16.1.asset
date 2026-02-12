@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Dialogue 16.1
   m_EditorClassIdentifier: 
   hintLabel: 
-  dialogue: []
+  dialogue:
+  - "Bom todas as fases at\xE9 agora est\xE3o com problemas"
+  - Tenho que consertar tudo quando sair

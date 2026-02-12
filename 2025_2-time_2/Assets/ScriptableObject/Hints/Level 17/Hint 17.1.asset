@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Hint 17.1
   m_EditorClassIdentifier: 
   hintLabel: 
-  dialogue: []
+  dialogue:
+  - "Essa caixa tem que apertar o bot\xE3o daqui"
+  - "enquanto eu aperto aquele l\xE1 de cima"

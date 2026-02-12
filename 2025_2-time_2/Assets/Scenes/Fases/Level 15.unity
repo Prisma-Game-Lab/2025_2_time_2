@@ -6124,6 +6124,22 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4402406995525436519, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
+      propertyPath: hints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4402406995525436519, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
+      propertyPath: dialogue.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4402406995525436519, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
+      propertyPath: hints.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 66ea54982847b994a9c828dfacb78d4f, type: 2}
+    - target: {fileID: 4402406995525436519, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 87efce7da184b4443a0fc18474aabba0, type: 2}
     - target: {fileID: 4899323078864877436, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0

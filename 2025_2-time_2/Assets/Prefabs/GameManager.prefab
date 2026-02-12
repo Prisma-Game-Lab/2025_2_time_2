@@ -651,7 +651,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7587bb82c4611f34aa9bed2a004a7370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SFXSounds: []
+  SFXSounds:
+  - name: PlayerStep
+    clipVariations:
+    - audioClip: {fileID: 8300000, guid: 015a688cd0308bb43ab4ff2ac5697406, type: 3}
+      volumeModifier: 0.5
+      minPitchShift: 0
+      maxPitchShift: 0
+    - audioClip: {fileID: 8300000, guid: a3399767a2c4ff3478a6768a2908758d, type: 3}
+      volumeModifier: 0.5
+      minPitchShift: 0
+      maxPitchShift: 0
+    - audioClip: {fileID: 8300000, guid: 068ca5f2096bce845a979071ad0bdb68, type: 3}
+      volumeModifier: 0.5
+      minPitchShift: 0
+      maxPitchShift: 0
+    - audioClip: {fileID: 8300000, guid: fc9b3884ec8ae474fb989a589e0adf6e, type: 3}
+      volumeModifier: 0.5
+      minPitchShift: 0
+      maxPitchShift: 0
 --- !u!114 &4006495616358154760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -664,4 +682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e41c8d48f589a444834cbab3e6bd47b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicList: []
+  musicList:
+  - musicName: Musga
+    musicClip: {fileID: 0}
+    volume: 0

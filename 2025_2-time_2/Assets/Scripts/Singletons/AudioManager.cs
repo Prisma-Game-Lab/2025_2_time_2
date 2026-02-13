@@ -7,6 +7,8 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; }
+    [SerializeField] private SFXLibrary sfxLibrary;
+    [SerializeField] private MusicLibrary musicLibrary;
 
     public AudioClip[] musicSounds, sfxSounds;
     public AudioSource musicSource, sfxSource;
@@ -42,7 +44,7 @@ public class AudioManager : MonoBehaviour
         foreach (var subgroup in audioSubgroups)
         {
             float savedValue = PlayerPrefs.GetFloat(subgroup.name, subgroup.defaultVolume);
-            SetSubgroupVolume(subgroup.name, savedValue);
+            SetAudioMixer(subgroup.name, savedValue);
         }
     }
 
@@ -51,13 +53,14 @@ public class AudioManager : MonoBehaviour
         if (currentMusic == name)
             return;
 
-        AudioClip s = Array.Find(musicSounds, x => x.name == name);
-        if (s != null)
-        {
-            musicSource.clip = s;
-            musicSource.Play();
-            currentMusic = name;
-        }
+        MusicGroup music = musicLibrary.GetMusicClip(name);
+
+        if (music == null) return;
+
+        musicSource.clip = music.musicClip;
+        musicSource.volume = music.volume;
+        musicSource.Play();
+        currentMusic = music.musicName;
     }
 
     public void StopMusic()
@@ -86,11 +89,29 @@ public class AudioManager : MonoBehaviour
 
     public void SetSubgroupVolume(string subgroupName, float value) 
     {
-        if (Mathf.Approximately(value, 0f)) 
+        SetAudioMixer(subgroupName, value);
+        SaveAudioVolume(subgroupName, value);
+    }
+
+    private void SetAudioMixer(string subgroupName, float value) 
+    {
+        float transformedValue;
+
+        if (Mathf.Approximately(value, 0f))
         {
-            value = -80;
+            transformedValue = -80;
         }
-        audioMixer.SetFloat(subgroupName, Mathf.Log10(value) * dbMultiplier);
+        else
+        {
+            transformedValue = Mathf.Log10(value) * dbMultiplier;
+        }
+
+        audioMixer.SetFloat(subgroupName, transformedValue);
+    }
+
+    private void SaveAudioVolume(string subgroupName, float value) 
+    {
+        PlayerPrefs.SetFloat(subgroupName, value);
     }
 
     public bool GetSubgroupVolume(string subgroupName, out float transformedValue) 

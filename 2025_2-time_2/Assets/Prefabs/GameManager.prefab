@@ -436,6 +436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionAnim: {fileID: 4942244032729322856}
+  transitionTime: 0.75
 --- !u!114 &1683614327726180643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,6 +625,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3437147e6caf68b499fc0bb701cff344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxLibrary: {fileID: 6678953735545410603}
+  musicLibrary: {fileID: 4006495616358154760}
   musicSounds:
   - {fileID: 8300000, guid: 0817cdcaf7797e1479da7d3cb4c7ea83, type: 3}
   - {fileID: 8300000, guid: 15a1c87f7370b704187691639943407c, type: 3}
@@ -683,6 +686,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicList:
-  - musicName: Musga
-    musicClip: {fileID: 0}
-    volume: 0
+  - musicName: MenuMusic
+    musicClip: {fileID: 8300000, guid: 3ccab721e04f20742b619d347a53f1e6, type: 3}
+    volume: 0.5
+  - musicName: LevelMusic1
+    musicClip: {fileID: 8300000, guid: 398b281eaf805ca49a53b149903efa3e, type: 3}
+    volume: 0.5

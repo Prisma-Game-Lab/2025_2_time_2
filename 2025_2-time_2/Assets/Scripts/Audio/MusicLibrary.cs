@@ -24,7 +24,12 @@ public class MusicLibrary : MonoBehaviour
 
     public MusicGroup GetMusicClip(string musicName)
     {
-        return new MusicGroup(musicDictionary[musicName]);
+        if (!musicDictionary.TryGetValue(musicName, out MusicGroup musicGroup))
+        {
+            print($"No Music named {musicName}");
+            return null;
+        }
+        return musicGroup;
     }
 }
 

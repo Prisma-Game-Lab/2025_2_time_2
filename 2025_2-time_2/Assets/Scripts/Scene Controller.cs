@@ -8,7 +8,7 @@ public class SceneController : MonoBehaviour
     public static SceneController instance;
     [SerializeField] Animator transitionAnim;
 
-    private int transitionTime = 1;
+    [SerializeField] private float transitionTime = 1;
 
     private void Awake()
     {
@@ -24,7 +24,10 @@ public class SceneController : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return;
         }
+
+        transitionAnim.SetFloat("Speed", 1 / transitionTime);
     }
 
     public float TriggerLevelTransition()

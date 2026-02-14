@@ -8,7 +8,7 @@ public class MusicLibrary : MonoBehaviour
     [SerializeField] private MusicGroup[] musicList;
     private Dictionary<string, MusicGroup> musicDictionary;
 
-    private void OnValidate()
+    private void Awake()
     {
         InitializeDictionary();
     }

@@ -8,7 +8,7 @@ public class SFXLibrary : MonoBehaviour
     [SerializeField] private SFXSound[] SFXSounds;
     private Dictionary<string, List<SFXClip>> SFXDictionary;
 
-    private void OnValidate()
+    private void Awake()
     {
         InitializeDictionary();
     }

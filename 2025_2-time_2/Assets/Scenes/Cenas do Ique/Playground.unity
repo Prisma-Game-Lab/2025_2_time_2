@@ -559,18 +559,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 3086684350338937496}
     m_Modifications:
     - target: {fileID: 5135497846542649524, guid: 4a8dda8f02d45214f87aee42d3bf3d8f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5135497846542649524, guid: 4a8dda8f02d45214f87aee42d3bf3d8f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5135497846542649524, guid: 4a8dda8f02d45214f87aee42d3bf3d8f, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5135497846542649524, guid: 4a8dda8f02d45214f87aee42d3bf3d8f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.09
       objectReference: {fileID: 0}
@@ -613,14 +601,6 @@ PrefabInstance:
     - target: {fileID: 5550549093014073896, guid: 4a8dda8f02d45214f87aee42d3bf3d8f, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7842801229849125353, guid: 4a8dda8f02d45214f87aee42d3bf3d8f, type: 3}
-      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7842801229849125353, guid: 4a8dda8f02d45214f87aee42d3bf3d8f, type: 3}
-      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

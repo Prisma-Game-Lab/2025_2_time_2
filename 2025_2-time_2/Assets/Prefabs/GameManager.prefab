@@ -449,134 +449,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98db039000e50814c8ba3239fa4bff3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &8100241791742070717
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 351882840596917844}
-  - component: {fileID: 8806048028933887066}
-  m_Layer: 0
-  m_Name: SfxSource
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &351882840596917844
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8100241791742070717}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7053968997044252490}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &8806048028933887066
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8100241791742070717}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 7566133498534469467, guid: 815c8e1b3ec086f49bdf799d3aa7e9fb, type: 2}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &8476507573709397822
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,7 +482,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3943107451117735358}
-  - {fileID: 351882840596917844}
   m_Father: {fileID: 2648606234435616853}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5277111416046384405
@@ -627,14 +498,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sfxLibrary: {fileID: 6678953735545410603}
   musicLibrary: {fileID: 4006495616358154760}
-  musicSounds:
-  - {fileID: 8300000, guid: 0817cdcaf7797e1479da7d3cb4c7ea83, type: 3}
-  - {fileID: 8300000, guid: 15a1c87f7370b704187691639943407c, type: 3}
-  sfxSounds:
-  - {fileID: 8300000, guid: 1c8531830ff7f5043a448ea53185e7c7, type: 3}
-  musicSource: {fileID: 8960033833816196176}
-  sfxSource: {fileID: 8806048028933887066}
   audioMixer: {fileID: 24100000, guid: 815c8e1b3ec086f49bdf799d3aa7e9fb, type: 2}
+  musicSource: {fileID: 8960033833816196176}
   audioSubgroups:
   - name: Volume
     defaultVolume: 0.5
@@ -642,6 +507,9 @@ MonoBehaviour:
     defaultVolume: 0.5
   - name: MusicVolume
     defaultVolume: 0.5
+  sfxSounds:
+  - {fileID: 8300000, guid: 1c8531830ff7f5043a448ea53185e7c7, type: 3}
+  sfxSourceObj: {fileID: 3555469298993597914, guid: 74523b871990861419158d724741f6a5, type: 3}
 --- !u!114 &6678953735545410603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -658,21 +526,27 @@ MonoBehaviour:
   - name: PlayerStep
     clipVariations:
     - audioClip: {fileID: 8300000, guid: 015a688cd0308bb43ab4ff2ac5697406, type: 3}
-      volumeModifier: 0.5
-      minPitchShift: 0
-      maxPitchShift: 0
+      volumeModifier: 0.25
+      minPitchShift: -0.1
+      maxPitchShift: 0.1
     - audioClip: {fileID: 8300000, guid: a3399767a2c4ff3478a6768a2908758d, type: 3}
-      volumeModifier: 0.5
-      minPitchShift: 0
-      maxPitchShift: 0
+      volumeModifier: 0.25
+      minPitchShift: -0.1
+      maxPitchShift: 0.1
     - audioClip: {fileID: 8300000, guid: 068ca5f2096bce845a979071ad0bdb68, type: 3}
-      volumeModifier: 0.5
-      minPitchShift: 0
-      maxPitchShift: 0
+      volumeModifier: 0.25
+      minPitchShift: -0.1
+      maxPitchShift: 0.1
     - audioClip: {fileID: 8300000, guid: fc9b3884ec8ae474fb989a589e0adf6e, type: 3}
+      volumeModifier: 0.25
+      minPitchShift: -0.1
+      maxPitchShift: 0.1
+  - name: ButtonHover
+    clipVariations:
+    - audioClip: {fileID: 8300000, guid: 1c8531830ff7f5043a448ea53185e7c7, type: 3}
       volumeModifier: 0.5
-      minPitchShift: 0
-      maxPitchShift: 0
+      minPitchShift: -0.5
+      maxPitchShift: 0.5
 --- !u!114 &4006495616358154760
 MonoBehaviour:
   m_ObjectHideFlags: 0

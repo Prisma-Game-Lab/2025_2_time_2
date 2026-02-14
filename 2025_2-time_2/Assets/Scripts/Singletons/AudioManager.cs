@@ -7,14 +7,17 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; }
+
+    [Header("References")]
     [SerializeField] private SFXLibrary sfxLibrary;
     [SerializeField] private MusicLibrary musicLibrary;
-
-    public AudioClip[] musicSounds, sfxSounds;
-    public AudioSource musicSource, sfxSource;
-
     [SerializeField] private AudioMixer audioMixer;
+    [SerializeField] private AudioSource musicSource;
+
+    [Header("Audio Variables")]
     [SerializeField] private AudioSubgroup[] audioSubgroups;
+    [SerializeField] private AudioClip[] sfxSounds;
+    [SerializeField] private GameObject sfxSourceObj;
 
     private const float dbMultiplier = 40;
     private string currentMusic;
@@ -59,7 +62,9 @@ public class AudioManager : MonoBehaviour
 
         musicSource.clip = music.musicClip;
         musicSource.volume = music.volume;
+
         musicSource.Play();
+
         currentMusic = music.musicName;
     }
 
@@ -70,21 +75,22 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySFX(string name)
     {
-        AudioClip s = Array.Find(sfxSounds, x => x.name == name);
-        if (s != null)
-        {
-            sfxSource.PlayOneShot(s);
-        }
-    }
+        float volume = 0;
+        float pitch = 0;
 
-    public void MusicVolume(float volume)
-    {
-        musicSource.volume = volume;
-    }
+        AudioClip clip = sfxLibrary.GetClipRandomVariation(name, ref volume, ref pitch);
+        if (clip == null) return;
 
-    public void SFXVolume(float volume)
-    {
-        sfxSource.volume = volume;
+        GameObject SourceObj = Instantiate(sfxSourceObj, Vector3.zero, Quaternion.identity, transform);
+        AudioSource audioSource = SourceObj.GetComponent<AudioSource>();
+
+        audioSource.clip = clip;
+        audioSource.volume = volume;
+        audioSource.pitch = 1 + pitch;
+
+        audioSource.Play();
+
+        //Destroy(audioSource, clip.length + 0.5f);
     }
 
     public void SetSubgroupVolume(string subgroupName, float value) 

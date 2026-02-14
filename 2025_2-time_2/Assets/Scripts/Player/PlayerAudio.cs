@@ -6,6 +6,7 @@ public class PlayerAudio : MonoBehaviour
 {
     [SerializeField] private string StepSFXName;
     [SerializeField] private float StepSFXCooldown;
+    [SerializeField] private string DeathSFXName;
 
     private bool running = false;
 
@@ -29,5 +30,10 @@ public class PlayerAudio : MonoBehaviour
             AudioManager.Instance.PlaySFX(StepSFXName);
             yield return new WaitForSeconds(StepSFXCooldown);
         }
+    }
+
+    public void PlayDeathSFX() 
+    {
+        AudioManager.Instance.PlaySFX(DeathSFXName);
     }
 }

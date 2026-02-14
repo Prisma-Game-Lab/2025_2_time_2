@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Events")]
     [SerializeField] private UnityEvent<PlayerState> OnPlayerStateChange;
+    [SerializeField] private UnityEvent onDeathEvent;
 
     public void SetCurrentPlayerState(PlayerState newState) 
     {
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnDeath() 
     {
+        onDeathEvent.Invoke();
         LevelManager.RestartLevel();
     }
 }

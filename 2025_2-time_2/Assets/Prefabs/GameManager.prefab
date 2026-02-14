@@ -507,8 +507,6 @@ MonoBehaviour:
     defaultVolume: 0.5
   - name: MusicVolume
     defaultVolume: 0.5
-  sfxSounds:
-  - {fileID: 8300000, guid: 1c8531830ff7f5043a448ea53185e7c7, type: 3}
   sfxSourceObj: {fileID: 3555469298993597914, guid: 74523b871990861419158d724741f6a5, type: 3}
 --- !u!114 &6678953735545410603
 MonoBehaviour:
@@ -544,6 +542,12 @@ MonoBehaviour:
   - name: ButtonHover
     clipVariations:
     - audioClip: {fileID: 8300000, guid: 1c8531830ff7f5043a448ea53185e7c7, type: 3}
+      volumeModifier: 0.5
+      minPitchShift: -0.5
+      maxPitchShift: 0.5
+  - name: PlayerDeath
+    clipVariations:
+    - audioClip: {fileID: 8300000, guid: d6bcb0fe77f29404b8680f2e7200e006, type: 3}
       volumeModifier: 0.5
       minPitchShift: -0.5
       maxPitchShift: 0.5

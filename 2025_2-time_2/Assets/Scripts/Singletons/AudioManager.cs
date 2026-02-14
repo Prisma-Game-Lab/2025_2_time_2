@@ -16,7 +16,6 @@ public class AudioManager : MonoBehaviour
 
     [Header("Audio Variables")]
     [SerializeField] private AudioSubgroup[] audioSubgroups;
-    [SerializeField] private AudioClip[] sfxSounds;
     [SerializeField] private GameObject sfxSourceObj;
 
     private const float dbMultiplier = 40;

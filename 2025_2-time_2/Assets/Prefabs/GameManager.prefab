@@ -523,20 +523,12 @@ MonoBehaviour:
   SFXSounds:
   - name: PlayerStep
     clipVariations:
-    - audioClip: {fileID: 8300000, guid: 015a688cd0308bb43ab4ff2ac5697406, type: 3}
-      volumeModifier: 0.25
+    - audioClip: {fileID: 8300000, guid: 8878de298766c054e925f0f0c8e5589a, type: 3}
+      volumeModifier: 0.075
       minPitchShift: -0.1
       maxPitchShift: 0.1
-    - audioClip: {fileID: 8300000, guid: a3399767a2c4ff3478a6768a2908758d, type: 3}
-      volumeModifier: 0.25
-      minPitchShift: -0.1
-      maxPitchShift: 0.1
-    - audioClip: {fileID: 8300000, guid: 068ca5f2096bce845a979071ad0bdb68, type: 3}
-      volumeModifier: 0.25
-      minPitchShift: -0.1
-      maxPitchShift: 0.1
-    - audioClip: {fileID: 8300000, guid: fc9b3884ec8ae474fb989a589e0adf6e, type: 3}
-      volumeModifier: 0.25
+    - audioClip: {fileID: 8300000, guid: 374ca19f2e1f1f04a906408fbd9d3da8, type: 3}
+      volumeModifier: 0.075
       minPitchShift: -0.1
       maxPitchShift: 0.1
   - name: ButtonHover
@@ -569,4 +561,7 @@ MonoBehaviour:
     volume: 0.5
   - musicName: LevelMusic1
     musicClip: {fileID: 8300000, guid: 398b281eaf805ca49a53b149903efa3e, type: 3}
+    volume: 0.5
+  - musicName: LevelMusic2
+    musicClip: {fileID: 8300000, guid: 3e3c41b3ac84861448f5d12ed8b42118, type: 3}
     volume: 0.5

@@ -9,6 +9,7 @@ public class PlayerAudio : MonoBehaviour
     [SerializeField] private string DeathSFXName;
 
     private bool running = false;
+    private bool looping = false;
 
     public void OnPlayerStateChange(PlayerState state)
     {
@@ -18,18 +19,21 @@ public class PlayerAudio : MonoBehaviour
         {
             case PlayerState.Running:
                 running = true;
-                StartCoroutine(StepSFXLoop());
+                if (!looping)
+                    StartCoroutine(StepSFXLoop());
                 break;
         }
     }
 
     public IEnumerator StepSFXLoop() 
     {
+        looping = true;
         while (running)
         {
             AudioManager.Instance.PlaySFX(StepSFXName);
             yield return new WaitForSeconds(StepSFXCooldown);
         }
+        looping = false;
     }
 
     public void PlayDeathSFX() 

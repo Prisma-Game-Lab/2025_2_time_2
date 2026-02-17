@@ -213,11 +213,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2882293305710876783, guid: 8bde98e499f0db04aa10a84414e684d0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.62
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2882293305710876783, guid: 8bde98e499f0db04aa10a84414e684d0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.57
+      value: -3.938
       objectReference: {fileID: 0}
     - target: {fileID: 2882293305710876783, guid: 8bde98e499f0db04aa10a84414e684d0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10268,7 +10268,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6575475465411690208, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: nSlots
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6575475465411690208, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: availableCommands.Array.data[0].sceneTargets.Array.size
@@ -10475,11 +10475,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2882293305710876783, guid: 8bde98e499f0db04aa10a84414e684d0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.56
+      value: -1.285
       objectReference: {fileID: 0}
     - target: {fileID: 2882293305710876783, guid: 8bde98e499f0db04aa10a84414e684d0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.54
+      value: -3.938
       objectReference: {fileID: 0}
     - target: {fileID: 2882293305710876783, guid: 8bde98e499f0db04aa10a84414e684d0, type: 3}
       propertyPath: m_LocalPosition.z

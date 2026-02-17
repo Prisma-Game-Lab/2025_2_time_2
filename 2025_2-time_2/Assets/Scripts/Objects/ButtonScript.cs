@@ -13,9 +13,6 @@ public class ButtonScript : MonoBehaviour
     
     [SerializeField] private Transform buttonTop;
 
-    
-    [SerializeField] private Collider2D platformCollider;
-
     [SerializeField] private float pressDepth = 0.1f;   
     [SerializeField] private float pressSpeed = 5f;     
 
@@ -36,14 +33,8 @@ public class ButtonScript : MonoBehaviour
 
     private void Awake()
     {
-        var rb = GetComponent<Rigidbody2D>();
-        rb.bodyType = RigidbodyType2D.Kinematic;
-
         if (buttonTop == null)
             buttonTop = transform;
-
-        if (platformCollider == null && buttonTop != null)
-            platformCollider = buttonTop.GetComponent<Collider2D>();
     }
 
     private void Start()

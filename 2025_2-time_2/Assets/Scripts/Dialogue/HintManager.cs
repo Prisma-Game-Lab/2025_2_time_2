@@ -43,8 +43,9 @@ public class HintManager : MonoBehaviour
     private HintSO currentHint; // the hint currently being displayed
 
     public UnityEvent OnDialogueEnd;
+    public UnityEvent OnHintEnd;
 
-    [SerializeField] private int dialogueEndEventIndex;
+    [SerializeField] public int dialogueEndEventIndex;
 
     private static HashSet<int> scenesWithIntroPlayed = new HashSet<int>();
 
@@ -276,9 +277,9 @@ public class HintManager : MonoBehaviour
             currentHintIndex++;
 
             if (dialogue != null && currentHintIndex < dialogue.Count)
-            {  
+            {
                 currentHint = dialogue[currentHintIndex];
-                
+
                 StartHint();
             }
             else
@@ -286,6 +287,10 @@ public class HintManager : MonoBehaviour
                 currentHint = null;
                 isDialogueSequence = false;
             }
+        }
+        else
+        {
+            OnHintEnd.Invoke();
         }
     }
 

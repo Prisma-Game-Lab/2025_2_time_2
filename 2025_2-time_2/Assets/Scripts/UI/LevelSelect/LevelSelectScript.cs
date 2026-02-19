@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class LevelSelectScript : MonoBehaviour
 {
+    [SerializeField] private string initialCutsceneName;
     [SerializeField] private Button[] levelButtons;
 
     private void Start()
@@ -32,7 +33,14 @@ public class LevelSelectScript : MonoBehaviour
 
     public void OnButtonPress(int index) 
     {
-        LevelManager.LoadSceneByName("Level " + index.ToString());
+        if (index == 1) 
+        {
+            LevelManager.LoadSceneByName(initialCutsceneName);
+        }
+        else 
+        {
+            LevelManager.LoadSceneByName("Level " + index.ToString());
+        }
     }
 
     public void OnExitButtonPress() 

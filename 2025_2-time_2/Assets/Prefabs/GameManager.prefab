@@ -543,6 +543,18 @@ MonoBehaviour:
       volumeModifier: 0.5
       minPitchShift: -0.5
       maxPitchShift: 0.5
+  - name: EnterPC
+    clipVariations:
+    - audioClip: {fileID: 8300000, guid: 96ca13586bfc7e344bb877d26fdd3f4e, type: 3}
+      volumeModifier: 0.5
+      minPitchShift: 0
+      maxPitchShift: 0
+  - name: StrangePC
+    clipVariations:
+    - audioClip: {fileID: 8300000, guid: 25dfb3fa188de5a4394222c4e8981953, type: 3}
+      volumeModifier: 0.5
+      minPitchShift: 0
+      maxPitchShift: 0
 --- !u!114 &4006495616358154760
 MonoBehaviour:
   m_ObjectHideFlags: 0

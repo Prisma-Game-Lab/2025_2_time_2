@@ -2207,6 +2207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c9310a8ee200f14696c2bc1fe12485e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialCutsceneName: StartUpCutscene
   levelButtons:
   - {fileID: 2099654125}
   - {fileID: 2073002268}

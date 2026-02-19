@@ -16,6 +16,8 @@ public class DoorScript : MonoBehaviour
     [SerializeField] private Sprite unlockedSprite;
     [SerializeField] private ParticleSystem unlockedParticles;
 
+    private bool opened;
+
     private void Start()
     {
         Initialization();
@@ -66,8 +68,10 @@ public class DoorScript : MonoBehaviour
 
     public void Open(Collider2D collision) 
     {
-        if (locked)
+        if (locked || opened)
             return;
+
+        opened = true;
 
         if (unlockNextLevel)
             LevelManager.UnlockNextLevel();

@@ -311,17 +311,13 @@ PrefabInstance:
       propertyPath: OnReleased.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 2459872307443872563, guid: 8bde98e499f0db04aa10a84414e684d0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.4322
-      objectReference: {fileID: 0}
     - target: {fileID: 2882293305710876783, guid: 8bde98e499f0db04aa10a84414e684d0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.7
       objectReference: {fileID: 0}
     - target: {fileID: 2882293305710876783, guid: 8bde98e499f0db04aa10a84414e684d0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.552
+      value: -3.952
       objectReference: {fileID: 0}
     - target: {fileID: 2882293305710876783, guid: 8bde98e499f0db04aa10a84414e684d0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -358,10 +354,6 @@ PrefabInstance:
     - target: {fileID: 3785716947123861145, guid: 8bde98e499f0db04aa10a84414e684d0, type: 3}
       propertyPath: m_Name
       value: Button
-      objectReference: {fileID: 0}
-    - target: {fileID: 3785716947123861145, guid: 8bde98e499f0db04aa10a84414e684d0, type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17476,10 +17468,6 @@ PrefabInstance:
     - target: {fileID: 4899323078864877436, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4999207955756184854, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
-      propertyPath: m_fontSize
-      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 4999207955756184854, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: m_fontSizeBase

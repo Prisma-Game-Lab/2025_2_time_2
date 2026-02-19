@@ -14,7 +14,7 @@ public class HintManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI text;
 
-    private GameObject dialogueBox;
+    [SerializeField] private GameObject dialogueBox;
 
     [SerializeField] private float textSpeed = 0.05f;
 
@@ -50,19 +50,11 @@ public class HintManager : MonoBehaviour
 
     void Start()
     {
-        GameObject dialogueRoot = GameObject.FindGameObjectWithTag("DialogueBox");
-
-        if (dialogueRoot != null)
-        {
-            Transform child = dialogueRoot.transform.Find("DialogueBox");
-            if (child != null)
-                dialogueBox = child.gameObject;
-        }
         player = GameObject.FindGameObjectWithTag("Player");
         cam = Camera.main;
         
         if (dialogueBox != null)
-        dialogueBoxRect = dialogueBox.GetComponent<RectTransform>();
+            dialogueBoxRect = dialogueBox.GetComponent<RectTransform>();
 
         if (text != null)
         {

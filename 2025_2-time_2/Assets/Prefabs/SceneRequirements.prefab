@@ -402,6 +402,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4999207955756184854}
     - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
+      propertyPath: dialogueBox
+      value: 
+      objectReference: {fileID: 6000555132855115144}
+    - target: {fileID: 3862206662501954801, guid: 4ca3187baff0664469b84d62f8e247e9, type: 3}
       propertyPath: hintUIManager
       value: 
       objectReference: {fileID: 0}
@@ -1421,6 +1425,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &6000555132855115144 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8373011523508504111, guid: 882d69153106edf4fb7cb996d4ae1da5, type: 3}
+  m_PrefabInstance: {fileID: 2843082564867185575}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6560201848394634696 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8970656252802600559, guid: 882d69153106edf4fb7cb996d4ae1da5, type: 3}

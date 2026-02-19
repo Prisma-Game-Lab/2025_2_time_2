@@ -3376,6 +3376,10 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[62].second.m_TileObjectToInstantiateIndex
       value: 65535
       objectReference: {fileID: 0}
+    - target: {fileID: 322695796844171953, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 537965730159984087, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.15
@@ -10820,6 +10824,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4925662207874771253, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4999207955756184854, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: m_fontSizeBase
       value: 35
@@ -10860,17 +10868,9 @@ PrefabInstance:
       propertyPath: SFXSounds.Array.data[1].clipVariations.Array.data[3].volumeModifier
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 5254275974516658018, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5570857410181648443, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5890079344348848884, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6624710889823803470, guid: 92dc3b04b3d346046a32cff7b8359ebf, type: 3}
       propertyPath: m_Color.b
